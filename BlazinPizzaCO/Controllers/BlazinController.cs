@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace BlazinPizzaCO.Controllers
 {
-    public class HomeController : Controller
+    public class BlazinController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Welcome()
         {
             return View();
         }

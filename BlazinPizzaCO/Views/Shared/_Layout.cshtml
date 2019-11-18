@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - BLAZIN PIZZA CO.</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -14,25 +14,23 @@
             <div id="Banner" class="justify-content-center">
                 <h3 id="BannerText" class="d-block">BLAZIN</h3>
                 <h3 id="BannerText" class="d-block">PIZZA CO.</h3>
-            </div>
-        </a>
+            </div><!--/#Banner-->
+        </a><!--/.navbar-brand-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavbarCollapse">
-        </button>
+            <i id="NavbarToggler" class="far fa-compass text-light"></i>
+        </button><!--/.navbar-toggler-->
         <div id="NavbarCollapse" class="collapse navbar-collapse text-center">
             <div id="NavbarNav" class="ml-auto navbar-nav">
                 <a class="nav-item nav-link active" href="#">ORDER </a>
                 <a class="nav-item nav-link" href="#">SIGN IN</a>
                 <a class="nav-item nav-link" href="#">REGISTER</a>
-            </div>
-        </div>
-    </nav>
-    <div class="container body-content">
+            </div><!--/#NavbarNav-->
+        </div><!--/#NavbarCollapse-->
+    </nav><!--/.navbar-->
+
+    <div id="Body" class="container-fluid">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </div><!--/#Body-->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
