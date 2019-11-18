@@ -9,26 +9,23 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+            <div id="Banner" class="justify-content-center">
+                <h3 id="BannerText" class="d-block">BLAZIN</h3>
+                <h3 id="BannerText" class="d-block">PIZZA CO.</h3>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavbarCollapse">
+        </button>
+        <div id="NavbarCollapse" class="collapse navbar-collapse text-center">
+            <div id="NavbarNav" class="ml-auto navbar-nav">
+                <a class="nav-item nav-link active" href="#">ORDER </a>
+                <a class="nav-item nav-link" href="#">SIGN IN</a>
+                <a class="nav-item nav-link" href="#">REGISTER</a>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -39,6 +36,21 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        //Navigation Link "Active"
+        $(".nav-link").click(function () {
+            $(".nav-link.active").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        //Banner Hover Function
+        $("#Banner").mouseover(function () {
+            $(this).children().css("color", "#E2E2E2");
+        });
+        $("#Banner").mouseout(function () {
+            $(this).children().css("color", "#AFAFAF");
+        });
+    </script>
 </body>
 </html>

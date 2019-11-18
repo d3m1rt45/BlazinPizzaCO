@@ -1,24 +1,51 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/*/>>>>>> GENERAL >>>>>>/*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sitka Heading', serif;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+p, lead, a {
+    font-family: 'Sitka Text', serif;
+}
+/*/<<<<<< GENERAL <<<<<</*/
+
+
+
+/*/>>>>>> LAYOUT >>>>>>/*/
+nav {
+    background-color: #202020;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+#Banner {
+    margin-bottom: 0.4rem;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#BannerText {
+    color: #AFAFAF;
+    font-family: 'Sitka Banner', serif !important;
+    font-size: 30pt;
+    margin-bottom: -1rem;
 }
+
+#NavbarNav {
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    color: #AFAFAF;
+    font-family: 'Sitka Display', serif !important;
+    font-size: 20pt;
+    font-weight: 400;
+    margin-left: 1.5rem;
+    padding: 1.3rem 0 0.7rem 0;
+    
+}
+    .nav-link.active {
+        background-image: url(/Assets/Blazin.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .nav-link:hover {
+        color: #E2E2E2;
+    }
+/*/<<<<<< LAYOUT <<<<<</*/
