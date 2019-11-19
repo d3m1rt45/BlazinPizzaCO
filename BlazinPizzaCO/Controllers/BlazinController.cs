@@ -8,17 +8,28 @@ using System.Web.Mvc;
 
 namespace BlazinPizzaCO.Controllers
 {
+
     public class BlazinController : Controller
     {
-        public ActionResult Welcome()
+        public BlazinContext db = new BlazinContext();
+        
+        public ActionResult Home()
         {
             return View();
         }
 
         public ActionResult Order()
         {
-            var basket = new Basket();
-            return View(basket);
+            var order = new Order();
+            db.Orders.Add(order);
+            db.SaveChanges();
+            return View(order);
+        }
+
+        public ActionResult PizzaSize(int orderID)
+        {
+            var order = db.Orders.Single(o => o.ID == orderID);
+            return View(order);
         }
     }
 }

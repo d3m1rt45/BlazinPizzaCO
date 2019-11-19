@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace BlazinPizzaCO.Models
 {
-    public class Basket
+    public class Order
     {
         //Constructor(s)
-        public Basket()
+        public Order()
         {
             Pizzas = new List<Pizza>();
             Drinks = new List<Drink>();
@@ -17,15 +19,18 @@ namespace BlazinPizzaCO.Models
         }
 
         // Properties
+        [Key]
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int MemberID { get; set; }
         public decimal Total { get; set; }
         public string Address { get; set; }
 
         // Relationship Field(s)
-        public List<Pizza> Pizzas { get; set; }
-        public List<Drink> Drinks { get; set; }
-        public List<Side> Sides { get; set; }
+        public virtual List<Pizza> Pizzas { get; set; }
+        public virtual List<Drink> Drinks { get; set; }
+        public virtual List<Side> Sides { get; set; }
 
 
         // Adds a pizza to the basket

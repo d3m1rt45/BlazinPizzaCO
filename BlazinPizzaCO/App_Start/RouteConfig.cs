@@ -16,7 +16,7 @@ namespace BlazinPizzaCO
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Blazin", action = "Welcome", id = UrlParameter.Optional }
+                defaults: new { controller = "Blazin", action = "Home", id = UrlParameter.Optional }
             );
         }
     }

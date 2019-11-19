@@ -2,6 +2,7 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Sitka Heading', serif;
 }
+
 p, lead, a {
     font-family: 'Sitka Text', serif;
 }
@@ -13,48 +14,55 @@ p, lead, a {
 /* Navbar */
 nav {
     background-color: #202020;
-    z-index: 1;
+    z-index: 2;
+    height: 5rem;
 }
-#Banner {
+
+nav #Banner {
     margin-bottom: 0.4rem;
 }
-#BannerText {
-    color: #AFAFAF;
-    font-family: 'Sitka Banner', serif !important;
-    font-size: 30pt;
-    margin-bottom: -1rem;
-}
-.nav-link {
-    color: #AFAFAF;
-    font-family: 'Sitka Display', serif !important;
-    font-size: 20pt;
-    font-weight: 400;
-    margin-left: 1.5rem;
-    padding: 1.3rem 0 0.7rem 0;
-    
-}
-    .nav-link.active {
-        background-image: url(/Assets/Blazin.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
+
+    nav #BannerText {
+        color: #AFAFAF;
+        font-family: 'Sitka Banner', serif !important;
+        font-size: 30pt;
+        margin-bottom: -1rem;
     }
-    .nav-link:hover {
-        color: #E2E2E2;
+
+    nav .nav-link {
+        color: #AFAFAF;
+        font-family: 'Sitka Display', serif !important;
+        font-size: 20pt;
+        font-weight: 400;
+        margin-left: 1.5rem;
+        padding: 1.3rem 0 0.7rem 0;
     }
-#NavbarToggler {
-    font-size: 35pt;
-}
-.navbar-toggler {
-    border: none;
-}
+
+        nav .nav-link.active {
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        nav .nav-link:hover {
+            color: #E2E2E2;
+        }
+
+    nav #NavbarToggler {
+        font-size: 35pt;
+    }
+
+    nav .navbar-toggler {
+        border: none;
+    }
 /*/<<<<<< LAYOUT <<<<<</*/
 
 
 
 /*/>>>>>> WELCOME >>>>>>/*/
-#Welcome {
-    z-index: 2;
+#Home {
+    z-index: 3;
     background-color: #202020;
     height: 100vh;
     width: 100vw;
@@ -67,7 +75,7 @@ nav {
 }
 
     /* Banner */
-    #Welcome .Banner {
+    #Home .Banner {
         background-image: url(/Assets/Blazin.svg);
         background-position: left;
         background-size: contain;
@@ -75,29 +83,34 @@ nav {
         padding-left: 6rem;
         margin-bottom: 5rem;
     }
-        #Welcome .Banner h1 {
+
+        #Home .Banner h1 {
             color: #707070;
             font-size: 110pt;
             margin-bottom: -0.5rem;
         }
-            #Welcome .Banner h1.Top {
+
+            #Home .Banner h1.Top {
                 padding-top: 5rem;
             }
-            #Welcome .Banner h1.Bottom {
+
+            #Home .Banner h1.Bottom {
                 line-height: 0.7;
             }
 
     /* Buttons */
-    #Welcome .Buttons .Middle, 
-    #Welcome .Buttons .Top,
-    #Welcome .Buttons .Bottom {
+    #Home .Buttons .Middle,
+    #Home .Buttons .Top,
+    #Home .Buttons .Bottom {
         display: flex;
         justify-content: center;
     }
-    #Welcome .Buttons .Middle {
+
+    #Home .Buttons .Middle {
         margin-bottom: 1.6rem;
     }
-    #Welcome .Buttons a {
+
+    #Home .Buttons a {
         font-family: 'Sitka Display', serif !important;
         font-weight: bold;
         text-align: center;
@@ -108,41 +121,46 @@ nav {
         border-radius: 10rem;
         margin: 0 1rem 1.5rem 1rem;
     }
-        #Welcome .Buttons a:hover {
+
+        #Home .Buttons a:hover {
             color: #E2E2E2;
         }
-    #Welcome .Buttons .Bottom a {
-        background-color: #7EE0FF;
-        color: #000000;
-        width: 3rem;
-        height: 3rem;
-        padding: 0;
-        margin: 0;
+
+#Home .Buttons .Bottom a {
+    background-color: #7EE0FF;
+    color: #000000;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+    #Home .Buttons .Bottom a:hover {
+        background-color: #468295;
     }
-        #Welcome .Buttons .Bottom a:hover {
-            background-color: #468295;
-        }
 
     /*Responsive Styles*/
     @media only screen and (max-width:760px)
 {
-    #Welcome .Banner {
+    #Home .Banner {
         padding-left: 2.5rem;
         margin-bottom: 3rem;
     }
-        #Welcome .Banner h1 {
+
+        #Home .Banner h1 {
             font-size: 60pt;
         }
-    #Welcome .Buttons .Middle {
+
+    #Home .Buttons .Middle {
         margin-bottom: 0.5rem;
     }
 
-    #Welcome .Buttons a {
+    #Home .Buttons a {
         font-size: 15pt;
         width: 10rem;
     }
 
-    #Welcome .Buttons .Bottom a {
+    #Home .Buttons .Bottom a {
         width: 2.5rem;
         height: 2.5rem;
         padding-top: 0.3rem;
@@ -153,22 +171,118 @@ nav {
 
 
 
-/*/>>>>>> ORDER >>>>>>/*/
-#Order #Basket {
-    background-color: #202020; 
-    position: absolute;
+/*/>>>>>> BASKET >>>>>>/*/
+#Basket {
+    z-index: 1;
+    background-color: #202020;
+    position: fixed;
     top: 0;
     left: 0;
     min-height: 100vh;
     width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-    #Order #Basket.Empty {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #Order #Basket h4 {
+
+    #Basket h4 {
         color: #E2E2E2;
     }
-    
-/*/<<<<<< ORDER <<<<<</*/
+/*/<<<<<< BASKET <<<<<</*/
+
+
+
+/*/>>>>>> ORDER/INDEX >>>>>>/*/
+#Order {
+    background-color: #BCBCBC;
+    padding-top: 5rem;
+    padding-left: 25rem;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    #Order .Options {
+        height: 100%;
+        width: 100%;
+        padding-left: 10rem;
+        padding-top: 3rem;
+    }
+
+        #Order .Options a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 13rem;
+            width: 100%;
+            background-color: #202020;
+            margin-bottom: 3rem;
+            text-decoration: none;
+            font-size: 50pt;
+            color: #707070;
+            border-radius: 1rem;
+        }
+
+            #Order .Options a.Pizzas
+            #Order .Options a.Sides {
+                margin-bottom: 3rem;
+            }
+
+            #OrderIndex .Options a:hover {
+                color: #E2E2E2;
+            }
+/*/<<<<<< ORDER/INDEX <<<<<</*/
+
+
+
+/*/>>>>>> ORDER/PIZZA >>>>>>/*/
+#PizzaSize {
+    background-color: #BCBCBC;
+    padding-top: 5rem;
+    padding-left: 25rem;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    #PizzaSize .Head {
+        width: 100%;
+        height: 7rem;
+        background-color: #202020;
+    }
+
+#PizzaSize .Options {
+    height: 100%;
+    width: 100%;
+    padding-top: 3rem;
+}
+
+#PizzaSize .Options a {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    width: 100%;
+    background-color: #202020;
+    margin-bottom: 3rem;
+    text-decoration: none;
+    font-size: 50pt;
+    color: #707070;
+    border-radius: 1rem;
+}
+
+    #PizzaSize .Options a.Medium,
+    #PizzaSize .Options a.Large {
+        margin-left: 1rem;
+    }
+/*/<<<<<< ORDER/PIZZA <<<<<</*/

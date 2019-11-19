@@ -1,16 +1,14 @@
-﻿@model BlazinPizzaCO.Models.Basket
-
+﻿@model BlazinPizzaCO.Models.Order
 
 @if (Model.Pizzas.Any() || Model.Drinks.Any() || Model.Sides.Any())
 {
 
-    <article id="Basket">
-        
-    </article>
-
 }
 else
 {
-
+    <article id="Basket" class="Empty">
+        <h4>No items in the basket...</h4>
+    </article>
 }
+
 

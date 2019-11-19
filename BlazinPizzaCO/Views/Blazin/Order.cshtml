@@ -1,22 +1,16 @@
-﻿@model BlazinPizzaCO.Models.Basket
+﻿@model BlazinPizzaCO.Models.Order
 
 @{
     ViewBag.Title = "Order";
 }
 
 <section id="Order">
-
     @Html.Partial("_BasketPartial", Model)
 
+    <article class="Options offset-1 col-8">
+        <a class="Pizzas" href="@Url.Action("PizzaSize", new { orderID = Model.ID })">PIZZAS</a>
+        <a class="Sides" href="#">SIDES</a>
+        <a class="drinks" href="#">DRINKS</a>
+    </article>
 </section>
-
-@if (Model.Pizzas.Any() && Model.Drinks.Any() && Model.Sides.Any())
-{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#Basket").addClass("Empty");
-            $("#Basket").html("<h4>No items in your basket.</h4>")
-        });
-    </script>
-}
 

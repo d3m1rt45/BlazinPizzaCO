@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,19 +10,22 @@ namespace BlazinPizzaCO.Models
     public class Pizza
     {
         // Properties
+        [Key]
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public Size Size { get; set; }
+        public Size Inches { get; set; }
         public List<Topping> Toppings { get; set; }
 
         // Relationship Field(s)
-        public virtual Basket Basket { get; set; }
+        public virtual Order Order { get; set; }
 
         // Returns Price
         public decimal GetPrice()
         {
             decimal price;
 
-            switch(this.Size)
+            switch(this.Inches)
             {
                 case Size.Small:
                     price = 8.99m;
@@ -44,9 +49,11 @@ namespace BlazinPizzaCO.Models
             return price;
         }
     }
-
     // Enum types for this class
     public enum Size { Small, Medium, Large }
-    public enum Topping { ExtraCheese, BlackOlive, Mushroom, Pepperoni, OliveOil, Onion, Sausage, GreenPepper, 
-                          Bacon, Pineapple, Spinach, Garlic, CrushedRedPepper, Tomato, Basil, Ham }
+    public enum Topping
+    {
+        ExtraCheese, BlackOlive, Mushroom, Pepperoni, OliveOil, Onion, Sausage, GreenPepper,
+        Bacon, Pineapple, Spinach, Garlic, CrushedRedPepper, Tomato, Basil, Ham
+    }
 }

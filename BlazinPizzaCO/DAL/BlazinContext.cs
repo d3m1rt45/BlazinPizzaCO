@@ -10,9 +10,12 @@ namespace BlazinPizzaCO.DAL
 {
     public class BlazinContext : DbContext
     {
-        public BlazinContext() : base("name=BlazinContext") { }
+        public BlazinContext() : base("name=BlazinContext") 
+        {
+            Database.SetInitializer<BlazinContext>(new DropCreateDatabaseIfModelChanges<BlazinContext>());
+        }
 
-        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Drink> Drinks { get; set; }
         public DbSet<Side> Sides { get; set; }
