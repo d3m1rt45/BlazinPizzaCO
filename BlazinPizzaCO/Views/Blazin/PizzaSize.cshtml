@@ -8,16 +8,24 @@
         @Html.Partial("_BasketPartial", Model)
 
         <div class="row">
-            <article class="Head offset-1 col-9">
+            <article class="PageHead col-12">
                 <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
-                <h3 class="Text">SELECT SIZE</h3>
+                <h2 class="Header">SELECT SIZE</h2>
             </article><!--/#Banner-->
 
-            <article class="Options row">
-                <a class="Small offset-1 col-3" href="#">10"</a>
-                <a class="Medium col-3" href="#">14"</a>
-                <a class="Large col-3" href="#">18"</a>
-            </article><!--/#Options-->
+            <div class="col-12">
+                <article class="Options row">
+                    <div class="col-4">
+                        <a class="Small" href="#">10"</a>
+                    </div>
+                    <div class="col-4">
+                        <a class="Medium" href="#">14"</a>
+                    </div>
+                    <div class="col-4">
+                        <a class="Large" href="#">18"</a>
+                    </div>
+                </article><!--/#Options-->
+            </div>
         </div>
     </section>
 

@@ -12,8 +12,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">
             <div id="Banner" class="justify-content-center">
-                <h3 id="BannerText" class="d-block">BLAZIN</h3>
-                <h3 id="BannerText" class="d-block">PIZZA CO.</h3>
+                <h1 id="BannerText" class="d-block">BLAZIN</h1>
+                <h1 id="BannerText" class="d-block">PIZZA CO.</h1>
             </div><!--/#Banner-->
         </a><!--/.navbar-brand-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavbarCollapse">
@@ -28,9 +28,7 @@
         </div><!--/#NavbarCollapse-->
     </nav><!--/.navbar-->
 
-    <div id="Body" class="container-fluid">
-        @RenderBody()
-    </div><!--/#Body-->
+    @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

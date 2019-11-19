@@ -197,9 +197,9 @@ nav #Banner {
     background-color: #BCBCBC;
     padding-top: 5rem;
     padding-left: 25rem;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     display: flex;
@@ -233,7 +233,7 @@ nav #Banner {
                 margin-bottom: 3rem;
             }
 
-            #OrderIndex .Options a:hover {
+            #Order .Options a:hover {
                 color: #E2E2E2;
             }
 /*/<<<<<< ORDER/INDEX <<<<<</*/
@@ -245,9 +245,10 @@ nav #Banner {
     background-color: #BCBCBC;
     padding-top: 5rem;
     padding-left: 25rem;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    position: fixed;
+    max-width: 100vw;
+    position: absolute;
     top: 0;
     left: 0;
     display: flex;
@@ -255,23 +256,58 @@ nav #Banner {
     justify-content: center;
 }
 
-    #PizzaSize .Head {
+#PizzaSize .row {
+    padding-top:;
+    width: 75vw;
+}
+
+    #PizzaSize .PageHead {
         width: 100%;
-        height: 7rem;
+        height: 10vh;
         background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
     }
+
+        #PizzaSize .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 10vw;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #PizzaSize .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+        #PizzaSize .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 50pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
 
 #PizzaSize .Options {
     height: 100%;
     width: 100%;
-    padding-top: 3rem;
 }
 
 #PizzaSize .Options a {
-    display: inline-block;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 30rem;
+    height: 70vh;
     width: 100%;
     background-color: #202020;
     margin-bottom: 3rem;
