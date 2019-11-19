@@ -13,6 +13,7 @@ p, lead, a {
 /* Navbar */
 nav {
     background-color: #202020;
+    z-index: 1;
 }
 #Banner {
     margin-bottom: 0.4rem;
@@ -53,6 +54,7 @@ nav {
 
 /*/>>>>>> WELCOME >>>>>>/*/
 #Welcome {
+    z-index: 2;
     background-color: #202020;
     height: 100vh;
     width: 100vw;
@@ -148,3 +150,25 @@ nav {
 }
 
 /*/<<<<<< WELCOME <<<<<</*/
+
+
+
+/*/>>>>>> ORDER >>>>>>/*/
+#Order #Basket {
+    background-color: #202020; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 20rem;
+}
+    #Order #Basket.Empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #Order #Basket h4 {
+        color: #E2E2E2;
+    }
+    
+/*/<<<<<< ORDER <<<<<</*/

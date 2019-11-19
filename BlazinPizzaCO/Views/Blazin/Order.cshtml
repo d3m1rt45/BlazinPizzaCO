@@ -1,0 +1,22 @@
+﻿@model BlazinPizzaCO.Models.Basket
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<section id="Order">
+
+    @Html.Partial("_BasketPartial", Model)
+
+</section>
+
+@if (Model.Pizzas.Any() && Model.Drinks.Any() && Model.Sides.Any())
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Basket").addClass("Empty");
+            $("#Basket").html("<h4>No items in your basket.</h4>")
+        });
+    </script>
+}
+

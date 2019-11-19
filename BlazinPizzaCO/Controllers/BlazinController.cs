@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlazinPizzaCO.DAL;
+using BlazinPizzaCO.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,12 @@ namespace BlazinPizzaCO.Controllers
         public ActionResult Welcome()
         {
             return View();
+        }
+
+        public ActionResult Order()
+        {
+            var basket = new Basket();
+            return View(basket);
         }
     }
 }

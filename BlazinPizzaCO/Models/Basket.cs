@@ -8,6 +8,14 @@ namespace BlazinPizzaCO.Models
 {
     public class Basket
     {
+        //Constructor(s)
+        public Basket()
+        {
+            Pizzas = new List<Pizza>();
+            Drinks = new List<Drink>();
+            Sides = new List<Side>();
+        }
+
         // Properties
         public int ID { get; set; }
         public int MemberID { get; set; }
@@ -23,27 +31,18 @@ namespace BlazinPizzaCO.Models
         // Adds a pizza to the basket
         public void Add(Pizza pizza)
         {
-            if (Pizzas == null)
-                Pizzas = new List<Pizza>();
-
             Pizzas.Add(pizza);
         }
 
         // Adds a side to the basket
         public void Add(Side side)
         {
-            if (Sides == null)
-                Sides = new List<Side>();
-
             Sides.Add(side);
         }
 
         // Adds a drink to the basket
         public void Add(Drink drink)
         {
-            if (Drinks == null)
-                Drinks = new List<Drink>();
-
             Drinks.Add(drink);
         }
     }
