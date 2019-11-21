@@ -18,11 +18,21 @@ namespace BlazinPizzaCO.Controllers
             return View();
         }
 
-        public ActionResult Order()
+        public ActionResult Order(int? orderID)
         {
-            var order = new Order();
-            db.Orders.Add(order);
-            db.SaveChanges();
+            Order order;
+
+            if (orderID.HasValue)
+            {
+                order = db.Orders.Single(o => o.ID == orderID);
+            }
+            else
+            {
+                order = new Order();
+                db.Orders.Add(order);
+                db.SaveChanges();
+            }
+            
             return View(order);
         }
 

@@ -5,28 +5,28 @@
 }
 
     <section id="PizzaSize">
-        @Html.Partial("_BasketPartial", Model)
+        <div id="PageContainer" class="container-fluid">
+            <div id="PageRow" class="row">
 
-        <div class="row">
-            <article class="PageHead col-12">
-                <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
-                <h2 class="Header">SELECT SIZE</h2>
-            </article><!--/#Banner-->
+                @Html.Partial("_BasketPartial", Model)
 
-            <div class="col-12">
-                <article class="Options row">
-                    <div class="col-4">
-                        <a class="Small" href="#">10"</a>
+                <div id="ExceptBasket" class="col-xl-8 offset-xl-1">
+                    <article class="PageHead col-xl-12">
+                        <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
+                        <h2 class="Header">SELECT SIZE</h2>
+                    </article><!--/#Banner-->
+
+                    <div class="col-xl-12">
+                        <article class="Options row">
+                            <div class="col-4"> <a class="Small" href="#">10"</a> </div>
+                            <div class="col-4"> <a class="Medium" href="#">14"</a> </div> 
+                            <div class="col-4"> <a class="Large" href="#">18"</a> </div>
+                        </article><!--/#Options-->
                     </div>
-                    <div class="col-4">
-                        <a class="Medium" href="#">14"</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="Large" href="#">18"</a>
-                    </div>
-                </article><!--/#Options-->
-            </div>
-        </div>
-    </section>
+                </div><!--/#ExceptBasket-->
+
+            </div><!--/#PageRow-->
+        </div><!--#PageContainer-->
+    </section><!--/#PizzaSize-->
 
 
