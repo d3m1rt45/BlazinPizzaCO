@@ -2,7 +2,9 @@
 
 @if (Model.Pizzas.Any() || Model.Drinks.Any() || Model.Sides.Any())
 {
-
+    <article id="Basket" class="col-xl-2 h-100 d-flex justify-content-center align-items-center">
+        <h4>No items in the basket...</h4>
+    </article>
 }
 else
 {

@@ -1,0 +1,23 @@
+﻿@model BlazinPizzaCO.Models.Pizza
+
+
+    <article id="Toppings" class="row">
+
+        @foreach (string top in Model.AvailableToppings)
+        {
+            if (Model.SelectedToppings.Contains(top.ToString()))
+            {
+                <div class="col-3">
+                    <a class="Selected" href="@Url.Action("AddTopping", new { pizzaID = Model.ID, topping = top })">@top</a>
+                </div>
+            }
+            else
+            {
+                <div class="col-3">
+                    <a href="@Url.Action("AddTopping", new { pizzaID = Model.ID, topping = top })">@top</a>
+                </div>
+            }
+
+        }
+
+    </article><!--/#Toppingss-->

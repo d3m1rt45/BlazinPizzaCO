@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlazinPizzaCO.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,16 +10,27 @@ namespace BlazinPizzaCO.Models
 {
     public class Pizza
     {
+        public Pizza()
+        {
+            SelectedToppings = new List<Topping>();
+            AvailableToppings = new List<Topping>();
+            using (var db = new BlazinContext())
+            {
+                AvailableToppings.AddRange(db.Toppings.ToList());
+            }
+        }
+
         // Properties
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public Size Inches { get; set; }
-        public List<Topping> Toppings { get; set; }
+        public List<Topping> AvailableToppings { get; set; }
 
         // Relationship Field(s)
         public virtual Order Order { get; set; }
+        public virtual List<Topping> SelectedToppings { get; set; }
 
         // Returns Price
         public decimal GetPrice()
@@ -40,7 +52,7 @@ namespace BlazinPizzaCO.Models
                     throw new Exception("Something is not right with the size...");
             }
 
-            var paidToppings = Toppings.Count - 3;
+            var paidToppings = SelectedToppings.Count - 3;
             if (paidToppings > 0)
             {
                 price += paidToppings * 0.35m;
@@ -51,9 +63,5 @@ namespace BlazinPizzaCO.Models
     }
     // Enum types for this class
     public enum Size { Small, Medium, Large }
-    public enum Topping
-    {
-        ExtraCheese, BlackOlive, Mushroom, Pepperoni, OliveOil, Onion, Sausage, GreenPepper,
-        Bacon, Pineapple, Spinach, Garlic, CrushedRedPepper, Tomato, Basil, Ham
-    }
+    
 }

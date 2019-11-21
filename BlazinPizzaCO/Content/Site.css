@@ -187,7 +187,7 @@ nav #Banner {
 
 
 
-/*/>>>>>> ORDER/INDEX >>>>>>/*/
+/*/>>>>>> ORDER >>>>>>/*/
 #Order {
     background-color: #BCBCBC;
     position: absolute;
@@ -225,11 +225,11 @@ nav #Banner {
                 background-position: center;
                 background-repeat: no-repeat;
             }
-/*/<<<<<< ORDER/INDEX <<<<<</*/
+/*/<<<<<< ORDER <<<<<</*/
 
 
 
-/*/>>>>>> ORDER/PIZZA >>>>>>/*/
+/*/>>>>>> PIZZA_SIZE >>>>>>/*/
 #PizzaSize {
     background-color: #BCBCBC;
     width: 100vw;
@@ -297,4 +297,85 @@ nav #Banner {
         background-position: center;
         background-repeat: no-repeat;
     }
-/*/<<<<<< ORDER/PIZZA <<<<<</*/
+/*/<<<<<< PIZZA_SIZE <<<<<</*/
+
+
+
+/*/>>>>>> PIZZA_TOPPINGS >>>>>>/*/
+#PizzaTopping {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #PizzaTopping #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #PizzaTopping .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #PizzaTopping .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #PizzaTopping .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #PizzaTopping .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #Toppings a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 6rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 3rem;
+        text-decoration: none;
+        font-size: 20pt;
+        color: #707070;
+        border-radius: 1rem;
+    }
+
+        #Toppings a:hover {
+            color: #E2E2E2;
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #Toppings a.Selected {
+            color: #E2E2E2 !important;
+            background-image: url(/Assets/Blazin.svg) !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+/*/<<<<<< PIZZA_TOPPINGS <<<<<</*/

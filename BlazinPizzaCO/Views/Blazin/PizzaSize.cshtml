@@ -18,9 +18,15 @@
 
                     <div class="col-xl-12">
                         <article class="Options row">
-                            <div class="col-4"> <a class="Small" href="#">10"</a> </div>
-                            <div class="col-4"> <a class="Medium" href="#">14"</a> </div> 
-                            <div class="col-4"> <a class="Large" href="#">18"</a> </div>
+                            <div class="col-4"> 
+                                <a class="Small" href="@Url.Action("PizzaTopping", new { orderID = Model.ID, size = BlazinPizzaCO.Models.Size.Small })">10"</a> 
+                            </div>
+                            <div class="col-4"> 
+                                <a class="Medium" href="@Url.Action("PizzaTopping", new { orderID = Model.ID, size = BlazinPizzaCO.Models.Size.Medium })">14"</a> 
+                            </div> 
+                            <div class="col-4"> 
+                                <a class="Large" href="@Url.Action("PizzaTopping", new { orderID = Model.ID, size = BlazinPizzaCO.Models.Size.Medium })">18"</a> 
+                            </div>
                         </article><!--/#Options-->
                     </div>
                 </div><!--/#ExceptBasket-->
