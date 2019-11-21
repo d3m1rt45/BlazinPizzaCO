@@ -10,9 +10,9 @@ namespace BlazinPizzaCO.DAL
 {
     public class BlazinContext : DbContext
     {
-        public BlazinContext() : base("name=BlazinContext") 
+        public BlazinContext() : base("name=BlazinContext")
         {
-            Database.SetInitializer<BlazinContext>(new DropCreateDatabaseAlways<BlazinContext>());
+            Database.SetInitializer(new BlazinContextInitializer());
         }
 
         public DbSet<Order> Orders { get; set; }
@@ -27,19 +27,5 @@ namespace BlazinPizzaCO.DAL
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-
-        //public readonly List<string> AvailableToppings = new List<string>()
-        //{
-        //    "Extra Cheese", "Black Olive", "Mushroom", "Pepperoni", "Olive Oil", "Onion","Sausage", "GreenPepper",
-        //        "Bacon", "Pineapple", "Spinach","Garlic", "Crushed Red Pepper", "Tomato", "Basil", "Ham"
-        //};
-    }
-
-    public class BlazinContextInitializer : DropCreateDatabaseAlways<BlazinContext>
-    {
-        protected override void Seed(BlazinContext context)
-        {
-            
-    }
     }
 }

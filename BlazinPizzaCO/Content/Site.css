@@ -1,4 +1,7 @@
 ﻿/*/>>>>>> GENERAL >>>>>>/*/
+body{
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Sitka Heading', serif;
 }
@@ -8,7 +11,11 @@ p, lead, a {
 }
 
 #PageRow {
-    height: 90vh;
+    min-height: 100vh;
+}
+
+#ExceptBasket {
+    margin-top: 5rem;
 }
 /*/<<<<<< GENERAL <<<<<</*/
 
@@ -19,7 +26,7 @@ p, lead, a {
 nav {
     background-color: #202020;
     z-index: 2;
-    height: 10vh;
+    height: 5rem;
 }
 
 nav #Banner {
@@ -178,6 +185,7 @@ nav #Banner {
 /*/>>>>>> BASKET >>>>>>/*/
 #Basket {
     background-color: #202020;
+    min-height: 100vh;
 }
 
     #Basket h4 {
@@ -349,7 +357,7 @@ nav #Banner {
             margin-bottom: 0;
         }
 
-    #Toppings a {
+    #PizzaTopping #Toppings a {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -363,7 +371,7 @@ nav #Banner {
         border-radius: 1rem;
     }
 
-        #Toppings a:hover {
+        #PizzaTopping #Toppings a:hover {
             color: #E2E2E2;
             background-image: url(/Assets/Blazin.svg);
             background-size: contain;
@@ -371,11 +379,28 @@ nav #Banner {
             background-repeat: no-repeat;
         }
 
-        #Toppings a.Selected {
+        #PizzaTopping #Toppings a.Selected {
             color: #E2E2E2 !important;
             background-image: url(/Assets/Blazin.svg) !important;
             background-size: contain !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
+        }
+
+    #PizzaTopping a.Done {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #E2E2E2;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+        #PizzaTopping a.Done:hover {
+            background-color: #8B4343;
         }
 /*/<<<<<< PIZZA_TOPPINGS <<<<<</*/

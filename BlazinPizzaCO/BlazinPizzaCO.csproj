@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\BlazinController.cs" />
     <Compile Include="DAL\BlazinContext.cs" />
+    <Compile Include="DAL\BlazinContextInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,10 +300,11 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Blazin\Order.cshtml" />
-    <Content Include="Views\Blazin\_BasketPartial.cshtml" />
+    <Content Include="Views\Shared\_BasketPartial.cshtml" />
     <Content Include="Views\Blazin\PizzaSize.cshtml" />
     <Content Include="Views\Blazin\PizzaTopping.cshtml" />
-    <Content Include="Views\Blazin\_ToppingsPartial.cshtml" />
+    <Content Include="Views\Shared\_ToppingsPartial.cshtml" />
+    <Content Include="Views\Shared\_ModalsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,12 +12,8 @@ namespace BlazinPizzaCO.Models
     {
         public Pizza()
         {
-            SelectedToppings = new List<Topping>();
-            AvailableToppings = new List<Topping>();
-            using (var db = new BlazinContext())
-            {
-                AvailableToppings.AddRange(db.Toppings.ToList());
-            }
+            Toppings = new List<Topping>();
+            Done = false;
         }
 
         // Properties
@@ -26,11 +22,12 @@ namespace BlazinPizzaCO.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public Size Inches { get; set; }
-        public List<Topping> AvailableToppings { get; set; }
+
+        public bool Done { get; set; }
 
         // Relationship Field(s)
         public virtual Order Order { get; set; }
-        public virtual List<Topping> SelectedToppings { get; set; }
+        public virtual ICollection<Topping> Toppings { get; set; }
 
         // Returns Price
         public decimal GetPrice()
@@ -52,7 +49,7 @@ namespace BlazinPizzaCO.Models
                     throw new Exception("Something is not right with the size...");
             }
 
-            var paidToppings = SelectedToppings.Count - 3;
+            var paidToppings = Toppings.Count - 3;
             if (paidToppings > 0)
             {
                 price += paidToppings * 0.35m;

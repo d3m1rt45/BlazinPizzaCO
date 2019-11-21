@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="@Url.Action("Home", "Blazin")">
             <div id="Banner" class="justify-content-center">
                 <h1 id="BannerText" class="d-block">BLAZIN</h1>
@@ -32,6 +32,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
 
     <script type="text/javascript">
         //Navigation Link "Active"

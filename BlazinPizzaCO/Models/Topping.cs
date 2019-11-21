@@ -9,12 +9,15 @@ namespace BlazinPizzaCO.Models
 {
     public class Topping
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public Topping() 
+        {
+            Pizzas = new List<Pizza>();
+        }
 
+        [Key]
+        [Required]
         public string Name { get; set; }
 
-        public virtual List<Pizza> Pizza { get; set; }
+        public virtual ICollection<Pizza> Pizzas { get; set; }
     }
 }

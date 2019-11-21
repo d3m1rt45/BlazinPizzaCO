@@ -1,4 +1,4 @@
-﻿@model BlazinPizzaCO.Models.Pizza
+﻿@model BlazinPizzaCO.ViewModels.ToppingViewModel
 
 @{
     ViewBag.Title = "Select Toppings";
@@ -8,25 +8,23 @@
     <div id="PageContainer" class="container-fluid">
         <div id="PageRow" class="row">
 
-            @Html.Partial("_BasketPartial", Model.Order)
+            @Html.Partial("_BasketPartial", Model.Pizza.Order)
 
             <div id="ExceptBasket" class="col-xl-8 offset-xl-1">
                 <article class="PageHead col-xl-12">
-                    <a class="BackButton" href="@Url.Action("PizzaSize", new { orderID = Model.Order.ID, pizzaID = Model.ID })">BACK</a>
+                    <a class="BackButton" href="@Url.Action("PizzaSize", new { orderID = Model.Pizza.Order.ID, pizzaID = Model.Pizza.ID })">BACK</a>
                     <h2 class="Header">SELECT TOPPINGS</h2>
                 </article><!--/#Banner-->
 
                 <div class="col-xl-12">
-                    @Html.Partial("_ToppingsPartial", Model)
+                    @Html.Partial("_ToppingsPartial")
+                </div>
+
+                <div class="col-12 d-flex justify-content-center">
+                    <a class="Done" href="@Url.Action("PizzaDone", new { pizzaID = Model.Pizza.ID })">DONE</a>
                 </div>
             </div><!--/#ExceptBasket-->
 
         </div><!--/#PageRow-->
     </div><!--#PageContainer-->
 </section><!--/#PizzaTopping-->
-
-<script type="text/javascript">
-    $("#Toppings div a").click(function () {
-        $(this).toggleClass("Selected");
-    })
-</script>

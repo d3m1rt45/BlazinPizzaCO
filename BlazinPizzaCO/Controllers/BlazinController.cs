@@ -1,6 +1,7 @@
 ﻿using BlazinPizzaCO.DAL;
 using BlazinPizzaCO.Models;
 using BlazinPizzaCO.ViewModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +24,39 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> Order(int? orderID)
         {
             Order order;
+            
+                if (User.Identity.IsAuthenticated && orderID.HasValue)
+                {
+                    var memberID = User.Identity.GetUserId();
+                    
+                    order = await db.Orders.FindAsync(orderID);
 
-            if (orderID.HasValue)
-            {
-                order = await db.Orders.FindAsync(orderID);
-            }
-            else
-            {
-                order = new Order();
-                db.Orders.Add(order);
-                await db.SaveChangesAsync();
-            }
+                    if(order.MemberID != memberID)
+                        throw new UnauthorizedAccessException("This is not your order.");
+                }
+                else if (User.Identity.IsAuthenticated)
+                {
+                    var memberID = User.Identity.GetUserId();
+                    order = new Order { MemberID = memberID };
+                    db.Orders.Add(order);
+                    await db.SaveChangesAsync();
+                }
+                else if (orderID.HasValue )
+                {
+                    var userIP = Request.UserHostAddress;
+                    order = await db.Orders.FindAsync(orderID);
 
+                    if (order.MemberID != userIP)
+                        throw new UnauthorizedAccessException("This is not your order.");
+                }
+                else
+                {
+                    var userIP = Request.UserHostAddress;
+                    order = new Order { MemberID = userIP };
+                    db.Orders.Add(order);
+                    await db.SaveChangesAsync();
+                }
+            
             return await Task.Run(() => View(order));
         }
 
@@ -67,26 +89,37 @@ namespace BlazinPizzaCO.Controllers
                 await db.SaveChangesAsync();
             }
 
-            return await Task.Run(() => View(pizza));
+            var toppingVM = new ToppingViewModel { Pizza = pizza, Toppings = db.Toppings.ToList() };
+
+            return await Task.Run(() => View(toppingVM));
         }
 
-        public async Task<ActionResult> AddTopping(int pizzaID, string topping)
+        public async Task<ActionResult> AddTopping(int pizzaID, string toppingName)
         {
             var pizza = await db.Pizzas.FindAsync(pizzaID);
-            var top = await db.Toppings.FindAsync(topping);
+            var top = await db.Toppings.FindAsync(toppingName);
 
-            if (pizza.SelectedToppings.Contains(top) == true)
+            if (pizza.Toppings.Contains(top) == true)
             {
-                pizza.SelectedToppings.Remove(top);
+                pizza.Toppings.Remove(top);
             }
             else
             {
-                pizza.SelectedToppings.Add(top);
-                db.Pizzas.Append(pizza);
-                await db.SaveChangesAsync();
+                pizza.Toppings.Add(top);
             }
+            await db.SaveChangesAsync();
 
             return await Task.Run(() => RedirectToAction("PizzaTopping", new { orderID = pizza.Order.ID, size = pizza.Inches, pizzaID }));
+        }
+
+        public async Task<ActionResult> PizzaDone(int pizzaID)
+        {
+            var pizza = await db.Pizzas.FindAsync(pizzaID);
+
+            pizza.Done = true;
+            await db.SaveChangesAsync();
+
+            return await Task.Run(() => RedirectToAction("Order", new { orderID = pizza.Order.ID }));
         }
     }
 }
