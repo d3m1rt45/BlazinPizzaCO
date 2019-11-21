@@ -13,7 +13,7 @@ namespace BlazinPizzaCO.DAL
         {
             var toppings = new List<string>()
             {
-                "Extra Cheese", "Black Olive", "Mushroom", "Pepperoni", "Olive Oil", "Onion","Sausage", "GreenPepper",
+                "Extra Cheese", "Black Olive", "Mushroom", "Pepperoni", "Olive Oil", "Onion","Sausage", "Green Pepper",
                     "Bacon", "Pineapple", "Spinach","Garlic", "Crushed Red Pepper", "Tomato", "Basil", "Ham"
             };
 

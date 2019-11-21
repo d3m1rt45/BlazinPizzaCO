@@ -1,9 +1,23 @@
 ﻿@model BlazinPizzaCO.Models.Order
 
-@if (Model.Pizzas.Any() || Model.Drinks.Any() || Model.Sides.Any())
+@if (Model.Pizzas.Any(p => p.Done) || Model.Drinks.Any() || Model.Sides.Any())
 {
     <article id="Basket" class="col-xl-2 h-100 d-flex justify-content-center align-items-center">
-        <h4>No items in the basket...</h4>
+
+        <div class="Pizzas">
+            @foreach (var item in Model.Pizzas.Where(p => p.Done))
+            {
+                <h4>@item.Inches Pizza (£@item.GetPrice().ToString())</h4>
+                <ul>
+                    @foreach (var topping in item.Toppings)
+                    {
+                        <li>@topping.Name</li>
+                    }
+                </ul>
+            }
+        </div>
+
+        <a class="OrderButton" href="@Url.Action("OrderDone", new { orderID = Model.ID })">Finish & Pay</a>
     </article>
 }
 else

@@ -121,5 +121,10 @@ namespace BlazinPizzaCO.Controllers
 
             return await Task.Run(() => RedirectToAction("Order", new { orderID = pizza.Order.ID }));
         }
+
+        public async Task<ActionResult> OrderDone(int orderID)
+        {
+
+        }
     }
 }

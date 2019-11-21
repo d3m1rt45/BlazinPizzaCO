@@ -184,13 +184,42 @@ nav #Banner {
 
 /*/>>>>>> BASKET >>>>>>/*/
 #Basket {
+    padding-top: 10rem;
     background-color: #202020;
     min-height: 100vh;
+    flex-direction: column;
 }
 
-    #Basket h4 {
+    #Basket h4{
+        padding:0;
+        margin: 0;
         color: #E2E2E2;
     }
+    
+    #Basket ul {
+        margin-bottom: 2rem;
+    }
+
+    #Basket li {
+        color: #E2E2E2;
+    }
+
+    #Basket a.OrderButton {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 20pt;
+        color: #AFAFAF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+    }
+
+        #Basket a.OrderButton:hover {
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
 /*/<<<<<< BASKET <<<<<</*/
 
 

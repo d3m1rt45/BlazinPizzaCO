@@ -49,12 +49,11 @@ namespace BlazinPizzaCO.Models
                     throw new Exception("Something is not right with the size...");
             }
 
-            var paidToppings = Toppings.Count - 3;
-            if (paidToppings > 0)
+            foreach(var top in Toppings)
             {
-                price += paidToppings * 0.35m;
+                price += 0.35m;
             }
-
+            
             return price;
         }
     }
