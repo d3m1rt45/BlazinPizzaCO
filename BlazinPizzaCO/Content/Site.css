@@ -433,3 +433,101 @@ nav #Banner {
             background-color: #8B4343;
         }
 /*/<<<<<< PIZZA_TOPPINGS <<<<<</*/
+
+
+
+/*/>>>>>> ADD_SIDE >>>>>>/*/
+#AddSide {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #AddSide #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #AddSide .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #AddSide .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #PizzaTopping .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+#AddSide .PageHead .Header {
+    color: #E2E2E2;
+    font-size: 35pt;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#AddSide #Sides a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 9rem;
+    width: 100%;
+    background-color: #202020;
+    margin-bottom: 3rem;
+    text-decoration: none;
+    font-size: 20pt;
+    color: #707070;
+    border-radius: 1rem;
+}
+
+    #AddSide #Sides a:hover {
+        color: #E2E2E2;
+        background-image: url(/Assets/Blazin.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #AddSide #Sides a.Selected {
+        color: #E2E2E2 !important;
+        background-image: url(/Assets/Blazin.svg) !important;
+        background-size: contain !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+#AddSide a.Done {
+    font-family: 'Sitka Display', serif !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 27pt;
+    color: #E2E2E2;
+    background-color: #683131;
+    width: 16rem;
+    border-radius: 10rem;
+    margin: 0 1rem 1.5rem 1rem;
+    text-decoration: none !important;
+}
+
+    #AddSide a.Done:hover {
+        background-color: #8B4343;
+    }
+/*/<<<<<< ADD_SIDE <<<<<</*/

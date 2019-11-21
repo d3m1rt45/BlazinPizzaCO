@@ -1,0 +1,29 @@
+﻿@model BlazinPizzaCO.ViewModels.AddSideViewModel
+
+@{
+    ViewBag.Title = "Add Side";
+}
+
+<section id="AddSide">
+    <div id="PageContainer" class="container-fluid">
+        <div id="PageRow" class="row">
+
+            @Html.Partial("_BasketPartial", Model.Order)
+
+            <div id="ExceptBasket" class="col-xl-8 offset-xl-1">
+                <article class="PageHead col-xl-12">
+                    <h2 class="Header">ADD SIDES</h2>
+                </article><!--/#Banner-->
+
+                <div class="col-xl-12">
+                    @Html.Partial("_SidesPartial")
+                </div>
+
+                <div class="col-12 d-flex justify-content-center">
+                    <a class="Done" href="@Url.Action("Order", new { orderID = Model.Order.ID })">DONE</a>
+                </div>
+            </div><!--/#ExceptBasket-->
+
+        </div><!--/#PageRow-->
+    </div><!--#PageContainer-->
+</section><!--/#PizzaTopping-->

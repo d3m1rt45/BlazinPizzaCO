@@ -13,7 +13,7 @@
             <div id="ExceptBasket" class=" col-xl-8 offset-1">
                 <article class="Options">
                     <a class="Pizzas" href="@Url.Action("PizzaSize", new { orderID = Model.ID })">PIZZAS</a>
-                    <a class="Sides" href="#">SIDES</a>
+                    <a class="Sides" href="@Url.Action("AddSide", new { orderID = Model.ID })">SIDES</a>
                     <a class="drinks" href="#">DRINKS</a>
                 </article>
             </div>

@@ -122,9 +122,17 @@ namespace BlazinPizzaCO.Controllers
             return await Task.Run(() => RedirectToAction("Order", new { orderID = pizza.Order.ID }));
         }
 
+        public async Task<ActionResult> AddSide(int orderID)
+        {
+            var order = await db.Orders.FindAsync(orderID);
+            var addSideVM = new AddSideViewModel() { Order = order };
+
+            return await Task.Run(() => View(addSideVM));
+        }
+
         public async Task<ActionResult> OrderDone(int orderID)
         {
-
+            return await Task.Run(() => RedirectToAction("Home"));
         }
     }
 }

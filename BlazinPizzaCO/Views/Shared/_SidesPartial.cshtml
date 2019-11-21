@@ -1,0 +1,13 @@
+﻿@model BlazinPizzaCO.ViewModels.AddSideViewModel
+
+
+    <article id="Sides" class="row">
+
+        @foreach (var t in Model.Sides)
+        {
+            <div class="col-4">
+                <a href="@Url.Action("AddSide", new { orderID = Model.Order.ID, sideID= t.ID })">@t.Name</a>
+            </div>
+        }
+
+    </article><!--/#Toppingss-->

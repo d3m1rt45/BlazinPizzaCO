@@ -188,6 +188,7 @@
     <Compile Include="Models\Topping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddSideViewModel.cs" />
     <Compile Include="ViewModels\ToppingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -305,6 +306,8 @@
     <Content Include="Views\Blazin\PizzaTopping.cshtml" />
     <Content Include="Views\Shared\_ToppingsPartial.cshtml" />
     <Content Include="Views\Shared\_ModalsPartial.cshtml" />
+    <Content Include="Views\Blazin\AddSide.cshtml" />
+    <Content Include="Views\Shared\_SidesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
