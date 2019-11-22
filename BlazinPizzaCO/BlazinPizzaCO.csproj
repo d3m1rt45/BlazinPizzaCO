@@ -311,6 +311,8 @@
     <Content Include="Views\Shared\_ModalsPartial.cshtml" />
     <Content Include="Views\Blazin\ChooseSide.cshtml" />
     <Content Include="Views\Blazin\ChooseDrink.cshtml" />
+    <Content Include="Views\Blazin\ReviewOrder.cshtml" />
+    <Content Include="Views\Shared\_OrderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

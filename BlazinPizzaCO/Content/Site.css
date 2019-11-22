@@ -184,7 +184,7 @@ nav #Banner {
 
 /*/>>>>>> BASKET >>>>>>/*/
 #Basket {
-    padding-top: 10rem;
+    padding-top: 4rem;
     background-color: #202020;
     min-height: 100vh;
     flex-direction: column;
@@ -192,9 +192,13 @@ nav #Banner {
 
     #Basket h4,
     #Basket h5 {
-        padding:0;
-        margin: 0;
+        padding: 0;
+        margin-bottom: 0.2rem;
         color: #E2E2E2;
+    }
+
+    #Basket .Pizzas p{
+        margin-bottom:2rem;
     }
     
     #Basket ul {
@@ -515,7 +519,7 @@ nav #Banner {
 
 
 
-/*/>>>>>> ADD_SIDE >>>>>>/*/
+/*/>>>>>> ADD_DRINK >>>>>>/*/
 #AddDrink {
     background-color: #BCBCBC;
     width: 100vw;
@@ -589,4 +593,97 @@ nav #Banner {
         #AddDrink a.Done:hover {
             background-color: #8B4343;
         }
-/*/<<<<<< ADD_SIDE <<<<<</*/
+/*/<<<<<< ADD_DRINK <<<<<</*/
+
+
+
+/*/>>>>>> REVIEW_ORDER >>>>>>/*/
+#ReviewOrder {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #ReviewOrder #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #ReviewOrder .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #ReviewOrder .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #ReviewOrder .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #ReviewOrder .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #ReviewOrder div.Pizza {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 8rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        color: #707070;
+        border-radius: 1rem;
+    }
+
+        #ReviewOrder div.Pizza:hover {
+            color: #E2E2E2;
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #ReviewOrder div.Pizza p{
+            font-size: 15pt;
+        }
+
+    #ReviewOrder div.Sides, 
+    #ReviewOrder div.Drinks {
+        padding: 1rem 0 0.5rem 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        color: #707070;
+        border-radius: 1rem;
+    }
+
+/*/<<<<<< REVIEW_ORDER <<<<<</*/

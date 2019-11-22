@@ -1,0 +1,24 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@{
+    ViewBag.Title = "Review Order";
+}
+
+
+<section id="ReviewOrder">
+    <div id="PageContainer" class="container-fluid">
+        <div id="PageRow" class="row">
+
+
+            <div id="ExceptBasket" class="col-xl-10 offset-xl-1">
+                <article class="PageHead col-xl-10 offset-1">
+                    <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
+                    <h2 class="Header">REVIEW ORDER</h2>
+                </article><!--/#Banner-->
+
+                @Html.Partial("_OrderPartial")
+            </div><!--/#ExceptBasket-->
+
+        </div><!--/#PageRow-->
+    </div><!--#PageContainer-->
+</section><!--/#PizzaSize-->
