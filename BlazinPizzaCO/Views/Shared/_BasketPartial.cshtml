@@ -1,6 +1,6 @@
 ﻿@model BlazinPizzaCO.Models.Order
 
-@if (Model.Pizzas.Any(p => p.Done) || Model.Drinks.Any() || Model.Sides.Any())
+@if (Model.Pizzas.Any(p => p.Done) || Model.DrinksPerOrder.Any() || Model.Sides.Any())
 {
     <article id="Basket" class="col-xl-2 h-100 d-flex justify-content-center align-items-center">
         <div class="Inner">
@@ -34,14 +34,14 @@
                 </div>
             }
 
-            @if (Model.Drinks.Any())
+            @if (Model.DrinksPerOrder.Any())
             {
                 <div class="Drinks">
                     <h5>Drinks (£@Model.GetDrinkTotal().ToString())</h5>
                     <ul>
-                        @foreach (var item in Model.Drinks)
+                        @foreach (var item in Model.DrinksPerOrder)
                         {
-                            <li>@item.Name</li>
+                            <li>@item.Drink.Name  x @item.Amount</li>
                         }
                     </ul>
                 </div>

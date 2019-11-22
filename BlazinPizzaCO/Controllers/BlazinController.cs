@@ -86,7 +86,7 @@ namespace BlazinPizzaCO.Controllers
             else
             {
                 pizza = new Pizza { Inches = size };
-                order.Add(pizza);
+                order.Pizzas.Add(pizza);
                 await db.SaveChangesAsync();
             }
 
@@ -134,10 +134,18 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> AddSide(int orderID, int sideID)
         {
             var order = await db.Orders.FindAsync(orderID);
-            var side = await db.Sides.FindAsync(sideID);
+            Side side = await db.Sides.FindAsync(sideID);
 
-            order.Sides.Add(side);
-            db.SaveChanges();
+            if( await Task.Run(()=> order.Sides.Contains(side)) )
+            {
+                var duplicate = new Side { Name = side.Name, Price = side.Price };
+                order.Sides.Add(duplicate);
+            }
+            {
+                order.Sides.Add(side);
+            }
+            
+            await db.SaveChangesAsync();
 
             return await Task.Run(() => RedirectToAction("ChooseSide", new { orderID }));
         }
@@ -154,7 +162,7 @@ namespace BlazinPizzaCO.Controllers
             var order = await db.Orders.FindAsync(orderID);
             var drink = await db.Drinks.FindAsync(drinkID);
 
-            order.Drinks.Add(drink);
+            order.AddDrink(drink);
             db.SaveChanges();
 
             return await Task.Run(() => RedirectToAction("ChooseDrink", new { orderID }));

@@ -185,6 +185,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\Side.cs" />
+    <Compile Include="Models\DrinkPerOrder.cs" />
     <Compile Include="Models\Topping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

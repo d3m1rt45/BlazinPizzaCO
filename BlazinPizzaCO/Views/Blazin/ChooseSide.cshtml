@@ -20,7 +20,7 @@
 
                 <article id="Sides" class="col-xl-12">
                     <div class="row">
-                        @foreach (var t in Model.Sides)
+                        @foreach (var t in Model.Sides.Take(9))
                         {
                             <div class="col-4">
                                 <a href="@Url.Action("AddSide", new { orderID = Model.Order.ID, sideID= t.ID })">@t.Name.ToString()</a>

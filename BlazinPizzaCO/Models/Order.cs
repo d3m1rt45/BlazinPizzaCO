@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlazinPizzaCO.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,8 +15,8 @@ namespace BlazinPizzaCO.Models
         public Order()
         {
             Pizzas = new List<Pizza>();
-            Drinks = new List<Drink>();
             Sides = new List<Side>();
+            DrinksPerOrder = new List<DrinkPerOrder>();
         }
 
         // Properties
@@ -29,30 +30,30 @@ namespace BlazinPizzaCO.Models
 
         // Relationship Field(s)
         public virtual ICollection<Pizza> Pizzas { get; set; }
-        public virtual ICollection<Drink> Drinks { get; set; }
         public virtual ICollection<Side> Sides { get; set; }
-
-
-        // Adds a pizza to the basket
-        public void Add(Pizza pizza)
-        {
-            Pizzas.Add(pizza);
-        }
-
-        // Adds a side to the basket
-        public void Add(Side side)
-        {
-            Sides.Add(side);
-        }
-
-        // Adds a drink to the basket
-        public void Add(Drink drink)
-        {
-            Drinks.Add(drink);
-        }
-
+        public virtual ICollection<DrinkPerOrder> DrinksPerOrder { get; set; }
 
         //Methods
+        public void AddDrink(Drink drink)
+        {
+            using (var db = new BlazinContext())
+            {
+                var orderID = this.ID;
+                var drinkID = drink.ID;
+                var drinkPerOrderList = db.DrinkPerOrder.Where(dpo => dpo.DrinkID == drinkID && dpo.OrderID == orderID);
+
+                if(drinkPerOrderList.Any())
+                {
+                    var drinkPerOrder = drinkPerOrderList.FirstOrDefault();
+                    drinkPerOrder.Amount++;
+                }
+                else
+                {
+                    this.DrinksPerOrder.Add(new DrinkPerOrder(orderID, drinkID));
+                }
+            }
+        }
+
         public decimal GetSideTotal()
         {
             decimal total = 0m;
@@ -64,8 +65,11 @@ namespace BlazinPizzaCO.Models
         public decimal GetDrinkTotal()
         {
             decimal total = 0m;
-            foreach (var d in Drinks)
-                total += d.Price;
+            foreach (var dpo in DrinksPerOrder)
+            {
+                total += dpo.Drink.Price * dpo.Amount;
+            }
+
             return total;
         }
     }
