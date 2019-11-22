@@ -18,6 +18,7 @@ namespace BlazinPizzaCO.Models
             Sides = new List<Side>();
             Drinks = new List<Drink>();
             DrinksPerOrder = new List<DrinkPerOrder>();
+            SidesPerOrder = new List<SidePerOrder>();
         }
 
         // Properties
@@ -35,15 +36,34 @@ namespace BlazinPizzaCO.Models
         public virtual ICollection<Pizza> Pizzas { get; set; }
         public virtual ICollection<Side> Sides { get; set; }
         public virtual ICollection<DrinkPerOrder> DrinksPerOrder { get; set; }
+        public virtual ICollection<SidePerOrder> SidesPerOrder { get; set; }
 
         //Methods
+        public void AddSide(Side side)
+        {
+            using (var db = new BlazinContext())
+            {
+                var sidesPerOrder = this.SidesPerOrder.SingleOrDefault(spo => spo.Side.ID == side.ID);
+
+                if (sidesPerOrder != null)
+                {
+                    sidesPerOrder.RaiseAmount();
+                }
+                else
+                {
+                    this.Sides.Add(side);
+                    this.SidesPerOrder.Add(new SidePerOrder(this.ID, side.ID));
+                    db.SaveChanges();
+                }
+
+            }
+        }
+
         public void AddDrink(Drink drink)
         {
             using (var db = new BlazinContext())
             {
-                var orderID = this.ID;
-                var drinkID = drink.ID;
-                var drinkPerOrder = this.DrinksPerOrder.SingleOrDefault(dpo => dpo.DrinkID == drink.ID);
+                var drinkPerOrder = this.DrinksPerOrder.SingleOrDefault(dpo => dpo.Drink.ID == drink.ID);
 
                 if (drinkPerOrder != null)
                 {
@@ -52,18 +72,33 @@ namespace BlazinPizzaCO.Models
                 else
                 {
                     this.Drinks.Add(drink);
-                    this.DrinksPerOrder.Add(new DrinkPerOrder(orderID, drinkID));
+                    this.DrinksPerOrder.Add(new DrinkPerOrder(this.ID, drink.ID));
                     db.SaveChanges();
                 }
 
             }
         }
 
+        public decimal GetTotal()
+        {
+            var total = 0m;
+
+            foreach (var p in this.Pizzas)
+                total += p.GetPrice();
+
+            total += this.GetSideTotal();
+            total += this.GetDrinkTotal();
+
+            return total;
+        }
+
         public decimal GetSideTotal()
         {
             decimal total = 0m;
-            foreach (var s in Sides)
-                total += s.Price;
+            foreach (var spo in SidesPerOrder)
+            {
+                total += spo.Side.Price * spo.Amount;
+            }
             return total;
         }
 

@@ -134,18 +134,9 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> AddSide(int orderID, int sideID)
         {
             var order = await db.Orders.FindAsync(orderID);
-            Side side = await db.Sides.FindAsync(sideID);
+            var side = await db.Sides.FindAsync(sideID);
 
-            if( await Task.Run(()=> order.Sides.Contains(side)) )
-            {
-                var duplicate = new Side { Name = side.Name, Price = side.Price };
-                order.Sides.Add(duplicate);
-            }
-            {
-                order.Sides.Add(side);
-            }
-            
-            await db.SaveChangesAsync();
+            await Task.Run(() => order.AddSide(side));
 
             return await Task.Run(() => RedirectToAction("ChooseSide", new { orderID }));
         }

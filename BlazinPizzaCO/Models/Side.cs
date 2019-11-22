@@ -16,9 +16,9 @@ namespace BlazinPizzaCO.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public int Amount { get; set; }
 
         // Relationship Field(s)
-        public virtual Order Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<SidePerOrder> Sides { get; set; }
     }
 }

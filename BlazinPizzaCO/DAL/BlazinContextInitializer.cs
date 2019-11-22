@@ -41,15 +41,15 @@ namespace BlazinPizzaCO.DAL
 
 
             //POPULATE DRINKS...
-            context.Drinks.Add(new Drink { Name = "Coca-Cola", Price = 3.29m });
-            context.Drinks.Add(new Drink { Name = "Dr. Pepper", Price = 2.49m });
-            context.Drinks.Add(new Drink { Name = "Fanta", Price = 2.49m });
-            context.Drinks.Add(new Drink { Name = "Sprite", Price = 3.19m });
-            context.Drinks.Add(new Drink { Name = "Mountain Dew", Price = 2.99m });
-            context.Drinks.Add(new Drink { Name = "Vimto", Price = 2.99m });
-            context.Drinks.Add(new Drink { Name = "Ice-Tea Lemon", Price = 0.99m });
-            context.Drinks.Add(new Drink { Name = "Ice-Tea Peach", Price = 0.99m });
-            context.Drinks.Add(new Drink { Name = "Ice-Tea Mango", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Coca-Cola", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Dr. Pepper", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Fanta", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Sprite", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Mountain Dew", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Vimto", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Ice-Tea Lemon", Price = 1.20m });
+            context.Drinks.Add(new Drink { Name = "Ice-Tea Peach", Price = 1.20m });
+            context.Drinks.Add(new Drink { Name = "Ice-Tea Mango", Price = 1.20m });
 
             context.SaveChanges();
         }

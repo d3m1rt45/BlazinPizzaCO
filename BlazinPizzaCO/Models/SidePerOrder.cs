@@ -2,39 +2,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace BlazinPizzaCO.Models
 {
-    public class DrinkPerOrder
+    public class SidePerOrder
     {
-        public DrinkPerOrder() { }
+        public SidePerOrder() { }
 
-        public DrinkPerOrder(int orderID, int drinkID)
+        public SidePerOrder(int orderID, int sideID)
         {
             using (var db = new BlazinContext())
-            {   
+            {
                 //Get the related order and drink
                 var order = db.Orders.Find(orderID);
-                var drink = db.Drinks.Find(drinkID);
+                var side = db.Sides.Find(sideID);
 
 
                 if (order == null) //If there is no such order:
                 {
                     throw new KeyNotFoundException("Order Not Found");
                 }
-                else if (drink == null) //If there is no such drink related to the said order:
+                else if (side == null) //If there is no such drink related to the said order:
                 {
                     throw new KeyNotFoundException("Drink Not Found");
                 }
                 else
                 {
                     this.Order = order;
-                    this.Drink = drink;
+                    this.Side = side;
                     this.Amount = 1;
 
-                    db.DrinkPerOrder.Add(this);
+                    db.SidePerOrder.Add(this);
                     db.SaveChanges();
                 }
             }
@@ -45,14 +44,14 @@ namespace BlazinPizzaCO.Models
 
 
         public virtual Order Order { get; set; }
-        public virtual Drink Drink { get; set; }
+        public virtual Side Side { get; set; }
 
 
         public void RaiseAmount()
         {
             using (var db = new BlazinContext())
             {
-                var dpo = db.DrinkPerOrder.Single(d => d.ID == this.ID);
+                var dpo = db.SidePerOrder.Single(d => d.ID == this.ID);
 
                 int current = this.Amount;
                 current++;
@@ -60,7 +59,7 @@ namespace BlazinPizzaCO.Models
 
                 db.SaveChanges();
             }
-            
+
         }
     }
 }
