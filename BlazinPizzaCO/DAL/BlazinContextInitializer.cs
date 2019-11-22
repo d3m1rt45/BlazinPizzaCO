@@ -11,6 +11,7 @@ namespace BlazinPizzaCO.DAL
     {
         protected override void Seed(BlazinContext context)
         {
+            //POPULATE TOPPINGS...
             var toppings = new List<string>()
             {
                 "Extra Cheese", "Black Olive", "Mushroom", "Pepperoni", "Olive Oil", "Onion","Sausage", "Green Pepper",
@@ -23,6 +24,8 @@ namespace BlazinPizzaCO.DAL
             context.SaveChanges();
 
 
+
+            //POPULATE SIDES...
             context.Sides.Add(new Side { Name = "Chicken Wings", Price = 3.19m });
             context.Sides.Add(new Side { Name = "Garlic Bread", Price = 3.99m });
             context.Sides.Add(new Side { Name = "Potato Chips", Price = 3.29m });
@@ -32,6 +35,21 @@ namespace BlazinPizzaCO.DAL
             context.Sides.Add(new Side { Name = "Brownie", Price = 2.99m });
             context.Sides.Add(new Side { Name = "Apple Tart", Price = 2.99m });
             context.Sides.Add(new Side { Name = "Chocolate Chip Cookie", Price = 0.99m });
+
+            context.SaveChanges();
+
+
+
+            //POPULATE DRINKS...
+            context.Drinks.Add(new Drink { Name = "Coca-Cola", Price = 3.29m });
+            context.Drinks.Add(new Drink { Name = "Dr. Pepper", Price = 2.49m });
+            context.Drinks.Add(new Drink { Name = "Fanta", Price = 2.49m });
+            context.Drinks.Add(new Drink { Name = "Sprite", Price = 3.19m });
+            context.Drinks.Add(new Drink { Name = "Mountain Dew", Price = 2.99m });
+            context.Drinks.Add(new Drink { Name = "Vimto", Price = 2.99m });
+            context.Drinks.Add(new Drink { Name = "Ice-Tea Lemon", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Ice-Tea Peach", Price = 0.99m });
+            context.Drinks.Add(new Drink { Name = "Ice-Tea Mango", Price = 0.99m });
 
             context.SaveChanges();
         }

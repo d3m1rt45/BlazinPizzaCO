@@ -10,7 +10,7 @@
                 <div class="Pizzas">
                     @foreach (var item in Model.Pizzas.Where(p => p.Done))
                     {
-                        <h4>@item.Inches Pizza (£@item.GetPrice().ToString())</h4>
+                        <h4 class="text-light">@item.Inches Pizza (£@item.GetPrice().ToString())</h4>
                         <ul>
                             @foreach (var topping in item.Toppings)
                             {
@@ -24,9 +24,22 @@
             @if (Model.Sides.Any())
             {
                 <div class="Sides">
-                    <h4>Sides (£@Model.GetSideTotal().ToString())</h4>
+                    <h5>Sides (£@Model.GetSideTotal().ToString())</h5>
                     <ul>
                         @foreach (var item in Model.Sides)
+                        {
+                            <li>@item.Name</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            @if (Model.Drinks.Any())
+            {
+                <div class="Drinks">
+                    <h5>Drinks (£@Model.GetDrinkTotal().ToString())</h5>
+                    <ul>
+                        @foreach (var item in Model.Drinks)
                         {
                             <li>@item.Name</li>
                         }

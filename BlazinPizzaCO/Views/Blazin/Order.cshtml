@@ -14,7 +14,7 @@
                 <article class="Options">
                     <a class="Pizzas" href="@Url.Action("PizzaSize", new { orderID = Model.ID })">PIZZAS</a>
                     <a class="Sides" href="@Url.Action("ChooseSide", new { orderID = Model.ID })">SIDES</a>
-                    <a class="drinks" href="#">DRINKS</a>
+                    <a class="drinks" href="@Url.Action("ChooseDrink", new { orderID = Model.ID })">DRINKS</a>
                 </article>
             </div>
 

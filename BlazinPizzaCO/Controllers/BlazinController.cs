@@ -126,7 +126,7 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> ChooseSide(int orderID)
         {
             var order = await db.Orders.FindAsync(orderID);
-            var addSideVM = new ChooseSideViewModel() { Order = order };
+            var addSideVM = new SideViewModel() { Order = order };
 
             return await Task.Run(() => View(addSideVM));
         }
@@ -136,10 +136,28 @@ namespace BlazinPizzaCO.Controllers
             var order = await db.Orders.FindAsync(orderID);
             var side = await db.Sides.FindAsync(sideID);
 
-            order.Add(side);
+            order.Sides.Add(side);
             db.SaveChanges();
 
             return await Task.Run(() => RedirectToAction("ChooseSide", new { orderID }));
+        }
+
+        public async Task<ActionResult> ChooseDrink(int orderID)
+        {
+            var order = await db.Orders.FindAsync(orderID);
+            var drinkVM = new DrinkViewModel(order);
+            return await Task.Run(() => View(drinkVM));
+        }
+
+        public async Task<ActionResult> AddDrink(int orderID, int drinkID)
+        {
+            var order = await db.Orders.FindAsync(orderID);
+            var drink = await db.Drinks.FindAsync(drinkID);
+
+            order.Drinks.Add(drink);
+            db.SaveChanges();
+
+            return await Task.Run(() => RedirectToAction("ChooseDrink", new { orderID }));
         }
 
         public async Task<ActionResult> OrderDone(int orderID)

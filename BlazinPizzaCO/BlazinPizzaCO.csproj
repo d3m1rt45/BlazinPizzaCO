@@ -188,7 +188,8 @@
     <Compile Include="Models\Topping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ChooseSideViewModel.cs" />
+    <Compile Include="ViewModels\SideViewModel.cs" />
+    <Compile Include="ViewModels\DrinkViewModel.cs" />
     <Compile Include="ViewModels\ToppingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -307,7 +308,7 @@
     <Content Include="Views\Shared\_ToppingsPartial.cshtml" />
     <Content Include="Views\Shared\_ModalsPartial.cshtml" />
     <Content Include="Views\Blazin\ChooseSide.cshtml" />
-    <Content Include="Views\Shared\_SidesPartial.cshtml" />
+    <Content Include="Views\Blazin\ChooseDrink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

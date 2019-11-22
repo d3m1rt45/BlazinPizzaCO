@@ -7,9 +7,9 @@ using System.Web;
 
 namespace BlazinPizzaCO.ViewModels
 {
-    public class ChooseSideViewModel
+    public class SideViewModel
     {
-        public ChooseSideViewModel()
+        public SideViewModel()
         {
             using (var db = new BlazinContext())
             {

@@ -1,10 +1,10 @@
-﻿@model BlazinPizzaCO.ViewModels.SideViewModel
+﻿@model BlazinPizzaCO.ViewModels.DrinkViewModel
 
 @{
-    ViewBag.Title = "Add Side";
+    ViewBag.Title = "Add Drink";
 }
 
-<section id="AddSide">
+<section id="AddDrink">
     <div id="PageContainer" class="container-fluid">
         <div id="PageRow" class="row">
 
@@ -14,20 +14,20 @@
 
             <div id="ExceptBasket" class="col-xl-8 offset-xl-1">
                 <article class="PageHead col-xl-12">
-                    <h2 class="Header">ADD SIDES</h2>
+                    <h2 class="Header">ADD DRINKS</h2>
                 </article><!--/#Banner-->
 
 
-                <article id="Sides" class="col-xl-12">
+                <article id="Drinks" class="col-xl-12">
                     <div class="row">
-                        @foreach (var t in Model.Sides)
+                        @foreach (var d in Model.Drinks)
                         {
                             <div class="col-4">
-                                <a href="@Url.Action("AddSide", new { orderID = Model.Order.ID, sideID= t.ID })">@t.Name.ToString()</a>
+                                <a href="@Url.Action("AddDrink", new { orderID = Model.Order.ID, drinkID= d.ID })">@d.Name.ToString()</a>
                             </div>
                         }
                     </div><!--/.row-->
-                </article><!--/#Sides-->
+                </article><!--/#Drinks-->
 
 
                 <div class="col-12 d-flex justify-content-center">
