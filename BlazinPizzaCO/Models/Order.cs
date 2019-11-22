@@ -50,5 +50,19 @@ namespace BlazinPizzaCO.Models
         {
             Drinks.Add(drink);
         }
+
+
+        //Methods
+        public decimal GetSideTotal()
+        {
+            decimal total = 0m;
+
+            foreach (var s in Sides)
+            {
+                total += s.Price;
+            }
+
+            return total;
+        }
     }
 }

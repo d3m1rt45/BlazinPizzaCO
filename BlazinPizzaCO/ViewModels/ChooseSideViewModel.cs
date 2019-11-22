@@ -7,17 +7,20 @@ using System.Web;
 
 namespace BlazinPizzaCO.ViewModels
 {
-    public class AddSideViewModel
+    public class ChooseSideViewModel
     {
-        public AddSideViewModel()
+        public ChooseSideViewModel()
         {
             using (var db = new BlazinContext())
             {
-                Sides = db.Sides.ToList();
+                this.Sides = db.Sides.ToList();
             }
+
+            this.Order = new Order();
         }
 
         public Order Order { get; set; }
         public List<Side> Sides { get; set; }
+
     }
 }

@@ -40,6 +40,7 @@ namespace BlazinPizzaCO.Controllers
                     order = new Order { MemberID = memberID };
                     db.Orders.Add(order);
                     await db.SaveChangesAsync();
+
                 }
                 else if (orderID.HasValue )
                 {
@@ -56,7 +57,7 @@ namespace BlazinPizzaCO.Controllers
                     db.Orders.Add(order);
                     await db.SaveChangesAsync();
                 }
-            
+
             return await Task.Run(() => View(order));
         }
 
@@ -122,12 +123,23 @@ namespace BlazinPizzaCO.Controllers
             return await Task.Run(() => RedirectToAction("Order", new { orderID = pizza.Order.ID }));
         }
 
-        public async Task<ActionResult> AddSide(int orderID)
+        public async Task<ActionResult> ChooseSide(int orderID)
         {
             var order = await db.Orders.FindAsync(orderID);
-            var addSideVM = new AddSideViewModel() { Order = order };
+            var addSideVM = new ChooseSideViewModel() { Order = order };
 
             return await Task.Run(() => View(addSideVM));
+        }
+
+        public async Task<ActionResult> AddSide(int orderID, int sideID)
+        {
+            var order = await db.Orders.FindAsync(orderID);
+            var side = await db.Sides.FindAsync(sideID);
+
+            order.Add(side);
+            db.SaveChanges();
+
+            return await Task.Run(() => RedirectToAction("ChooseSide", new { orderID }));
         }
 
         public async Task<ActionResult> OrderDone(int orderID)

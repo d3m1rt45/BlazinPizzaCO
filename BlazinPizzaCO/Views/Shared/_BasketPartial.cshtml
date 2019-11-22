@@ -3,21 +3,40 @@
 @if (Model.Pizzas.Any(p => p.Done) || Model.Drinks.Any() || Model.Sides.Any())
 {
     <article id="Basket" class="col-xl-2 h-100 d-flex justify-content-center align-items-center">
+        <div class="Inner">
 
-        <div class="Pizzas">
-            @foreach (var item in Model.Pizzas.Where(p => p.Done))
+            @if (Model.Pizzas.Any(p => p.Done))
             {
-                <h4>@item.Inches Pizza (£@item.GetPrice().ToString())</h4>
-                <ul>
-                    @foreach (var topping in item.Toppings)
+                <div class="Pizzas">
+                    @foreach (var item in Model.Pizzas.Where(p => p.Done))
                     {
-                        <li>@topping.Name</li>
+                        <h4>@item.Inches Pizza (£@item.GetPrice().ToString())</h4>
+                        <ul>
+                            @foreach (var topping in item.Toppings)
+                            {
+                                <li>@topping.Name</li>
+                            }
+                        </ul>
                     }
-                </ul>
+                </div>
+            }
+
+            @if (Model.Sides.Any())
+            {
+                <div class="Sides">
+                    <h4>Sides (£@Model.GetSideTotal().ToString())</h4>
+                    <ul>
+                        @foreach (var item in Model.Sides)
+                        {
+                            <li>@item.Name</li>
+                        }
+                    </ul>
+                </div>
             }
         </div>
 
         <a class="OrderButton" href="@Url.Action("OrderDone", new { orderID = Model.ID })">Finish & Pay</a>
+
     </article>
 }
 else
