@@ -162,8 +162,7 @@ namespace BlazinPizzaCO.Controllers
             var order = await db.Orders.FindAsync(orderID);
             var drink = await db.Drinks.FindAsync(drinkID);
 
-            order.AddDrink(drink);
-            db.SaveChanges();
+            await Task.Run(() => order.AddDrink(drink));
 
             return await Task.Run(() => RedirectToAction("ChooseDrink", new { orderID }));
         }

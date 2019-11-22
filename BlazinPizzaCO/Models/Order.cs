@@ -16,6 +16,7 @@ namespace BlazinPizzaCO.Models
         {
             Pizzas = new List<Pizza>();
             Sides = new List<Side>();
+            Drinks = new List<Drink>();
             DrinksPerOrder = new List<DrinkPerOrder>();
         }
 
@@ -27,6 +28,8 @@ namespace BlazinPizzaCO.Models
         public string MemberID { get; set; }
         public decimal Total { get; set; }
         public string Address { get; set; }
+
+        public List<Drink> Drinks { get; set; }
 
         // Relationship Field(s)
         public virtual ICollection<Pizza> Pizzas { get; set; }
@@ -40,17 +43,19 @@ namespace BlazinPizzaCO.Models
             {
                 var orderID = this.ID;
                 var drinkID = drink.ID;
-                var drinkPerOrderList = db.DrinkPerOrder.Where(dpo => dpo.DrinkID == drinkID && dpo.OrderID == orderID);
+                var drinkPerOrder = this.DrinksPerOrder.SingleOrDefault(dpo => dpo.DrinkID == drink.ID);
 
-                if(drinkPerOrderList.Any())
+                if (drinkPerOrder != null)
                 {
-                    var drinkPerOrder = drinkPerOrderList.FirstOrDefault();
-                    drinkPerOrder.Amount++;
+                    drinkPerOrder.RaiseAmount();
                 }
                 else
                 {
+                    this.Drinks.Add(drink);
                     this.DrinksPerOrder.Add(new DrinkPerOrder(orderID, drinkID));
+                    db.SaveChanges();
                 }
+
             }
         }
 

@@ -14,15 +14,17 @@ namespace BlazinPizzaCO.Models
         public DrinkPerOrder(int orderID, int drinkID)
         {
             using (var db = new BlazinContext())
-            {
+            {   
+                //Get the related order and drink
                 var order = db.Orders.Find(orderID);
                 var drink = db.Drinks.Find(drinkID);
 
-                if (order == null)
+
+                if (order == null) //If there is no such order:
                 {
                     throw new KeyNotFoundException("Order Not Found");
                 }
-                else if (drink == null)
+                else if (drink == null) //If there is no such drink related to the said order:
                 {
                     throw new KeyNotFoundException("Drink Not Found");
                 }
@@ -30,10 +32,11 @@ namespace BlazinPizzaCO.Models
                 {
                     this.Order = order;
                     this.OrderID = orderID;
-
                     this.Drink = drink;
                     this.DrinkID = drinkID;
+                    this.Amount = 1;
 
+                    db.DrinkPerOrder.Add(this);
                     db.SaveChanges();
                 }
             }
@@ -49,5 +52,19 @@ namespace BlazinPizzaCO.Models
         public virtual Drink Drink { get; set; }
 
 
+        public void RaiseAmount()
+        {
+            using (var db = new BlazinContext())
+            {
+                var dpo = db.DrinkPerOrder.Single(d => d.ID == this.ID);
+
+                int current = this.Amount;
+                current++;
+                dpo.Amount = current;
+
+                db.SaveChanges();
+            }
+            
+        }
     }
 }
