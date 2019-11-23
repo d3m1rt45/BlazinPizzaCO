@@ -39,7 +39,7 @@
 
             @if (Model.SidesPerOrder.Any())
             {
-                <div class="Sides">
+                <div class="Sides col-xl-10 offset-xl-1">
                     <h4>Sides (£@Model.GetSideTotal().ToString())</h4>
                     <ul>
                         @foreach (var item in Model.SidesPerOrder)
@@ -52,7 +52,7 @@
 
             @if (Model.DrinksPerOrder.Any())
             {
-                <div class="Drinks">
+                <div class="Drinks col-xl-10 offset-xl-1">
                     <h4>Drinks (£@Model.GetDrinkTotal().ToString())</h4>
                     <ul>
                         @foreach (var item in Model.DrinksPerOrder)
@@ -64,7 +64,7 @@
             }
         </div>
 
-        <a class="OrderButton" href="@Url.Action("ReviewOrder", new { orderID = Model.ID })">Finish & Pay</a>
+        <a class="OrderButton" href="@Url.Action("ReviewOrder", new { orderID = Model.ID })">Edit/Finalize</a>
 
         <h4 class="Total">Total: £@Model.GetTotal().ToString()</h4> 
 

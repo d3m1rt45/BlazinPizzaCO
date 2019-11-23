@@ -17,6 +17,10 @@
                 </article><!--/#Banner-->
 
                 @Html.Partial("_OrderPartial")
+
+                <article class="Done col-12 d-flex justify-content-center">
+                    <a class="Finalize" href="@Url.Action("FinalizeOrder", new { orderID = Model.ID })">FINALIZE</a>
+                </article>
             </div><!--/#ExceptBasket-->
 
         </div><!--/#PageRow-->

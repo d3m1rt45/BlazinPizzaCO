@@ -123,6 +123,17 @@ namespace BlazinPizzaCO.Controllers
             return await Task.Run(() => RedirectToAction("Order", new { orderID = pizza.Order.ID }));
         }
 
+        public async Task<ActionResult> RemovePizza(int orderID, int pizzaID)
+        {
+            var order = await db.Orders.FindAsync(orderID);
+            var pizza = await db.Pizzas.FindAsync(pizzaID);
+
+            await Task.Run(() => order.Pizzas.Remove(pizza) );
+            await db.SaveChangesAsync();
+
+            return await Task.Run(() => RedirectToAction("ReviewOrder", new { orderID = order.ID }));
+        }
+
         public async Task<ActionResult> ChooseSide(int orderID)
         {
             var order = await db.Orders.FindAsync(orderID);
@@ -139,6 +150,25 @@ namespace BlazinPizzaCO.Controllers
             await Task.Run(() => order.AddSide(side));
 
             return await Task.Run(() => RedirectToAction("ChooseSide", new { orderID }));
+        }
+
+        public async Task<ActionResult> RemoveSide(int sidesPerOrderID)
+        {
+            var sidesPerOrder = await db.SidePerOrder.FindAsync(sidesPerOrderID);
+            var order = await db.Orders.FindAsync(sidesPerOrder.Order.ID);
+
+            if (sidesPerOrder.Amount > 1)
+            {
+                sidesPerOrder.Amount -= 1;
+                db.SaveChanges();
+            }
+            else
+            {
+                order.SidesPerOrder.Remove(sidesPerOrder);
+                db.SaveChanges();
+            }
+
+            return await Task.Run(() => RedirectToAction("ReviewOrder", new { orderID = order.ID }));
         }
 
         public async Task<ActionResult> ChooseDrink(int orderID)

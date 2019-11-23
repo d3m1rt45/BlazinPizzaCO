@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlazinPizzaCO.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace BlazinPizzaCO.Models
 {
-    public class Side
+    public class Side : IExtra
     {
         // Properties
         [Key]
@@ -16,6 +17,7 @@ namespace BlazinPizzaCO.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
+
 
         // Relationship Field(s)
         public virtual ICollection<Order> Orders { get; set; }

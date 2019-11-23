@@ -1,5 +1,6 @@
 ﻿@model BlazinPizzaCO.Models.Order
 
+@Html.Partial("_EditModalPartial")
 
 @if (Model.Pizzas.Any())
 {
@@ -27,6 +28,9 @@
                     <span>No Toppings (Tomato Sauce and Cheese Only)</span>
                 }
             </p>
+            <a class="RemovePizza" href="@Url.Action("RemovePizza", new { orderID = Model.ID, pizzaID = p.ID })">
+                <i class="RemovePizza fas fa-trash-alt"></i>
+            </a>
         </div>
     }
 }
@@ -35,19 +39,21 @@
 {
     <div class="Sides offset-xl-1 col-xl-5">
         <h4>Sides</h4>
-        <ul>
-            @foreach (var s in Model.SidesPerOrder)
-            {
-                <li>@s.Side.Name (@s.Side.Price)</li>
-            }
-        </ul>
+        @foreach (var s in Model.SidesPerOrder)
+        {
+            <h5>@s.Amount x @s.Side.Name (@s.Side.Price)  
+                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })")">
+                    <i class="RemoveSide fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }   
     </div>
     <div class="Drinks col-xl-5">
         <h4>Drinks</h4>
         <ul>
             @foreach (var d in Model.DrinksPerOrder)
             {
-            <li>@d.Amount @d.Drink.Name</li>
+            <li>@d.Amount x  @d.Drink.Name</li>
             }
         </ul>
     </div>

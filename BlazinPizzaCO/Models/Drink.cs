@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlazinPizzaCO.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace BlazinPizzaCO.Models
 {
-    public class Drink
+    public class Drink : IExtra
     {
         // Properties
         [Key]
