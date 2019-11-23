@@ -188,6 +188,25 @@ namespace BlazinPizzaCO.Controllers
             return await Task.Run(() => RedirectToAction("ChooseDrink", new { orderID }));
         }
 
+        public async Task<ActionResult> RemoveDrink(int drinksPerOrderID)
+        {
+            var drinksPerOrder = await db.DrinkPerOrder.FindAsync(drinksPerOrderID);
+            var order = await db.Orders.FindAsync(drinksPerOrder.Order.ID);
+
+            if (drinksPerOrder.Amount > 1)
+            {
+                drinksPerOrder.Amount -= 1;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                order.DrinksPerOrder.Remove(drinksPerOrder);
+                await db.SaveChangesAsync();
+            }
+
+            return await Task.Run(() => RedirectToAction("ReviewOrder", new { orderID = order.ID }));
+        }
+
         public async Task<ActionResult> ReviewOrder(int orderID)
         {
             var order = await db.Orders.FindAsync(orderID);

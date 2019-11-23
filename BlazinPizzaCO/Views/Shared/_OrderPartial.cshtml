@@ -7,7 +7,7 @@
     foreach (var p in Model.Pizzas.Where(o => o.Done))
     {
         <div class="Pizza col-xl-10 offset-xl-1">
-            <h4>(£@p.GetPrice()) @p.Inches.ToString() Pizza with</h4>
+            <h3>@p.Inches.ToString() Pizza (£@p.GetPrice())</h3>
             <p>
                 @if (p.Toppings.Any())
                 {
@@ -38,10 +38,11 @@
 @if (Model.SidesPerOrder.Any() && Model.DrinksPerOrder.Any())
 {
     <div class="Sides offset-xl-1 col-xl-5">
-        <h4>Sides</h4>
+        <h4>Sides (£@Model.GetSideTotal())</h4>
         @foreach (var s in Model.SidesPerOrder)
         {
-            <h5>@s.Amount x @s.Side.Name (@s.Side.Price)  
+            <h5>
+                @s.Amount x @s.Side.Name (£@s.Side.Price)  
                 <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })")">
                     <i class="RemoveSide fas fa-minus-circle"></i>
                 </a>
@@ -49,12 +50,15 @@
         }   
     </div>
     <div class="Drinks col-xl-5">
-        <h4>Drinks</h4>
-        <ul>
+        <h4>Drinks (£@Model.GetDrinkTotal())</h4>
             @foreach (var d in Model.DrinksPerOrder)
             {
-            <li>@d.Amount x  @d.Drink.Name</li>
+                <h5>
+                    @d.Amount x @d.Drink.Name (£@d.Drink.Price)
+                    <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
+                        <i class="RemoveDrink fas fa-minus-circle"></i>
+                    </a>
+                </h5>
             }
-        </ul>
     </div>
 }

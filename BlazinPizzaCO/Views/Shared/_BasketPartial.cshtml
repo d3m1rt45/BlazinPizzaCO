@@ -10,8 +10,8 @@
                 <div class="Pizzas">
                     @foreach (var p in Model.Pizzas.Where(o => o.Done))
                     {
-                        <div class="Pizza col-xl-10 offset-xl-1">
-                            <h4> @p.Inches.ToString() Pizza with </h4>
+                        <div class="Pizza col-xl-12">
+                            <h4> @p.Inches.ToString() Pizza (@p.GetPrice())</h4>
                             <p>
                                 @if (p.Toppings.Any())
                                 {
@@ -39,27 +39,23 @@
 
             @if (Model.SidesPerOrder.Any())
             {
-                <div class="Sides col-xl-10 offset-xl-1">
+                <div class="Sides col-xl-12">
                     <h4>Sides (£@Model.GetSideTotal().ToString())</h4>
-                    <ul>
                         @foreach (var item in Model.SidesPerOrder)
                         {
-                            <li>@item.Amount @item.Side.Name</li>
+                            <h6 class="Side">@item.Amount x  @item.Side.Name (£@item.Side.Price)</h6>
                         }
-                    </ul>
                 </div>
             }
 
             @if (Model.DrinksPerOrder.Any())
             {
-                <div class="Drinks col-xl-10 offset-xl-1">
+                <div class="Drinks col-xl-12">
                     <h4>Drinks (£@Model.GetDrinkTotal().ToString())</h4>
-                    <ul>
                         @foreach (var item in Model.DrinksPerOrder)
                         {
-                            <li>@item.Amount @item.Drink.Name</li>
+                            <h6>@item.Amount x @item.Drink.Name (£@item.Drink.Price)</h6>
                         }
-                    </ul>
                 </div>
             }
         </div>

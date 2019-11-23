@@ -191,17 +191,16 @@ nav #Banner {
 }
 
     #Basket h4,
-    #Basket h5 {
+    #Basket h5,
+    #Basket h6 {
         padding: 0;
         margin-bottom: 0.2rem;
         color: #E2E2E2;
     }
 
-    #Basket .Pizzas p{
-        margin-bottom:2rem;
-    }
-    
-    #Basket ul {
+    #Basket .Pizzas p,
+    #Basket .Sides,
+    #Basket .Drinks {
         margin-bottom: 2rem;
     }
 
@@ -650,7 +649,7 @@ nav #Banner {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 8rem;
+        padding-top: 1rem;
         width: 100%;
         background-color: #202020;
         margin-bottom: 1rem;
@@ -701,7 +700,7 @@ nav #Banner {
         text-decoration: none !important;
     }
 
-    #ReviewOrder div.Pizza i.RemovePizza {
+    #ReviewOrder div.Pizza i.RemovePizza{
         position: absolute;
         font-size: 25pt;
         color: #EFEFEF;
@@ -709,14 +708,16 @@ nav #Banner {
         top: 1rem;
     }
 
-    #ReviewOrder div.Sides a.RemoveSide {
+    #ReviewOrder div.Sides i.RemoveSide,
+    #ReviewOrder div.Drinks i.RemoveDrink {
         font-size: 12pt;
         margin-left: 0.2rem;
         color: #EFEFEF;
     }
 
-    #ReviewOrder div.Sides i.RemoveSide:hover,
-    #ReviewOrder div.Pizza i.RemovePizza:hover {
-        color: #707070;
-    }
+        #ReviewOrder div.Sides i.RemoveSide:hover,
+        #ReviewOrder div.Pizza i.RemovePizza:hover,
+        #ReviewOrder div.Drinks i.RemoveDrink:hover {
+            color: #707070;
+        }
 /*/<<<<<< REVIEW_ORDER <<<<<</*/
