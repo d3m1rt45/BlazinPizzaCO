@@ -1,7 +1,5 @@
 ﻿@model BlazinPizzaCO.Models.Order
 
-@Html.Partial("_EditModalPartial")
-
 @if (Model.Pizzas.Any())
 {
     foreach (var p in Model.Pizzas.Where(o => o.Done))
@@ -38,27 +36,57 @@
 @if (Model.SidesPerOrder.Any() && Model.DrinksPerOrder.Any())
 {
     <div class="Sides offset-xl-1 col-xl-5">
-        <h4>Sides (£@Model.GetSideTotal())</h4>
+        <h3>Sides (£@Model.GetSideTotal())</h3>
         @foreach (var s in Model.SidesPerOrder)
         {
             <h5>
-                @s.Amount x @s.Side.Name (£@s.Side.Price)  
-                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })")">
+                @s.Amount x @s.Side.Name (£@s.Side.Price)
+                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })" )">
                     <i class="RemoveSide fas fa-minus-circle"></i>
                 </a>
             </h5>
-        }   
+        }
     </div>
     <div class="Drinks col-xl-5">
-        <h4>Drinks (£@Model.GetDrinkTotal())</h4>
-            @foreach (var d in Model.DrinksPerOrder)
-            {
-                <h5>
-                    @d.Amount x @d.Drink.Name (£@d.Drink.Price)
-                    <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
-                        <i class="RemoveDrink fas fa-minus-circle"></i>
-                    </a>
-                </h5>
-            }
+        <h3>Drinks (£@Model.GetDrinkTotal())</h3>
+        @foreach (var d in Model.DrinksPerOrder)
+        {
+            <h5>
+                @d.Amount x @d.Drink.Name (£@d.Drink.Price)
+                <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
+                    <i class="RemoveDrink fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
+    </div>
+}
+else if (Model.SidesPerOrder.Any())
+{
+    <div class="Sides offset-xl-1 col-xl-10">
+        <h3>Sides (£@Model.GetSideTotal())</h3>
+        @foreach (var s in Model.SidesPerOrder)
+        {
+            <h5>
+                @s.Amount x @s.Side.Name (£@s.Side.Price)
+                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })" )">
+                    <i class="RemoveSide fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
+    </div>
+}
+else if (Model.DrinksPerOrder.Any())
+{
+    <div class="Drinks col-xl-10 offset-xl-1">
+        <h3>Drinks (£@Model.GetDrinkTotal())</h3>
+        @foreach (var d in Model.DrinksPerOrder)
+        {
+            <h5>
+                @d.Amount x @d.Drink.Name (£@d.Drink.Price)
+                <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
+                    <i class="RemoveDrink fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
     </div>
 }

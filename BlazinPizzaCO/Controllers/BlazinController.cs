@@ -154,7 +154,7 @@ namespace BlazinPizzaCO.Controllers
 
         public async Task<ActionResult> RemoveSide(int sidesPerOrderID)
         {
-            var sidesPerOrder = await db.SidePerOrder.FindAsync(sidesPerOrderID);
+            var sidesPerOrder = await db.SidesPerOrder.FindAsync(sidesPerOrderID);
             var order = await db.Orders.FindAsync(sidesPerOrder.Order.ID);
 
             if (sidesPerOrder.Amount > 1)
@@ -190,7 +190,7 @@ namespace BlazinPizzaCO.Controllers
 
         public async Task<ActionResult> RemoveDrink(int drinksPerOrderID)
         {
-            var drinksPerOrder = await db.DrinkPerOrder.FindAsync(drinksPerOrderID);
+            var drinksPerOrder = await db.DrinksPerOrder.FindAsync(drinksPerOrderID);
             var order = await db.Orders.FindAsync(drinksPerOrder.Order.ID);
 
             if (drinksPerOrder.Amount > 1)

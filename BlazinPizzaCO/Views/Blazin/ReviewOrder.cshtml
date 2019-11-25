@@ -9,7 +9,6 @@
     <div id="PageContainer" class="container-fluid">
         <div id="PageRow" class="row">
 
-
             <div id="ExceptBasket" class="col-xl-10 offset-xl-1">
                 <article class="PageHead col-xl-10 offset-1">
                     <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
@@ -18,9 +17,14 @@
 
                 @Html.Partial("_OrderPartial")
 
-                <article class="Done col-12 d-flex justify-content-center">
-                    <a class="Finalize" href="@Url.Action("FinalizeOrder", new { orderID = Model.ID })">FINALIZE</a>
+                <article class="Done col-10 offset-1 d-flex justify-content-center">
+                    <h4 class="Total">Order Total: £@Model.GetTotal().ToString()</h4>
+                    <a class="Confirm" href="#AddressModal" data-toggle="modal">CONFIRM</a>
                 </article>
+
+                @Html.Partial("_OrderModalsPartial")
+
+
             </div><!--/#ExceptBasket-->
 
         </div><!--/#PageRow-->

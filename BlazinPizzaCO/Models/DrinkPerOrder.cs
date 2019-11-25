@@ -35,7 +35,7 @@ namespace BlazinPizzaCO.Models
                     this.Drink = drink;
                     this.Amount = 1;
 
-                    db.DrinkPerOrder.Add(this);
+                    db.DrinksPerOrder.Add(this);
                     db.SaveChanges();
                 }
             }
@@ -53,7 +53,7 @@ namespace BlazinPizzaCO.Models
         {
             using (var db = new BlazinContext())
             {
-                var dpo = db.DrinkPerOrder.Single(d => d.ID == this.ID);
+                var dpo = db.DrinksPerOrder.Single(d => d.ID == this.ID);
 
                 int current = this.Amount;
                 current++;

@@ -184,6 +184,7 @@
     <Compile Include="Models\Drink.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\Side.cs" />
     <Compile Include="Models\DrinkPerOrder.cs" />
@@ -314,7 +315,7 @@
     <Content Include="Views\Blazin\ChooseDrink.cshtml" />
     <Content Include="Views\Blazin\ReviewOrder.cshtml" />
     <Content Include="Views\Shared\_OrderPartial.cshtml" />
-    <Content Include="Views\Shared\_EditModalPartial.cshtml" />
+    <Content Include="Views\Shared\_OrderModalsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

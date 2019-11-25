@@ -20,7 +20,6 @@ namespace BlazinPizzaCO.Models
 
 
         // Relationship Field(s)
-        public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<SidePerOrder> Sides { get; set; }
+        public virtual ICollection<SidePerOrder> SidesPerOrder { get; set; }
     }
 }

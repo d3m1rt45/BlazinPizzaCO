@@ -33,7 +33,7 @@ namespace BlazinPizzaCO.Models
                     this.Side = side;
                     this.Amount = 1;
 
-                    db.SidePerOrder.Add(this);
+                    db.SidesPerOrder.Add(this);
                     db.SaveChanges();
                 }
             }
@@ -51,7 +51,7 @@ namespace BlazinPizzaCO.Models
         {
             using (var db = new BlazinContext())
             {
-                var dpo = db.SidePerOrder.Single(d => d.ID == this.ID);
+                var dpo = db.SidesPerOrder.Single(d => d.ID == this.ID);
 
                 int current = this.Amount;
                 current++;
