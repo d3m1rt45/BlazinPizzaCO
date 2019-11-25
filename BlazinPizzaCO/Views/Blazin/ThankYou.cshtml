@@ -1,0 +1,25 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@{
+    ViewBag.Title = "Thank You";
+}
+
+<section id="ThankYou">
+    <div id="PageContainer" class="container-fluid">
+        <div id="PageRow" class="row">
+
+            <article class="PageHead col-10 offset-1">
+                <h2 class="Header">THANK YOU FOR CHOOSING BLAZIN!</h2>
+                <h4>Your order will be with you in 40 minutes!</h4>
+            </article><!--/#Banner-->
+            
+            @Html.Partial("_ReceiptPartial")
+
+            <article class="Done col-10 offset-1">
+                <h4 class="Total">Total Paid: £@Model.GetTotal().ToString()</h4>
+                <a class="Confirm" href="@Url.Action("Home", new { orderID = Model.ID })">HOME</a>
+            </article>
+
+        </div><!--/#PageRow-->
+    </div><!--#PageContainer-->
+</section><!--/#PizzaSize-->

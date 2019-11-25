@@ -315,7 +315,10 @@
     <Content Include="Views\Blazin\ChooseDrink.cshtml" />
     <Content Include="Views\Blazin\ReviewOrder.cshtml" />
     <Content Include="Views\Shared\_OrderPartial.cshtml" />
-    <Content Include="Views\Shared\_OrderModalsPartial.cshtml" />
+    <Content Include="Views\Shared\_PaymentPartial.cshtml" />
+    <Content Include="Views\Blazin\FinalizeOrder.cshtml" />
+    <Content Include="Views\Blazin\ThankYou.cshtml" />
+    <Content Include="Views\Shared\_ReceiptPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

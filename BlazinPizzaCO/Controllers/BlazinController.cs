@@ -15,7 +15,7 @@ namespace BlazinPizzaCO.Controllers
     public class BlazinController : Controller
     {
         public BlazinContext db = new BlazinContext();
-        
+
         public async Task<ActionResult> Home()
         {
             return await Task.Run(() => View());
@@ -24,39 +24,39 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> Order(int? orderID)
         {
             Order order;
-            
-                if (User.Identity.IsAuthenticated && orderID.HasValue)
-                {
-                    var memberID = User.Identity.GetUserId();
-                    
-                    order = await db.Orders.FindAsync(orderID);
 
-                    if(order.MemberID != memberID)
-                        throw new UnauthorizedAccessException("This is not your order.");
-                }
-                else if (User.Identity.IsAuthenticated)
-                {
-                    var memberID = User.Identity.GetUserId();
-                    order = new Order { MemberID = memberID };
-                    db.Orders.Add(order);
-                    await db.SaveChangesAsync();
+            if (User.Identity.IsAuthenticated && orderID.HasValue)
+            {
+                var memberID = User.Identity.GetUserId();
 
-                }
-                else if (orderID.HasValue )
-                {
-                    var userIP = Request.UserHostAddress;
-                    order = await db.Orders.FindAsync(orderID);
+                order = await db.Orders.FindAsync(orderID);
 
-                    if (order.MemberID != userIP)
-                        throw new UnauthorizedAccessException("This is not your order.");
-                }
-                else
-                {
-                    var userIP = Request.UserHostAddress;
-                    order = new Order { MemberID = userIP };
-                    db.Orders.Add(order);
-                    await db.SaveChangesAsync();
-                }
+                if (order.MemberID != memberID)
+                    throw new UnauthorizedAccessException("This is not your order.");
+            }
+            else if (User.Identity.IsAuthenticated)
+            {
+                var memberID = User.Identity.GetUserId();
+                order = new Order { MemberID = memberID };
+                db.Orders.Add(order);
+                await db.SaveChangesAsync();
+
+            }
+            else if (orderID.HasValue)
+            {
+                var userIP = Request.UserHostAddress;
+                order = await db.Orders.FindAsync(orderID);
+
+                if (order.MemberID != userIP)
+                    throw new UnauthorizedAccessException("This is not your order.");
+            }
+            else
+            {
+                var userIP = Request.UserHostAddress;
+                order = new Order { MemberID = userIP };
+                db.Orders.Add(order);
+                await db.SaveChangesAsync();
+            }
 
             return await Task.Run(() => View(order));
         }
@@ -128,7 +128,7 @@ namespace BlazinPizzaCO.Controllers
             var order = await db.Orders.FindAsync(orderID);
             var pizza = await db.Pizzas.FindAsync(pizzaID);
 
-            await Task.Run(() => order.Pizzas.Remove(pizza) );
+            await Task.Run(() => order.Pizzas.Remove(pizza));
             await db.SaveChangesAsync();
 
             return await Task.Run(() => RedirectToAction("ReviewOrder", new { orderID = order.ID }));
@@ -212,6 +212,39 @@ namespace BlazinPizzaCO.Controllers
             var order = await db.Orders.FindAsync(orderID);
             await Task.Run(() => order.Refine());
 
+            return await Task.Run(() => View(order));
+        }
+
+        public async Task<ActionResult> FinalizeOrder(int orderID)
+        {
+            var paymentDetails = new PaymentDetails { OrderID = orderID };
+
+            return await Task.Run(() => View(paymentDetails));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> FinalizeOrder(PaymentDetails paymentDetails)
+        {
+
+            if(ModelState.IsValid)
+            {
+                var order = await db.Orders.FindAsync(paymentDetails.OrderID);
+                
+                order.PaymentDetails = paymentDetails;
+                order.Submitted = true;
+                await db.SaveChangesAsync();
+
+                return await Task.Run(() => RedirectToAction("ThankYou", new { orderID = order.ID }));
+            }
+            else
+            {
+                return await Task.Run(() => View(paymentDetails));
+            }
+        }
+
+        public async Task<ActionResult> ThankYou(int orderID)
+        {
+            var order = await db.Orders.FindAsync(orderID);
             return await Task.Run(() => View(order));
         }
     }

@@ -63,5 +63,10 @@ namespace BlazinPizzaCO.Models
             }
             
         }
+
+        public decimal TotalPerOrder()
+        {
+            return this.Drink.Price * this.Amount;
+        }
     }
 }

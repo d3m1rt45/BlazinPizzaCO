@@ -43,7 +43,7 @@
                     <h4>Sides (£@Model.GetSideTotal().ToString())</h4>
                         @foreach (var item in Model.SidesPerOrder)
                         {
-                            <h6 class="Side">@item.Amount x  @item.Side.Name (£@item.Side.Price)</h6>
+                            <p class="Side">@item.Amount x  @item.Side.Name (£@item.Side.Price)</p>
                         }
                 </div>
             }
@@ -54,7 +54,7 @@
                     <h4>Drinks (£@Model.GetDrinkTotal().ToString())</h4>
                         @foreach (var item in Model.DrinksPerOrder)
                         {
-                            <h6>@item.Amount x @item.Drink.Name (£@item.Drink.Price)</h6>
+                            <p>@item.Amount x @item.Drink.Name (£@item.Drink.Price)</p>
                         }
                 </div>
             }

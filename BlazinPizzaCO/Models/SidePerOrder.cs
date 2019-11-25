@@ -59,7 +59,11 @@ namespace BlazinPizzaCO.Models
 
                 db.SaveChanges();
             }
+        }
 
+        public decimal TotalPerOrder()
+        {
+            return this.Side.Price * this.Amount;
         }
     }
 }

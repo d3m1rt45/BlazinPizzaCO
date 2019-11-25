@@ -1,5 +1,6 @@
 ﻿/*/>>>>>> GENERAL >>>>>>/*/
-body{
+body {
+    background-color: #BCBCBC;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,8 +15,8 @@ p, lead, a {
     min-height: 100vh;
 }
 
-#ExceptBasket {
-    margin-top: 5rem;
+#ExceptBasket{
+    margin-top: 6rem;
 }
 /*/<<<<<< GENERAL <<<<<</*/
 
@@ -192,7 +193,8 @@ nav #Banner {
 
     #Basket h4,
     #Basket h5,
-    #Basket h6 {
+    #Basket h6,
+    #Basket p {
         padding: 0;
         margin-bottom: 0.2rem;
         color: #E2E2E2;
@@ -203,6 +205,11 @@ nav #Banner {
     #Basket .Drinks {
         margin-bottom: 2rem;
     }
+
+        #Basket .Sides p,
+        #Basket .Drinks p {
+            margin-bottom: 0;
+        }
 
     #Basket li {
         color: #E2E2E2;
@@ -603,8 +610,9 @@ nav #Banner {
     position: absolute;
 }
 
-    #ReviewOrder #ExceptBasket {
-        padding-top: 5rem;
+    #ReviewOrder #PageRow {
+        display: block;
+        padding-top: 9rem;
     }
 
     #ReviewOrder .PageHead {
@@ -705,11 +713,121 @@ nav #Banner {
     flex-direction: column;
 }
 
+    #ReviewOrder h4.Total {
+        border-radius: 1rem;
+        padding: 1rem 4rem 1.1rem 4rem;
+        background-color: #202020;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20pt;
+        color: #E2E2E2;
+        margin: 0.5rem 0 1rem 0;
+    }
+
     #ReviewOrder a.Confirm {
         font-family: 'Sitka Display', serif !important;
         font-weight: bold;
         text-align: center;
-        font-size: 27pt;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 0.5rem 1rem;
+        text-decoration: none !important;
+        padding: 0.5rem 0 0.5rem 0;
+    }
+/*/<<<<<< REVIEW_ORDER <<<<<</*/
+
+
+
+/*/>>>>>> FINALIZE_ORDER >>>>>>/*/
+#FinalizeOrder {
+    background-color: #BCBCBC;
+    width: 100vw;
+}
+
+    #FinalizeOrder #PageRow {
+        padding-top: 9rem;
+        display: block;
+    }
+
+    #FinalizeOrder .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #FinalizeOrder .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #FinalizeOrder .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #FinalizeOrder .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #FinalizeOrder .Form {
+        margin-top: 0;
+        background-color: #202020;
+        border-radius: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+        #FinalizeOrder .Form input {
+            text-align: center;
+            background-color: #AFAFAF;
+            font-family: 'Sitka Text', serif;
+            color: #202020;
+            font-size: 16pt;
+        }
+
+    #FinalizeOrder .form-group {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #FinalizeOrder .Form label {
+        color: #E2E2E2;
+        font-family: 'Sitka Subheading', serif;
+        font-size: 17pt;
+    }
+
+    #FinalizeOrder .Done {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #FinalizeOrder .Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
         color: #EFEFEF;
         background-color: #683131;
         width: 16rem;
@@ -717,16 +835,116 @@ nav #Banner {
         margin: 0.5rem 1rem 0.5rem 1rem;
         text-decoration: none !important;
     }
+/*/<<<<<< FINALIZE_ORDER <<<<<</*/
 
-    #ReviewOrder h4.Total {
+
+
+/*/>>>>>> THANK_YOU >>>>>>/*/
+#ThankYou {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #ThankYou #PageRow {
+        display: block;
+        padding-top: 9rem;
+    }
+
+    #ThankYou .PageHead {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #202020;
+        text-align: center;
         border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #ThankYou .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+        }
+
+        #ThankYou .PageHead h4 {
+            color: #E2E2E2;
+            font-size: 20pt;
+        }
+
+    #ThankYou div.Pizza {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 1rem;
         width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+        #ThankYou div.Pizza p {
+            font-size: 15pt;
+        }
+
+    #ThankYou div.Sides,
+    #ThankYou div.Drinks {
+        padding: 1rem 0 0.5rem 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+    #ThankYou div.Address {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+    #ThankYou article.Done {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #ThankYou h4.Total {
+        border-radius: 1rem;
+        padding: 1rem 4rem 1.1rem 4rem;
         background-color: #202020;
         text-align: center;
         font-weight: bold;
         font-size: 20pt;
         color: #E2E2E2;
-        margin: 0.5rem 0 1rem 0;
+        margin: 0.5rem 0 3rem 0;
+    }
+
+    #ThankYou a.Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 0.5rem 1rem;
+        text-decoration: none !important;
         padding: 0.5rem 0 0.5rem 0;
     }
-/*/<<<<<< REVIEW_ORDER <<<<<</*/
+/*/<<<<<< THANK_YOU <<<<<</*/

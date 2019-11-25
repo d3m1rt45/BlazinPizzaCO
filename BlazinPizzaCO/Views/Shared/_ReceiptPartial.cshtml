@@ -26,9 +26,6 @@
                     <span>No Toppings (Tomato Sauce and Cheese Only)</span>
                 }
             </p>
-            <a class="RemovePizza" href="@Url.Action("RemovePizza", new { orderID = Model.ID, pizzaID = p.ID })">
-                <i class="RemovePizza fas fa-trash-alt"></i>
-            </a>
         </div>
     }
 }
@@ -39,24 +36,14 @@
         <h3>Sides (£@Model.GetSideTotal())</h3>
         @foreach (var s in Model.SidesPerOrder)
         {
-            <h5>
-                @s.Amount x @s.Side.Name (£@s.Side.Price)
-                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })" )">
-                    <i class="RemoveSide fas fa-minus-circle"></i>
-                </a>
-            </h5>
+            <h5>@s.Amount x @s.Side.Name (£@s.Side.Price)</h5>
         }
     </div>
     <div class="Drinks col-5">
         <h3>Drinks (£@Model.GetDrinkTotal())</h3>
         @foreach (var d in Model.DrinksPerOrder)
         {
-            <h5>
-                @d.Amount x @d.Drink.Name (£@d.Drink.Price)
-                <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
-                    <i class="RemoveDrink fas fa-minus-circle"></i>
-                </a>
-            </h5>
+            <h5>@d.Amount x @d.Drink.Name (£@d.Drink.Price)</h5>
         }
     </div>
 }
@@ -66,12 +53,7 @@ else if (Model.SidesPerOrder.Any())
         <h3>Sides (£@Model.GetSideTotal())</h3>
         @foreach (var s in Model.SidesPerOrder)
         {
-            <h5>
-                @s.Amount x @s.Side.Name (£@s.Side.Price)
-                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })" )">
-                    <i class="RemoveSide fas fa-minus-circle"></i>
-                </a>
-            </h5>
+            <h5>@s.Amount x @s.Side.Name (£@s.Side.Price)</h5>
         }
     </div>
 }
@@ -81,12 +63,12 @@ else if (Model.DrinksPerOrder.Any())
         <h3>Drinks (£@Model.GetDrinkTotal())</h3>
         @foreach (var d in Model.DrinksPerOrder)
         {
-            <h5>
-                @d.Amount x @d.Drink.Name (£@d.Drink.Price)
-                <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
-                    <i class="RemoveDrink fas fa-minus-circle"></i>
-                </a>
-            </h5>
+            <h5>@d.Amount x @d.Drink.Name (£@d.Drink.Price)</h5>
         }
     </div>
 }
+
+<div class="Address col-10 offset-1">
+    <h3>Delivery Address</h3>
+    <h5>@Model.PaymentDetails.AddressFirstLine,  @Model.PaymentDetails.PostCode</h5>
+</div>
