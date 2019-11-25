@@ -4,60 +4,63 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<section id="Login">
+    <div class="PageContainer container-fluid">
+        <div class="PageRow row">
+
+            <article class="PageHead col-xl-10 offset-1">
+                <a class="BackButton" href="@Url.Action("Home", "Blazin")">BACK</a>
+                <h2 class="Header">SIGN IN</h2>
+            </article>
+
+
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "col-md-10 offset-1", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+
+                <div class="Form form-row">
+
+                    <div class="form-group col-md-10 offset-1">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+
+                    <div class="form-group col-md-10 offset-1">
+                        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+
+                    <div class="form-group col-md-10 offset-1">
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
                         </div>
                     </div>
+
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
+
+                <div class="Done form-group col-10 offset-1">
+                    <input type="submit" value="Sign In" class="Confirm btn btn-default" />
                 </div>
-                <p>
+
+                <div class="Register col-10 offset-1">
                     @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
+                </div>
             }
-        </section>
+        </div>
     </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".nav-link.active").removeClass("active");
+            $(".nav-link.Login").addClass("active");
+        })
+    </script>
 }

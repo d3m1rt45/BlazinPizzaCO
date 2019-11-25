@@ -183,6 +183,219 @@ nav #Banner {
 
 
 
+/*/>>>>>> LOGIN >>>>>>/*/
+#Login {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+    padding-top: 10rem;
+}
+
+    #Login .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #Login .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #Login .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #Login .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #Login .Form {
+        margin-top: 0;
+        background-color: #202020;
+        border-radius: 1rem;
+        padding-top: 2.2rem;
+    }
+
+        #Login .Form input {
+            text-align: center;
+            background-color: #683131;
+            font-family: 'Sitka Text', serif;
+            color: #E2E2E2;
+            font-size: 16pt;
+        }
+
+    #Login .form-group {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #Login .Form label {
+        color: #E2E2E2;
+        font-family: 'Sitka Subheading', serif;
+        font-size: 17pt;
+    }
+
+    #Login .Done {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #Login .Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0.5rem 1rem 0 1rem;
+        text-decoration: none !important;
+    }
+
+    #Login .Register {
+        text-align: center;
+    }
+
+    #Login .Register a{
+        font-family: 'Sitka Display', serif;
+        font-size: 20pt;
+        color: #202020;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+/*/<<<<<< LOGIN <<<<<</*/
+
+
+
+/*/>>>>>> REGISTER >>>>>>/*/
+#Register {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+    padding-top: 10rem;
+}
+
+    #Register .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #Register .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #Register .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #Register .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #Register .Form {
+        margin-top: 0;
+        background-color: #202020;
+        border-radius: 1rem;
+        padding-top: 2.2rem;
+        padding-bottom: 2rem;
+    }
+
+        #Register .Form input {
+            text-align: center;
+            background-color: #683131;
+            font-family: 'Sitka Text', serif;
+            color: #E2E2E2;
+            font-size: 16pt;
+        }
+
+    #Register .form-group {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #Register .Form label {
+        color: #E2E2E2;
+        font-family: 'Sitka Subheading', serif;
+        font-size: 17pt;
+    }
+
+    #Register .Done {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #Register .Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0.5rem 1rem 0.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+    #Register .Register {
+        text-align: center;
+    }
+
+        #Register .Register a {
+            font-family: 'Sitka Display', serif;
+            font-size: 20pt;
+            color: #202020;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+/*/<<<<<< REGISTER <<<<<</*/
+
+
+
 /*/>>>>>> BASKET >>>>>>/*/
 #Basket {
     padding-top: 4rem;

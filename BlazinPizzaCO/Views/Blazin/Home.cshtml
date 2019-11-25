@@ -13,8 +13,8 @@
 
         <div class="Buttons">
             <div class="Top">
-                <a class="SignIn btn" href="#">SIGN IN</a>
-                <a class="Register btn" href="#">REGISTER</a>
+                <a class="SignIn btn" href="@Url.Action("Login", "Account")">SIGN IN</a>
+                <a class="Register btn" href="@Url.Action("Register", "Account")">REGISTER</a>
             </div><!--/.Top-->
             <div class="Middle">
                 <a class="Guest btn" href="@Url.Action("Order")">I'M A GUEST</a>
@@ -29,6 +29,7 @@
 </section><!--/#HomeIndex-->
 
 @section scripts{
+    <!--Hide the navbar on homepage-->
     <script type="text/javascript">
         $(document).ready(function () {
             $("nav.navbar").removeClass("fixed-top");
