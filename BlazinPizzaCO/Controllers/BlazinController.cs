@@ -27,6 +27,19 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> Order(int? orderID)
         {
             var order = Models.Order.FindOrCreate(db, orderID);
+
+            if(User.Identity.IsAuthenticated)
+            {
+                var member = await db.Members.FindAsync(User.Identity.GetUserId());
+
+                if(member == null)
+                {
+                    member = new Member(User.Identity.GetUserId());
+                    db.Members.Add(member);
+                    await db.SaveChangesAsync();
+                }
+            }
+
             return await Task.Run(() => View(order));
         }
 
@@ -79,7 +92,14 @@ namespace BlazinPizzaCO.Controllers
             }
             await db.SaveChangesAsync();
 
-            return await Task.Run(() => RedirectToAction("PizzaTopping", new { orderID = pizza.Order.ID, size = pizza.Inches, pizzaID }));
+            if(pizza.Free)
+            {
+                return await Task.Run(() => RedirectToAction("FreePizza", new { pizzaID }));
+            }
+            else
+            {
+                return await Task.Run(() => RedirectToAction("PizzaTopping", new { orderID = pizza.Order.ID, size = pizza.Inches, pizzaID }));
+            }
         }
 
         public async Task<ActionResult> PizzaDone(int pizzaID)
@@ -201,6 +221,18 @@ namespace BlazinPizzaCO.Controllers
                 order.Submitted = true;
                 await db.SaveChangesAsync();
 
+                if (User.Identity.IsAuthenticated)
+                {
+                    var member = await db.Members.FindAsync(User.Identity.GetUserId());
+                    var freePizzas = order.Pizzas.Where(p => p.Free).ToList();
+                    
+                    if(freePizzas.Any())
+                    {
+                        member.FreePizzasClaimed(freePizzas.Count());
+                        await db.SaveChangesAsync();
+                    }
+                }
+                
                 return await Task.Run(() => RedirectToAction("ThankYou", new { orderID = order.ID }));
             }
             else
@@ -215,7 +247,7 @@ namespace BlazinPizzaCO.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                order.Points = (order.GetTotal() / 10);
+                order.Submit();
                 string memberID = User.Identity.GetUserId();
                 var member = Member.FindOrCreate(db, memberID);
                 member.Orders.Add(order);
@@ -231,12 +263,52 @@ namespace BlazinPizzaCO.Controllers
             {
                 var memberID = User.Identity.GetUserId();
                 var member = await db.Members.FindAsync(memberID);
+
                 db.SaveChanges();
                 return await Task.Run(() => View(member));
             }
             else
             {
                 throw new UnauthorizedAccessException("Guests don't have access to My Points page.");
+            }
+        }
+
+        public async Task<ActionResult> FreePizza(int? pizzaID)
+        {
+            if(User.Identity.IsAuthenticated)
+            {
+                var member = await db.Members.FindAsync(User.Identity.GetUserId());
+
+                if(member.GetPoints() > 0)
+                {
+                    var order = new Order();
+                    db.Orders.Add(order);
+
+                    Pizza pizza;
+                    if(pizzaID.HasValue)
+                    {
+                        pizza = await db.Pizzas.FindAsync(pizzaID);
+                    }
+                    else
+                    {
+                        pizza = new Pizza { Inches = Size.Medium, Free = true };
+                    }
+
+                    order.Pizzas.Add(pizza);
+                    await db.SaveChangesAsync();
+
+                    var toppingVM = new ToppingViewModel { Pizza = pizza, Toppings = db.Toppings.ToList() };
+
+                    return await Task.Run(() => View(toppingVM));
+                }
+                else
+                {
+                    throw new InvalidOperationException("You do not have enough points to claim a free pizza.");
+                }
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("Guests cannot claim free pizzas.");
             }
         }
     }

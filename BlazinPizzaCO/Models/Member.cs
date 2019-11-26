@@ -16,7 +16,7 @@ namespace BlazinPizzaCO.Models
         [Key]
         [Required]
         public string ID { get; set; }
-        public int Points { get; set; }
+        public int PointsSpent { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
 
@@ -43,12 +43,20 @@ namespace BlazinPizzaCO.Models
         {
             decimal totalPoints = 0;
 
-            foreach(var order in Orders)
+            if(Orders != null && Orders.Any())
             {
-                totalPoints += order.Points;
+                foreach(var order in Orders)
+                {
+                    totalPoints += order.Points - this.PointsSpent;
+                }
             }
 
             return totalPoints;
+        }
+
+        public void FreePizzasClaimed(int amount)
+        {
+            PointsSpent += amount * 100;
         }
     }
 }

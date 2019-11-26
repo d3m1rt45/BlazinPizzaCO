@@ -5,7 +5,14 @@
     foreach (var p in Model.Pizzas.Where(o => o.Done))
     {
         <div class="Pizza col-10 offset-1">
-            <h3>@p.Inches.ToString() Pizza (£@p.GetPrice())</h3>
+            @if(p.Free)
+            {
+                <h3>@p.Inches.ToString() Pizza (Free)</h3>
+            }
+            else
+            {
+                <h3>@p.Inches.ToString() Pizza (£@p.GetPrice())</h3>
+            }
             <p>
                 @if (p.Toppings.Any())
                 {

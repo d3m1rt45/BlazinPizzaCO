@@ -24,6 +24,7 @@ namespace BlazinPizzaCO.Models
         public Size Inches { get; set; }
 
         public bool Done { get; set; }
+        public bool Free { get; set; }
 
         // Relationship Field(s)
         public virtual Order Order { get; set; }
@@ -32,29 +33,36 @@ namespace BlazinPizzaCO.Models
         // Methods:
         public decimal GetPrice()
         {
-            decimal price;
-
-            switch(this.Inches)
+            if (this.Free)
             {
-                case Size.Small:
-                    price = 8.99m;
-                    break;
-                case Size.Medium:
-                    price = 10.99m;
-                    break;
-                case Size.Large:
-                    price = 12.99m;
-                    break;
-                default:
-                    throw new Exception("Something is not right with the size...");
+                return 0;
             }
-
-            foreach(var top in Toppings)
+            else
             {
-                price += 0.35m;
+                decimal price;
+
+                switch (this.Inches)
+                {
+                    case Size.Small:
+                        price = 8.99m;
+                        break;
+                    case Size.Medium:
+                        price = 10.99m;
+                        break;
+                    case Size.Large:
+                        price = 12.99m;
+                        break;
+                    default:
+                        throw new Exception("Something is not right with the size...");
+                }
+
+                foreach (var top in Toppings)
+                {
+                    price += 0.35m;
+                }
+
+                return price;
             }
-            
-            return price;
         }
     }
 

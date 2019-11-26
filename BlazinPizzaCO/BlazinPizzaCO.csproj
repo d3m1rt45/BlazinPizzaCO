@@ -322,6 +322,7 @@
     <Content Include="Views\Shared\_ReceiptPartial.cshtml" />
     <Content Include="Views\Shared\_PointsPartial.cshtml" />
     <Content Include="Views\Blazin\MyPoints.cshtml" />
+    <Content Include="Views\Blazin\FreePizza.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

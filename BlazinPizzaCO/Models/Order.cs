@@ -139,5 +139,11 @@ namespace BlazinPizzaCO.Models
             var discard = Pizzas.Where(p => !p.Done).ToList();
             discard.ForEach(p => Pizzas.Remove(p));
         }
+
+        public void Submit()
+        {
+            this.Submitted = true;
+            this.Points = this.GetTotal() * 0.25m;
+        }
     }
 }

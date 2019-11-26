@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "My Points";
 
-    decimal left = 100;
+    decimal left = 100 - Model.GetPoints();
 }
 
     <article id="MyPoints">
@@ -24,7 +24,7 @@
         </div><!--/.Main-->
 
         <div class="Lower">
-            @if (left < 100)
+            @if (left > 0)
             {
                 <h4>Earn @left more for a Free Medium Pizza...</h4>
                 <a class="Order" href="@Url.Action("Order")">BACK</a>
@@ -32,7 +32,7 @@
             else
             {
                 <h4>Claim your Free Medium Pizza now!</h4>
-                <a class="FreePizza">OKAY!</a>
+                <a class="FreePizza" href="@Url.Action("FreePizza")">OKAY!</a>
             }
         </div><!--/.Lower-->
     </article><!--/#MyPoints-->

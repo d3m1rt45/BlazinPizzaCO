@@ -1185,7 +1185,7 @@ nav #Banner {
 
 
 
-/*/>>>>>> WELCOME >>>>>>/*/
+/*/>>>>>> MY_POINTS >>>>>>/*/
 #MyPoints {
     background-color: #202020;
     height: 100vh;
@@ -1214,7 +1214,7 @@ nav #Banner {
         color: #BCBCBC;
         font-size: 50pt;
         font-weight: bold;
-        margin-bottom: -4rem;
+        margin-bottom: -3.5rem;
     }
 
     #MyPoints .Middle {
@@ -1275,5 +1275,104 @@ nav #Banner {
         #MyPoints .Lower a:hover {
             color: #E2E2E2;
             text-decoration: none !important;
+            cursor: pointer;
         }
-/*/<<<<<< WELCOME <<<<<</*/
+/*/<<<<<< MY_POINTS <<<<<</*/
+
+
+
+/*/>>>>>> CLAIM_FREE_PIZZA >>>>>>/*/
+#FreePizza {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #FreePizza #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #FreePizza .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #FreePizza .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #FreePizza .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #FreePizza .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #FreePizza #Toppings a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 6rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 3rem;
+        text-decoration: none;
+        font-size: 20pt;
+        color: #707070;
+        border-radius: 1rem;
+    }
+
+        #FreePizza #Toppings a:hover {
+            color: #E2E2E2;
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #FreePizza #Toppings a.Selected {
+            color: #E2E2E2 !important;
+            background-image: url(/Assets/Blazin.svg) !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+    #FreePizza a.Done {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #E2E2E2;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+        #FreePizza a.Done:hover {
+            background-color: #8B4343;
+        }
+/*/<<<<<< CLAIM_FREE_PIZZA <<<<<</*/
