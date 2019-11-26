@@ -24,21 +24,9 @@ namespace BlazinPizzaCO.Controllers
                 return await Task.Run(() => View());
         }
 
-        public async Task<ActionResult> Order(int? orderID)
+        public async Task<ActionResult> MakeOrder(int? orderID)
         {
-            Order order;
-
-            if (orderID.HasValue)
-            {
-                order = await db.Orders.FindAsync(orderID);
-            }
-            else
-            {
-                order = new Order();
-                db.Orders.Add(order);
-                await db.SaveChangesAsync();
-            }
-
+            var order = Order.FindOrCreate(orderID);
             return await Task.Run(() => View(order));
         }
 

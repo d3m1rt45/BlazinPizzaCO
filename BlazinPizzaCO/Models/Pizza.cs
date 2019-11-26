@@ -29,7 +29,7 @@ namespace BlazinPizzaCO.Models
         public virtual Order Order { get; set; }
         public virtual ICollection<Topping> Toppings { get; set; }
 
-        // Returns Price
+        // Methods:
         public decimal GetPrice()
         {
             decimal price;
@@ -57,6 +57,7 @@ namespace BlazinPizzaCO.Models
             return price;
         }
     }
+
     // Enum types for this class
     public enum Size { Small, Medium, Large }
     

@@ -19,6 +19,7 @@ namespace BlazinPizzaCO.Models
             SidesPerOrder = new List<SidePerOrder>();
         }
 
+
         // Properties
         [Key]
         [Required]
@@ -35,7 +36,33 @@ namespace BlazinPizzaCO.Models
         public virtual ICollection<DrinkPerOrder> DrinksPerOrder { get; set; }
         public virtual ICollection<SidePerOrder> SidesPerOrder { get; set; }
 
+
         //Methods
+
+        //If an order with the given orderID found in the database, return it. Otherwise, create a new one and return that.
+        public static Order FindOrCreate(int? orderID)
+        {
+            using (var db = new BlazinContext())
+            {
+                if(orderID.HasValue)
+                {
+                    var order = db.Orders.Find(orderID);
+
+                    if(order == null)
+                        throw new KeyNotFoundException("Invalid Order ID.");
+                    else
+                        return order;
+                }
+                else
+                {
+                    var order = new Order();
+                    db.Orders.Add(order);
+                    return order;
+                }
+            }
+            
+        }
+
         public void AddSide(Side side)
         {
             using (var db = new BlazinContext())
