@@ -18,7 +18,10 @@ namespace BlazinPizzaCO.Controllers
 
         public async Task<ActionResult> Home()
         {
-            return await Task.Run(() => View());
+            if(User.Identity.IsAuthenticated)
+                return await Task.Run(() => RedirectToAction("Order"));
+            else
+                return await Task.Run(() => View());
         }
 
         public async Task<ActionResult> Order(int? orderID)
@@ -229,8 +232,6 @@ namespace BlazinPizzaCO.Controllers
                 var member = await db.Members.FindAsync(memberID);
                 member.Orders.Add(order);
                 db.SaveChanges();
-
-                member.UpdatePoints();
             }
 
             return await Task.Run(() => View(order));
