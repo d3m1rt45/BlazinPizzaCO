@@ -193,7 +193,6 @@ namespace BlazinPizzaCO.Controllers
         [HttpPost]
         public async Task<ActionResult> FinalizeOrder(PaymentDetails paymentDetails)
         {
-
             if(ModelState.IsValid)
             {
                 var order = await db.Orders.FindAsync(paymentDetails.OrderID);
@@ -226,10 +225,19 @@ namespace BlazinPizzaCO.Controllers
             return await Task.Run(() => View(order));
         }
 
-        public async Task<ActionResult> MyPoints(string memberID)
+        public async Task<ActionResult> MyPoints()
         {
-            var member = await db.Members.FindAsync(memberID);
-            return await Task.Run(() => View(member));
+            if(User.Identity.IsAuthenticated)
+            {
+                var memberID = User.Identity.GetUserId();
+                var member = await db.Members.FindAsync(memberID);
+                db.SaveChanges();
+                return await Task.Run(() => View(member));
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("Guests don't have access to My Points page.");
+            }
         }
     }
 }
