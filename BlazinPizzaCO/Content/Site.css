@@ -342,13 +342,14 @@ nav #Banner {
         padding-bottom: 2rem;
     }
 
-        #Register .Form input {
-            text-align: center;
-            background-color: #683131;
-            font-family: 'Sitka Text', serif;
-            color: #E2E2E2;
-            font-size: 16pt;
-        }
+
+    #Register .Form input {
+        text-align: center;
+        background-color: #683131 !important;
+        font-family: 'Sitka Text', serif;
+        color: #E2E2E2;
+        font-size: 16pt;
+    }
 
     #Register .form-group {
         text-align: center;
@@ -1006,15 +1007,15 @@ nav #Banner {
         margin-top: 0;
         background-color: #202020;
         border-radius: 1rem;
-        padding-top: 2rem;
+        padding-top: 2.2rem;
         padding-bottom: 2rem;
     }
 
         #FinalizeOrder .Form input {
             text-align: center;
-            background-color: #AFAFAF;
+            background-color: #683131;
             font-family: 'Sitka Text', serif;
-            color: #202020;
+            color: #E2E2E2;
             font-size: 16pt;
         }
 

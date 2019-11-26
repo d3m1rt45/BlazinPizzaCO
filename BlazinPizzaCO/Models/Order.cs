@@ -24,16 +24,16 @@ namespace BlazinPizzaCO.Models
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public string MemberID { get; set; }
         public decimal Total { get; set; }
         public bool Submitted { get; set; }
 
         
         // Relationship Field(s)
+        public virtual Member Member { get; set; }
+        public virtual PaymentDetails PaymentDetails { get; set; }
         public virtual ICollection<Pizza> Pizzas { get; set; }
         public virtual ICollection<DrinkPerOrder> DrinksPerOrder { get; set; }
         public virtual ICollection<SidePerOrder> SidesPerOrder { get; set; }
-        public virtual PaymentDetails PaymentDetails { get; set; }
 
         //Methods
         public void AddSide(Side side)

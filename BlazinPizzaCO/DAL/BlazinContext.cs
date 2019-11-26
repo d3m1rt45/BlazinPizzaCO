@@ -15,6 +15,8 @@ namespace BlazinPizzaCO.DAL
             Database.SetInitializer(new BlazinContextInitializer());
         }
 
+        public DbSet<Member> Members { get; set; }
+        public DbSet<PaymentDetails> PaymentDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Drink> Drinks { get; set; }
@@ -22,7 +24,6 @@ namespace BlazinPizzaCO.DAL
         public DbSet<Topping> Toppings { get; set; }
         public DbSet<DrinkPerOrder> DrinksPerOrder { get; set; }
         public DbSet<SidePerOrder> SidesPerOrder { get; set; }
-        public DbSet<PaymentDetails> PaymentDetails { get; set; }
 
 
 

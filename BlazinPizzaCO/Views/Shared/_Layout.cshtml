@@ -22,8 +22,23 @@
         <div id="NavbarCollapse" class="collapse navbar-collapse text-center">
             <div id="NavbarNav" class="ml-auto navbar-nav">
                 <a class="Order nav-item nav-link active" href="@Url.Action("Order", "Blazin")">ORDER </a>
-                <a class="Login nav-item nav-link" href="@Url.Action("Login", "Account")">SIGN IN</a>
-                <a class="Register nav-item nav-link" href="@Url.Action("Register", "Account")">REGISTER</a>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="MyPoints nav-item nav-link" href="@Url.Action("MyPoints", "Blazin")">MY POINTS</a>
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a class="LogOff nav-link nav-item" href="javascript:document.getElementById('logoutForm').submit()">
+                            SIGN OUT
+                        </a>
+                    }
+                }
+                else
+                {
+                    <a class="Login nav-item nav-link" href="@Url.Action("Login", "Account")">SIGN IN</a>
+                    <a class="Register nav-item nav-link" href="@Url.Action("Register", "Account")">REGISTER</a>
+                }
             </div><!--/#NavbarNav-->
         </div><!--/#NavbarCollapse-->
     </nav><!--/.navbar-->
