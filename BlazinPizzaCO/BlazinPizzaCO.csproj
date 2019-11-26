@@ -320,6 +320,8 @@
     <Content Include="Views\Blazin\FinalizeOrder.cshtml" />
     <Content Include="Views\Blazin\ThankYou.cshtml" />
     <Content Include="Views\Shared\_ReceiptPartial.cshtml" />
+    <Content Include="Views\Shared\_PointsPartial.cshtml" />
+    <Content Include="Views\Blazin\MyPoints.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

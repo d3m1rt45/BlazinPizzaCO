@@ -1067,11 +1067,14 @@ nav #Banner {
 
     #ThankYou .PageHead {
         padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
         background-color: #202020;
         text-align: center;
         border-radius: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        background-image: url(/Assets/Blazin.svg);
+        background-position: center;
+        background-repeat: repeat;
     }
 
         #ThankYou .PageHead .Header {
@@ -1130,6 +1133,23 @@ nav #Banner {
         border-radius: 1rem;
         color: #E2E2E2;
     }
+
+    #ThankYou #PointsPartial {
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+        
+    }
+
+    #ThankYou #PointsPartial h2 {
+        font-weight: bold;
+    }
+
 
     #ThankYou article.Done {
         display: flex;

@@ -24,9 +24,9 @@ namespace BlazinPizzaCO.Controllers
                 return await Task.Run(() => View());
         }
 
-        public async Task<ActionResult> MakeOrder(int? orderID)
+        public async Task<ActionResult> Order(int? orderID)
         {
-            var order = Order.FindOrCreate(orderID);
+            var order = Models.Order.FindOrCreate(db, orderID);
             return await Task.Run(() => View(order));
         }
 
@@ -216,13 +216,20 @@ namespace BlazinPizzaCO.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                var memberID = User.Identity.GetUserId();
-                var member = await db.Members.FindAsync(memberID);
+                order.Points = (order.GetTotal() / 10);
+                string memberID = User.Identity.GetUserId();
+                var member = Member.FindOrCreate(db, memberID);
                 member.Orders.Add(order);
                 db.SaveChanges();
             }
 
             return await Task.Run(() => View(order));
+        }
+
+        public async Task<ActionResult> MyPoints(string memberID)
+        {
+            var member = await db.Members.FindAsync(memberID);
+            return await Task.Run(() => View(member));
         }
     }
 }

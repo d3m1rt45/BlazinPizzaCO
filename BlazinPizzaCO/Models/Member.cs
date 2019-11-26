@@ -20,20 +20,35 @@ namespace BlazinPizzaCO.Models
 
         public virtual ICollection<Order> Orders { get; set; }
 
-        public void UpdatePoints()
+
+        //If a member with the given memberID found in the database, return it. Otherwise, create a new one and return that.
+        public static Member FindOrCreate(BlazinContext db, string memberID)
         {
-            using (var db = new BlazinContext())
+            var member = db.Members.Find(memberID);
+
+            if (member == null)
             {
-                var member = db.Members.Find(this.ID);
-                int total = 0;
-
-                foreach(var o in Orders)
-                {
-                    total += Convert.ToInt32(o.GetTotal() / 50m);
-                }
-
-                this.Points = total;
+                member = new Member(memberID);
+                db.Members.Add(member);
+                db.SaveChanges();
+                return member;
             }
+            else
+            {
+                return member;
+            }
+
+        }
+        public decimal GetPoints()
+        {
+            decimal totalPoints = 0;
+
+            foreach(var order in Orders)
+            {
+                totalPoints += order.Points;
+            }
+
+            return totalPoints;
         }
     }
 }

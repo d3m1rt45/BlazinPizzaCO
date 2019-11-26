@@ -27,6 +27,7 @@ namespace BlazinPizzaCO.Models
         public int ID { get; set; }
         public decimal Total { get; set; }
         public bool Submitted { get; set; }
+        public decimal Points { get; set; }
 
         
         // Relationship Field(s)
@@ -40,25 +41,23 @@ namespace BlazinPizzaCO.Models
         //Methods
 
         //If an order with the given orderID found in the database, return it. Otherwise, create a new one and return that.
-        public static Order FindOrCreate(int? orderID)
+        public static Order FindOrCreate(BlazinContext db, int? orderID)
         {
-            using (var db = new BlazinContext())
+            if(orderID.HasValue)
             {
-                if(orderID.HasValue)
-                {
-                    var order = db.Orders.Find(orderID);
+                var order = db.Orders.Find(orderID.Value);
 
-                    if(order == null)
-                        throw new KeyNotFoundException("Invalid Order ID.");
-                    else
-                        return order;
-                }
+                if(order == null)
+                    throw new KeyNotFoundException("Invalid Order ID.");
                 else
-                {
-                    var order = new Order();
-                    db.Orders.Add(order);
                     return order;
-                }
+            }
+            else
+            {
+                var order = new Order();
+                db.Orders.Add(order);
+                db.SaveChanges();
+                return order;
             }
             
         }
