@@ -2,7 +2,7 @@
 
 @if (Model.Pizzas.Any(p => p.Done) || Model.DrinksPerOrder.Any() || Model.SidesPerOrder.Any())
 {
-    <article id="Basket" class="col-xl-2 h-100 d-flex justify-content-center align-items-center">
+    <article id="Basket" class="col-12 col-xl-2 h-100 d-flex justify-content-center align-items-center">
         <div class="Inner">
 
             @if (Model.Pizzas.Any(p => p.Done))
@@ -75,7 +75,7 @@
 }
 else
 {
-    <article id="Basket" class="col-xl-2 h-100 d-flex justify-content-center align-items-center">
+    <article id="Basket" class="col-12 col-xl-2 h-100 d-flex justify-content-center align-items-center">
         <h4>No items in the basket...</h4>
     </article>
 }

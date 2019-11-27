@@ -47,6 +47,9 @@ namespace BlazinPizzaCO.Controllers
         {
             var order = await db.Orders.FindAsync(orderID);
 
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
             if (pizzaID.HasValue)
             {
                 var pizza = db.Pizzas.Single(p => p.ID == pizzaID);
@@ -60,6 +63,9 @@ namespace BlazinPizzaCO.Controllers
         {
             Pizza pizza;
             var order = await db.Orders.FindAsync(orderID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
 
             if (pizzaID.HasValue)
             {
@@ -77,10 +83,13 @@ namespace BlazinPizzaCO.Controllers
             return await Task.Run(() => View(toppingVM));
         }
 
-        public async Task<ActionResult> AddTopping(int pizzaID, string toppingName)
+        public ActionResult AddTopping(int pizzaID, string toppingName)
         {
-            var pizza = await db.Pizzas.FindAsync(pizzaID);
-            var top = await db.Toppings.FindAsync(toppingName);
+            var pizza = db.Pizzas.Find(pizzaID);
+            var top = db.Toppings.Find(toppingName);
+
+            if (pizza.Order.Submitted)
+                return RedirectToAction("Order");
 
             if (pizza.Toppings.Contains(top) == true)
             {
@@ -90,21 +99,24 @@ namespace BlazinPizzaCO.Controllers
             {
                 pizza.Toppings.Add(top);
             }
-            await db.SaveChangesAsync();
+            db.SaveChanges();
 
             if(pizza.Free)
             {
-                return await Task.Run(() => RedirectToAction("FreePizza", new { pizzaID }));
+                return RedirectToAction("FreePizza", new { pizzaID });
             }
             else
             {
-                return await Task.Run(() => RedirectToAction("PizzaTopping", new { orderID = pizza.Order.ID, size = pizza.Inches, pizzaID }));
+                return RedirectToAction("PizzaTopping", new { orderID = pizza.Order.ID, size = pizza.Inches, pizzaID });
             }
         }
 
         public async Task<ActionResult> PizzaDone(int pizzaID)
         {
             var pizza = await db.Pizzas.FindAsync(pizzaID);
+
+            if (pizza.Order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
 
             pizza.Done = true;
             await db.SaveChangesAsync();
@@ -117,27 +129,34 @@ namespace BlazinPizzaCO.Controllers
             var order = await db.Orders.FindAsync(orderID);
             var pizza = await db.Pizzas.FindAsync(pizzaID);
 
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
             await Task.Run(() => order.Pizzas.Remove(pizza));
             await db.SaveChangesAsync();
-
             return await Task.Run(() => RedirectToAction("ReviewOrder", new { orderID = order.ID }));
         }
 
         public async Task<ActionResult> ChooseSide(int orderID)
         {
             var order = await db.Orders.FindAsync(orderID);
-            var addSideVM = new SideViewModel() { Order = order };
 
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
+            var addSideVM = new SideViewModel() { Order = order };
             return await Task.Run(() => View(addSideVM));
         }
 
         public async Task<ActionResult> AddSide(int orderID, int sideID)
         {
             var order = await db.Orders.FindAsync(orderID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
             var side = await db.Sides.FindAsync(sideID);
-
             await Task.Run(() => order.AddSide(side));
-
             return await Task.Run(() => RedirectToAction("ChooseSide", new { orderID }));
         }
 
@@ -145,6 +164,9 @@ namespace BlazinPizzaCO.Controllers
         {
             var sidesPerOrder = await db.SidesPerOrder.FindAsync(sidesPerOrderID);
             var order = await db.Orders.FindAsync(sidesPerOrder.Order.ID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
 
             if (sidesPerOrder.Amount > 1)
             {
@@ -163,6 +185,10 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> ChooseDrink(int orderID)
         {
             var order = await db.Orders.FindAsync(orderID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
             var drinkVM = new DrinkViewModel(order);
             return await Task.Run(() => View(drinkVM));
         }
@@ -170,10 +196,12 @@ namespace BlazinPizzaCO.Controllers
         public async Task<ActionResult> AddDrink(int orderID, int drinkID)
         {
             var order = await db.Orders.FindAsync(orderID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
             var drink = await db.Drinks.FindAsync(drinkID);
-
             await Task.Run(() => order.AddDrink(drink));
-
             return await Task.Run(() => RedirectToAction("ChooseDrink", new { orderID }));
         }
 
@@ -181,6 +209,9 @@ namespace BlazinPizzaCO.Controllers
         {
             var drinksPerOrder = await db.DrinksPerOrder.FindAsync(drinksPerOrderID);
             var order = await db.Orders.FindAsync(drinksPerOrder.Order.ID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
 
             if (drinksPerOrder.Amount > 1)
             {
@@ -200,12 +231,19 @@ namespace BlazinPizzaCO.Controllers
         {
             var order = await db.Orders.FindAsync(orderID);
 
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
+
             return await Task.Run(() => View(order));
         }
 
         public async Task<ActionResult> FinalizeOrder(int orderID)
         {
             var paymentDetails = new PaymentDetails { OrderID = orderID };
+            var order = await db.Orders.FindAsync(orderID);
+
+            if (order.Submitted)
+                return await Task.Run(() => RedirectToAction("Order"));
 
             return await Task.Run(() => View(paymentDetails));
         }
@@ -216,7 +254,10 @@ namespace BlazinPizzaCO.Controllers
             if(ModelState.IsValid)
             {
                 var order = await db.Orders.FindAsync(paymentDetails.OrderID);
-                
+
+                if (order.Submitted)
+                    return await Task.Run(() => RedirectToAction("Order"));
+
                 order.PaymentDetails = paymentDetails;
                 order.Submitted = true;
                 await db.SaveChangesAsync();

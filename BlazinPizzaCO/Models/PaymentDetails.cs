@@ -42,7 +42,7 @@ namespace BlazinPizzaCO.Models
         public string AccountNumber { get; set; }
 
         [Required]
-        [RegularExpression(@"\b([0-9]{2})-?([0-9]{2})-?([0-9]{2})\b", ErrorMessage = "Please enter a valid Sort Code.")]
+        [RegularExpression(@"\b([0-9]{2})-([0-9]{2})-([0-9]{2})\b", ErrorMessage = "Please enter a valid Sort Code. (Eg. 12-34-56)")]
         [Display(Name = "Sort Code")]
         public string SortCode { get; set; }
 

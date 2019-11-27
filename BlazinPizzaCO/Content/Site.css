@@ -27,7 +27,7 @@ p, lead, a {
 nav {
     background-color: #202020;
     z-index: 2;
-    height: 5rem;
+    height: 5.5rem;
 }
 
 nav #Banner {
@@ -67,6 +67,11 @@ nav #Banner {
 
     nav .navbar-toggler {
         border: none;
+    }
+
+    nav #NavbarCollapse {
+        background-color: #202020;
+        box-shadow: 0.2rem 0.2rem 0.2rem;
     }
 /*/<<<<<< LAYOUT <<<<<</*/
 
@@ -180,6 +185,52 @@ nav #Banner {
 }
 
 /*/<<<<<< WELCOME <<<<<</*/
+
+
+
+/*/>>>>>> WELCOME_MODAL >>>>>>/*/
+#WelcomeModal .modal-header,
+#WelcomeModal .modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+#WelcomeModal .modal-body {
+    text-align: center;
+    flex-direction: column;
+}
+
+#WelcomeModal .modal-footer {
+    padding-bottom: 0;
+}
+
+#WelcomeModal h4,
+#WelcomeModal p {
+    font-weight: bold;
+}
+
+#WelcomeModal p {
+    font-size: 15pt;
+    margin-bottom: 0;
+}
+
+#WelcomeModal a {
+    font-family: 'Sitka Display', serif !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20pt;
+    color: #AFAFAF;
+    background-color: #683131;
+    width: 16rem;
+    border-radius: 10rem;
+    margin: 0 1rem 1.5rem 1rem;
+    cursor:pointer;
+}
+
+    #WelcomeModal a:hover {
+        color: #E2E2E2;
+    }
+/*/<<<<<< WELCOME_MODAL <<<<<</*/
 
 
 
@@ -403,6 +454,7 @@ nav #Banner {
     background-color: #202020;
     min-height: 100vh;
     flex-direction: column;
+    box-shadow: 0.2rem 0.2rem 0.2rem;
 }
 
     #Basket h4,
@@ -436,7 +488,7 @@ nav #Banner {
         font-size: 20pt;
         color: #AFAFAF;
         background-color: #683131;
-        width: 16rem;
+        width: 95%;
         border-radius: 10rem;
         margin: 0 1rem 0.5rem 1rem;
     }
@@ -445,6 +497,25 @@ nav #Banner {
             color: #E2E2E2;
             text-decoration: none !important;
         }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+    #Basket a.OrderButton {
+        width: 16rem;
+        font-size: 17pt;
+    }
+    #Basket {
+        padding-top: 8rem;
+        padding-bottom: 1rem;
+        min-height: unset;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    #Basket h4 {
+        font-size: 17pt;
+    }
+}
 /*/<<<<<< BASKET <<<<<</*/
 
 
@@ -487,6 +558,18 @@ nav #Banner {
                 background-position: center;
                 background-repeat: no-repeat;
             }
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+    #Order .Options {
+        margin-top: -3rem;
+    }
+
+        #Order .Options a {
+            height: 6rem;
+            margin-bottom: 2rem;
+            font-size: 40pt;
+        }
+}
 /*/<<<<<< ORDER <<<<<</*/
 
 
@@ -559,6 +642,38 @@ nav #Banner {
         background-position: center;
         background-repeat: no-repeat;
     }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #PizzaSize #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+
+}
+@media only screen and (max-width:992px) {
+    #PizzaSize .PageHead {
+        height: 4rem;
+    }
+
+    #PizzaSize .Options a {
+        height: 15rem;
+        font-size: 30pt;
+    }
+}
+@media only screen and (max-width:576px) {
+
+    #PizzaSize .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #PizzaSize .PageHead .Header {
+        font-size: 20pt;
+    }
+}
+
 /*/<<<<<< PIZZA_SIZE <<<<<</*/
 
 
@@ -612,6 +727,7 @@ nav #Banner {
         }
 
     #PizzaTopping #Toppings a {
+        text-align: center;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -657,7 +773,88 @@ nav #Banner {
         #PizzaTopping a.Done:hover {
             background-color: #8B4343;
         }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #PizzaTopping #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #PizzaTopping .PageHead {
+        height: 4rem;
+    }
+
+    #PizzaTopping #Toppings a {
+        font-size: 12pt;
+        margin-bottom:0.5rem; 
+    }
+
+    #PizzaTopping a.Done {
+        margin-top: 2rem;
+        font-size: 20pt;
+        width: 13rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #PizzaTopping .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #PizzaTopping .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #PizzaTopping a.Done {
+        margin-top: 1rem;
+    }
+}
 /*/<<<<<< PIZZA_TOPPINGS <<<<<</*/
+
+
+
+/*/>>>>>> MAX_TOPPINGS_MODAL >>>>>>/*/
+#MaxToppingsModal .modal-body,
+#MaxToppingsModal .modal-header,
+#MaxToppingsModal .modal-footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#MaxToppingsModal .modal-footer {
+    padding-bottom: 0;
+}
+
+#MaxToppingsModal h4,
+#MaxToppingsModal p {
+    font-weight: bold;
+}
+#MaxToppingsModal p {
+    font-size: 15pt;
+    margin-bottom: 0;
+}
+
+#MaxToppingsModal a {
+    cursor: pointer;
+    margin-bottom: 0 !important;
+    height: 3rem !important;
+    text-align: center !important;
+    font-size: 17pt !important;
+    color: #E2E2E2 !important;
+    background-color: #683131;
+    width: 16rem !important;
+    border-radius: 10rem !important;
+    margin: 0 1rem 1.5rem 1rem !important;
+    text-decoration: none !important;
+}
+/*/<<<<<< MAX_TOPPINGS_MODAL <<<<<</*/
 
 
 
@@ -690,6 +887,7 @@ nav #Banner {
 }
 
 #AddSide #Sides a {
+    text-align:center;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -735,6 +933,48 @@ nav #Banner {
     #AddSide a.Done:hover {
         background-color: #8B4343;
     }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #AddSide #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #AddSide .PageHead {
+        height: 4rem;
+    }
+
+    #AddSide #Sides a {
+        font-size: 12pt;
+        margin-bottom: 0.5rem;
+    }
+
+    #AddSide a.Done {
+        margin-top: 2rem;
+        font-size: 20pt;
+        width: 13rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #AddSide .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #AddSide .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #AddSide a.Done {
+        margin-top: 1rem;
+    }
+}
 /*/<<<<<< ADD_SIDE <<<<<</*/
 
 
@@ -779,6 +1019,7 @@ nav #Banner {
         font-size: 20pt;
         color: #707070;
         border-radius: 1rem;
+        text-align: center;
     }
 
         #AddDrink #Drinks a:hover {
@@ -813,6 +1054,48 @@ nav #Banner {
         #AddDrink a.Done:hover {
             background-color: #8B4343;
         }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #AddDrink #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #AddDrink .PageHead {
+        height: 4rem;
+    }
+
+    #AddDrink #Drinks a {
+        font-size: 12pt;
+        margin-bottom: 0.5rem;
+    }
+
+    #AddDrink a.Done {
+        margin-top: 2rem;
+        font-size: 20pt;
+        width: 13rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #AddDrink .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #AddDrink .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #AddDrink a.Done {
+        margin-top: 1rem;
+    }
+}
 /*/<<<<<< ADD_DRINK <<<<<</*/
 
 
@@ -951,6 +1234,65 @@ nav #Banner {
         text-decoration: none !important;
         padding: 0.5rem 0 0.5rem 0;
     }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #ReviewOrder #PageRow {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #ReviewOrder .PageHead {
+        height: 4rem;
+    }
+
+    #ReviewOrder a.Confirm {
+        font-size: 16pt;
+        width: 13rem;
+        margin-bottom: 2rem;
+    }
+
+    #ReviewOrder div.Pizza i.RemovePizza {
+        font-size: 20pt;
+    }
+
+    #ReviewOrder h3{
+        font-size: 17pt;
+    }
+
+    #ReviewOrder p span,
+    #ReviewOrder h5 {
+        font-size: 13pt;
+    }
+
+    #ReviewOrder p {
+        text-align: center;
+    }
+
+    #ReviewOrder h4.Total {
+        padding: 0.5rem 4rem 0.6rem 4rem;
+        font-size: 17pt;
+        margin: 0.5rem 0 1rem 0;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #ReviewOrder .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #ReviewOrder .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #ReviewOrder a.Done {
+        margin-top: 1rem;
+    }
+}
 /*/<<<<<< REVIEW_ORDER <<<<<</*/
 
 

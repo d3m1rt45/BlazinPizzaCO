@@ -104,7 +104,7 @@ namespace BlazinPizzaCO.Models
         {
             var total = 0m;
 
-            foreach (var p in this.Pizzas)
+            foreach (var p in this.Pizzas.Where(p => p.Done))
                 total += p.GetPrice();
 
             total += this.GetSideTotal();
@@ -134,14 +134,10 @@ namespace BlazinPizzaCO.Models
             return total;
         }
 
-        public void Refine()
+        public void Submit()
         {
             var discard = Pizzas.Where(p => !p.Done).ToList();
             discard.ForEach(p => Pizzas.Remove(p));
-        }
-
-        public void Submit()
-        {
             this.Submitted = true;
             this.Points = this.GetTotal() * 0.25m;
         }

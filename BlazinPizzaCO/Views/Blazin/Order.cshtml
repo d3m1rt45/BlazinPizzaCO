@@ -10,7 +10,7 @@
 
             @Html.Partial("_BasketPartial", Model)
 
-            <div id="ExceptBasket" class=" col-xl-8 offset-1">
+            <div id="ExceptBasket" class=" col-10 col-xl-8 offset-1">
                 <article class="Options">
                     <a class="Pizzas" href="@Url.Action("PizzaSize", new { orderID = Model.ID })">PIZZAS</a>
                     <a class="Sides" href="@Url.Action("ChooseSide", new { orderID = Model.ID })">SIDES</a>

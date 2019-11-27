@@ -42,7 +42,7 @@
 
 @if (Model.SidesPerOrder.Any() && Model.DrinksPerOrder.Any())
 {
-    <div class="Sides offset-1 col-5">
+    <div class="Sides offset-1 col-lg-5 col-10">
         <h3>Sides (£@Model.GetSideTotal())</h3>
         @foreach (var s in Model.SidesPerOrder)
         {
@@ -54,7 +54,7 @@
             </h5>
         }
     </div>
-    <div class="Drinks col-5">
+    <div class="Drinks offset-lg-0 col-lg-5 offset-1 col-10">
         <h3>Drinks (£@Model.GetDrinkTotal())</h3>
         @foreach (var d in Model.DrinksPerOrder)
         {
