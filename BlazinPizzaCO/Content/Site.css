@@ -336,6 +336,47 @@ nav #Banner {
         text-decoration: underline;
         font-weight: bold;
     }
+
+
+@media only screen and (max-width:1200px) {
+
+    #Login {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #Login .PageHead {
+        height: 4rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #Login .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #Login .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #Login .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+
+    #Login .Register a {
+        font-size: 16pt;
+    }
+
+    #Login .Confirm {
+        font-size: 18pt;
+        width: 16rem;
+        text-decoration: none !important;
+    }
+}
 /*/<<<<<< LOGIN <<<<<</*/
 
 
@@ -444,6 +485,42 @@ nav #Banner {
             text-decoration: underline;
             font-weight: bold;
         }
+
+@media only screen and (max-width:1200px) {
+
+    #Register {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #Register .PageHead {
+        height: 4rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #Register .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #Register .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #Register .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+
+    #Register .Confirm {
+        font-size: 18pt;
+        width: 16rem;
+        text-decoration: none !important;
+    }
+}
 /*/<<<<<< REGISTER <<<<<</*/
 
 
@@ -635,6 +712,7 @@ nav #Banner {
     color: #707070;
     border-radius: 1rem;
 }
+
     #PizzaSize .Options a:hover {
         color: #E2E2E2;
         background-image: url(/Assets/Blazin.svg);
@@ -671,6 +749,10 @@ nav #Banner {
 
     #PizzaSize .PageHead .Header {
         font-size: 20pt;
+    }
+    #PizzaSize .PageHead {
+        justify-content:flex-end;
+        padding-right: 2rem;
     }
 }
 
@@ -814,6 +896,11 @@ nav #Banner {
     #PizzaTopping a.Done {
         margin-top: 1rem;
     }
+
+    #PizzaTopping .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
 }
 /*/<<<<<< PIZZA_TOPPINGS <<<<<</*/
 
@@ -951,6 +1038,7 @@ nav #Banner {
     #AddSide #Sides a {
         font-size: 12pt;
         margin-bottom: 0.5rem;
+        height: 7rem;
     }
 
     #AddSide a.Done {
@@ -1292,6 +1380,11 @@ nav #Banner {
     #ReviewOrder a.Done {
         margin-top: 1rem;
     }
+
+    #ReviewOrder .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
 }
 /*/<<<<<< REVIEW_ORDER <<<<<</*/
 
@@ -1391,6 +1484,40 @@ nav #Banner {
         margin: 0.5rem 1rem 0.5rem 1rem;
         text-decoration: none !important;
     }
+
+@media only screen and (max-width:1200px) {
+
+    #FinalizeOrder #PageRow {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #FinalizeOrder .PageHead {
+        height: 4rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #FinalizeOrder .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #FinalizeOrder .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #FinalizeOrder a.Done {
+        margin-top: 1rem;
+    }
+
+    #FinalizeOrder .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+}
 /*/<<<<<< FINALIZE_ORDER <<<<<</*/
 
 
@@ -1523,6 +1650,46 @@ nav #Banner {
         text-decoration: none !important;
         padding: 0.5rem 0 0.5rem 0;
     }
+
+@media only screen and (max-width:1200px) {
+    #ThankYou #PageRow {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #ThankYou a.Confirm {
+        font-size: 17pt;
+        padding: 0.7rem 0 0.5rem 0;
+        margin-bottom: 1rem;
+    }
+
+    #ThankYou h4.Total {
+        margin-bottom: 1.3rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+    #ThankYou .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #ThankYou div.Pizza p,
+    #ThankYou div.Sides h5,
+    #ThankYou div.Drinks h5,
+    #ThankYou div.Address h5{
+        font-size: 13pt;
+        text-align: center;
+    }
+
+    #ThankYou div.Pizza h3,
+    #ThankYou div.Sides h3,
+    #ThankYou div.Drinks h3,
+    #ThankYou div.Address h3,
+    #ThankYou h4.Total {
+        font-size: 18pt;
+    }
+}
 /*/<<<<<< THANK_YOU <<<<<</*/
 
 
@@ -1619,6 +1786,29 @@ nav #Banner {
             text-decoration: none !important;
             cursor: pointer;
         }
+
+/*Responsive Styles*/
+@media only screen and (max-width:760px) {
+    #MyPoints .Upper h4 {
+        font-size: 20pt;
+        margin-bottom: -1rem;
+    }
+    #MyPoints .Left h2 {
+        font-size: 50pt;
+    }
+    #MyPoints .Right h4 {
+        font-size: 25pt;
+    }
+    #MyPoints .Lower h4 {
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    #MyPoints .Lower a {
+        font-size: 19pt;
+        width: 13rem;
+    }
+}
 /*/<<<<<< MY_POINTS <<<<<</*/
 
 
