@@ -1,0 +1,38 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@{
+    ViewBag.Title = "Pizza Size";
+}
+
+    <section id="PizzaSize">
+        <div id="PageContainer" class="container-fluid">
+            <div id="PageRow" class="row">
+
+                @Html.Partial("_BasketPartial", Model)
+
+                <div id="ExceptBasket" class="col-xl-8 offset-xl-1">
+                    <article class="PageHead col-xl-12">
+                        <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
+                        <h2 class="Header">SELECT SIZE</h2>
+                    </article><!--/#Banner-->
+
+                    <div class="col-xl-12">
+                        <article class="Options row">
+                            <div class="col-4"> 
+                                <a class="Small" href="@Url.Action("PizzaTopping", new { orderID = Model.ID, size = BlazinPizzaCO.Models.Size.Small })">10"</a> 
+                            </div>
+                            <div class="col-4"> 
+                                <a class="Medium" href="@Url.Action("PizzaTopping", new { orderID = Model.ID, size = BlazinPizzaCO.Models.Size.Medium })">14"</a> 
+                            </div> 
+                            <div class="col-4"> 
+                                <a class="Large" href="@Url.Action("PizzaTopping", new { orderID = Model.ID, size = BlazinPizzaCO.Models.Size.Large })">18"</a> 
+                            </div>
+                        </article><!--/#Options-->
+                    </div>
+                </div><!--/#ExceptBasket-->
+
+            </div><!--/#PageRow-->
+        </div><!--#PageContainer-->
+    </section><!--/#PizzaSize-->
+
+

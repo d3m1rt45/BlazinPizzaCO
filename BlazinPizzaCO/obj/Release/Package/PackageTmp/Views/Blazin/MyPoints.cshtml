@@ -1,0 +1,48 @@
+﻿@model BlazinPizzaCO.Models.Member
+
+@{
+    ViewBag.Title = "My Points";
+
+    decimal left = 100 - Model.GetPoints();
+}
+
+    <article id="MyPoints">
+        <div class="Banner">
+            <div class="Upper">
+                <h4>YOU HAVE</h4>
+            </div><!--/.Upper-->
+            <div class="Middle">
+                <div class="Left">
+                    <h2>@Model.GetPoints().ToString()</h2>
+                </div>
+                <div class="Right">
+                    <h4>BLAZIN</h4>
+                    <h4>POINTS</h4>
+                </div>
+            </div>
+
+        </div><!--/.Main-->
+
+        <div class="Lower">
+            @if (left > 0)
+            {
+                <h4>Earn @left more for a Free Medium Pizza...</h4>
+                <a class="Order" href="@Url.Action("Order")">BACK</a>
+            }
+            else
+            {
+                <h4>Claim your Free Medium Pizza now!</h4>
+                <a class="FreePizza" href="@Url.Action("FreePizza")">OKAY!</a>
+            }
+        </div><!--/.Lower-->
+    </article><!--/#MyPoints-->
+
+@section Scripts {
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $(".nav-link.active").removeClass("active");
+            $(".nav-link.MyPoints").addClass("active");
+        })
+    </script>
+    }
+

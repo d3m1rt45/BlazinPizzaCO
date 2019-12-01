@@ -1,0 +1,83 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@if (Model.Pizzas.Any(p => p.Done) || Model.DrinksPerOrder.Any() || Model.SidesPerOrder.Any())
+{
+    <article id="Basket" class="col-12 col-xl-2 h-100 d-flex justify-content-center align-items-center">
+        <div class="Inner">
+
+            @if (Model.Pizzas.Any(p => p.Done))
+            {
+                <div class="Pizzas">
+                    @foreach (var p in Model.Pizzas.Where(o => o.Done))
+                    {
+                        <div class="Pizza col-xl-12">
+                            @if(p.Free)
+                            {
+                                <h4> @p.Inches.ToString() Pizza (Free)</h4>
+                            }
+                            else
+                            {
+                                <h4> @p.Inches.ToString() Pizza (@p.GetPrice())</h4>
+                            }
+                            <p>
+                                @if (p.Toppings.Any())
+                                {
+                                    foreach (var t in p.Toppings)
+                                    {
+                                        if (t != p.Toppings.Last())
+                                        {
+                                            <span class="text-light">@t.Name, </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-light">@t.Name</span>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-light">No Toppings (Tomato Sauce and Cheese Only)</span>
+                                }
+                            </p>
+                        </div>
+                    }
+                </div>
+            }
+
+            @if (Model.SidesPerOrder.Any())
+            {
+                <div class="Sides col-xl-12">
+                    <h4>Sides (£@Model.GetSideTotal().ToString())</h4>
+                        @foreach (var item in Model.SidesPerOrder)
+                        {
+                            <p class="Side">@item.Amount x  @item.Side.Name (£@item.Side.Price)</p>
+                        }
+                </div>
+            }
+
+            @if (Model.DrinksPerOrder.Any())
+            {
+                <div class="Drinks col-xl-12">
+                    <h4>Drinks (£@Model.GetDrinkTotal().ToString())</h4>
+                        @foreach (var item in Model.DrinksPerOrder)
+                        {
+                            <p>@item.Amount x @item.Drink.Name (£@item.Drink.Price)</p>
+                        }
+                </div>
+            }
+        </div>
+
+        <a class="OrderButton" href="@Url.Action("ReviewOrder", new { orderID = Model.ID })">Edit/Finalize</a>
+
+        <h4 class="Total">Total: £@Model.GetTotal().ToString()</h4> 
+
+    </article>
+}
+else
+{
+    <article id="Basket" class="col-12 col-xl-2 h-100 d-flex justify-content-center align-items-center">
+        <h4>No items in the basket...</h4>
+    </article>
+}
+
+

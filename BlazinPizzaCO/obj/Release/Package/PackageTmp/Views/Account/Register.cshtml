@@ -1,0 +1,58 @@
+﻿@model BlazinPizzaCO.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<section id="Register">
+    <div class="PageContainer container-fluid">
+        <div class="PageRow row">
+
+            <article class="PageHead col-10 offset-1">
+                <a class="BackButton" href="@Url.Action("Home", "Blazin")">BACK</a>
+                <h2 class="Header">REGISTER</h2>
+            </article>
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "col-10 offset-1", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="Form form-row">
+
+                    <div class="form-group col-10 offset-1">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", autocomplete = "off" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger",  })
+                    </div>
+
+                    <div class="form-group col-10 offset-1">
+                        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", autocomplete = "off" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-10 offset-1">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", autocomplete = "off" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="Done form-group col-10 offset-1">
+                    <input type="submit" value="Register" class="Confirm btn btn-default" />
+                </div>
+            }
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".nav-link.active").removeClass("active");
+            $(".nav-link.Register").addClass("active");
+        })
+    </script>
+}

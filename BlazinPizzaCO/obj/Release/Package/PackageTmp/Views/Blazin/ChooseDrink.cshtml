@@ -1,0 +1,41 @@
+﻿@model BlazinPizzaCO.ViewModels.DrinkViewModel
+
+@{
+    ViewBag.Title = "Add Drink";
+}
+
+<section id="AddDrink">
+    <div id="PageContainer" class="container-fluid">
+        <div id="PageRow" class="row">
+
+
+            @Html.Partial("_BasketPartial", Model.Order)
+
+
+            <div id="ExceptBasket" class="col-xl-8 offset-xl-1">
+                <article class="PageHead col-xl-12">
+                    <h2 class="Header">ADD DRINKS</h2>
+                </article><!--/#Banner-->
+
+
+                <article id="Drinks" class="col-xl-12">
+                    <div class="row">
+                        @foreach (var d in Model.Drinks)
+                        {
+                            <div class="col-4">
+                                <a href="@Url.Action("AddDrink", new { orderID = Model.Order.ID, drinkID= d.ID })">@d.Name.ToString()</a>
+                            </div>
+                        }
+                    </div><!--/.row-->
+                </article><!--/#Drinks-->
+
+
+                <div class="col-12 d-flex justify-content-center">
+                    <a class="Done" href="@Url.Action("Order", new { orderID = Model.Order.ID })">DONE</a>
+                </div>
+            </div><!--/#ExceptBasket-->
+
+
+        </div><!--/#PageRow-->
+    </div><!--#PageContainer-->
+</section><!--/#PizzaTopping-->

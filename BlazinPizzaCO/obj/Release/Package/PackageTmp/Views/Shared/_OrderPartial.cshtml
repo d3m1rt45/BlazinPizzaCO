@@ -1,0 +1,99 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@if (Model.Pizzas.Any())
+{
+    foreach (var p in Model.Pizzas.Where(o => o.Done))
+    {
+        <div class="Pizza col-10 offset-1">
+            @if(p.Free)
+            {
+                <h3>@p.Inches.ToString() Pizza (Free)</h3>
+            }
+            else
+            {
+                <h3>@p.Inches.ToString() Pizza (£@p.GetPrice())</h3>
+            }
+            <p>
+                @if (p.Toppings.Any())
+                {
+                    foreach (var t in p.Toppings)
+                    {
+                        if (t != p.Toppings.Last())
+                        {
+                            <span>@t.Name, </span>
+                        }
+                        else
+                        {
+                            <span>@t.Name</span>
+                        }
+                    }
+                }
+                else
+                {
+                    <span>No Toppings (Tomato Sauce and Cheese Only)</span>
+                }
+            </p>
+            <a class="RemovePizza" href="@Url.Action("RemovePizza", new { orderID = Model.ID, pizzaID = p.ID })">
+                <i class="RemovePizza fas fa-trash-alt"></i>
+            </a>
+        </div>
+    }
+}
+
+@if (Model.SidesPerOrder.Any() && Model.DrinksPerOrder.Any())
+{
+    <div class="Sides offset-1 col-lg-5 col-10">
+        <h3>Sides (£@Model.GetSideTotal())</h3>
+        @foreach (var s in Model.SidesPerOrder)
+        {
+            <h5>
+                @s.Amount x @s.Side.Name (£@s.Side.Price)
+                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })" )">
+                    <i class="RemoveSide fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
+    </div>
+    <div class="Drinks offset-lg-0 col-lg-5 offset-1 col-10">
+        <h3>Drinks (£@Model.GetDrinkTotal())</h3>
+        @foreach (var d in Model.DrinksPerOrder)
+        {
+            <h5>
+                @d.Amount x @d.Drink.Name (£@d.Drink.Price)
+                <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
+                    <i class="RemoveDrink fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
+    </div>
+}
+else if (Model.SidesPerOrder.Any())
+{
+    <div class="Sides col-10 offset-1">
+        <h3>Sides (£@Model.GetSideTotal())</h3>
+        @foreach (var s in Model.SidesPerOrder)
+        {
+            <h5>
+                @s.Amount x @s.Side.Name (£@s.Side.Price)
+                <a class="RemoveSide" href="@Url.Action("RemoveSide", new { sidesPerOrderID = s.ID })" )">
+                    <i class="RemoveSide fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
+    </div>
+}
+else if (Model.DrinksPerOrder.Any())
+{
+    <div class="Drinks col-10 offset-1">
+        <h3>Drinks (£@Model.GetDrinkTotal())</h3>
+        @foreach (var d in Model.DrinksPerOrder)
+        {
+            <h5>
+                @d.Amount x @d.Drink.Name (£@d.Drink.Price)
+                <a class="RemoveDrink" href="@Url.Action("RemoveDrink", new { drinksPerOrderID = d.ID })" )">
+                    <i class="RemoveDrink fas fa-minus-circle"></i>
+                </a>
+            </h5>
+        }
+    </div>
+}

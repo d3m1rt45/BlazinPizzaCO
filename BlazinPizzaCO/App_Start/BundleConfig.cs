@@ -24,8 +24,7 @@ namespace BlazinPizzaCO
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
-                      "~/Content/styles.css",
-                      "~/Content/fontawesome/all.css"));
+                      "~/Content/styles.css"));
         }
     }
 }

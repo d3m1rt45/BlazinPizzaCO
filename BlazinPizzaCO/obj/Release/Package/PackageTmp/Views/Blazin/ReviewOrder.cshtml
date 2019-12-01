@@ -1,0 +1,26 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@{
+    ViewBag.Title = "Review Order";
+}
+
+
+<section id="ReviewOrder">
+    <div id="PageContainer" class="container-fluid">
+        <div id="PageRow" class="row">
+
+            <article class="PageHead col-10 offset-1">
+                <a class="BackButton" href="@Url.Action("Order", new { orderID = Model.ID })">BACK</a>
+                <h2 class="Header">YOUR ORDER</h2>
+            </article><!--/#Banner-->
+
+            @Html.Partial("_OrderPartial")
+
+            <article class="Done col-10 offset-1">
+                <h4 class="Total">Total: £@Model.GetTotal().ToString()</h4>
+                <a class="Confirm" href="@Url.Action("FinalizeOrder", new { orderID = Model.ID })">CONFIRM</a>
+            </article>
+
+        </div><!--/#PageRow-->
+    </div><!--#PageContainer-->
+</section><!--/#PizzaSize-->

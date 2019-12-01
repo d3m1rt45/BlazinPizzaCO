@@ -1,0 +1,1910 @@
+﻿/*/>>>>>> GENERAL >>>>>>/*/
+body {
+    background-color: #BCBCBC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sitka Heading', serif;
+}
+
+p, lead, a {
+    font-family: 'Sitka Text', serif;
+}
+
+#PageRow {
+    min-height: 100vh;
+}
+
+#ExceptBasket{
+    margin-top: 6rem;
+}
+/*/<<<<<< GENERAL <<<<<</*/
+
+
+
+/*/>>>>>> LAYOUT >>>>>>/*/
+/* Navbar */
+nav {
+    background-color: #202020;
+    z-index: 2;
+    height: 5.5rem;
+}
+
+nav #Banner {
+    margin-bottom: 0.4rem;
+}
+
+    nav #BannerText {
+        color: #AFAFAF;
+        font-family: 'Sitka Banner', serif !important;
+        font-size: 30pt;
+        margin-bottom: -1rem;
+    }
+
+    nav .nav-link {
+        color: #AFAFAF;
+        font-family: 'Sitka Display', serif !important;
+        font-size: 20pt;
+        font-weight: 400;
+        margin-left: 1.5rem;
+        padding: 1.3rem 0 0.7rem 0;
+    }
+
+        nav .nav-link.active {
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        nav .nav-link:hover {
+            color: #E2E2E2;
+        }
+
+    nav #NavbarToggler {
+        font-size: 35pt;
+    }
+
+    nav .navbar-toggler {
+        border: none;
+    }
+
+    nav #NavbarCollapse {
+        background-color: #202020;
+        box-shadow: 0.2rem 0.2rem 0.2rem;
+    }
+/*/<<<<<< LAYOUT <<<<<</*/
+
+
+
+/*/>>>>>> WELCOME >>>>>>/*/
+#Home {
+    z-index: 3;
+    background-color: #202020;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    /* Banner */
+    #Home .Banner {
+        background-image: url(/Assets/Blazin.svg);
+        background-position: left;
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-left: 6rem;
+        margin-bottom: 5rem;
+    }
+
+        #Home .Banner h1 {
+            color: #707070;
+            font-size: 110pt;
+            margin-bottom: -0.5rem;
+        }
+
+            #Home .Banner h1.Top {
+                padding-top: 5rem;
+            }
+
+            #Home .Banner h1.Bottom {
+                line-height: 0.7;
+            }
+
+    /* Buttons */
+    #Home .Buttons .Middle,
+    #Home .Buttons .Top,
+    #Home .Buttons .Bottom {
+        display: flex;
+        justify-content: center;
+    }
+
+    #Home .Buttons .Middle {
+        margin-bottom: 1.6rem;
+    }
+
+    #Home .Buttons a {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #AFAFAF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+    }
+
+        #Home .Buttons a:hover {
+            color: #E2E2E2;
+        }
+
+#Home .Buttons .Bottom a {
+    background-color: #7EE0FF;
+    color: #000000;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+    #Home .Buttons .Bottom a:hover {
+        background-color: #468295;
+    }
+
+    /*Responsive Styles*/
+    @media only screen and (max-width:760px)
+{
+    #Home .Banner {
+        padding-left: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+        #Home .Banner h1 {
+            font-size: 60pt;
+        }
+
+    #Home .Buttons .Middle {
+        margin-bottom: 0.5rem;
+    }
+
+    #Home .Buttons a {
+        font-size: 15pt;
+        width: 10rem;
+    }
+
+    #Home .Buttons .Bottom a {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding-top: 0.3rem;
+    }
+}
+
+/*/<<<<<< WELCOME <<<<<</*/
+
+
+
+/*/>>>>>> WELCOME_MODAL >>>>>>/*/
+#WelcomeModal .modal-header,
+#WelcomeModal .modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+#WelcomeModal .modal-body {
+    text-align: center;
+    flex-direction: column;
+}
+
+#WelcomeModal .modal-footer {
+    padding-bottom: 0;
+}
+
+#WelcomeModal h4,
+#WelcomeModal p {
+    font-weight: bold;
+}
+
+#WelcomeModal p {
+    font-size: 15pt;
+    margin-bottom: 0;
+}
+
+#WelcomeModal a {
+    font-family: 'Sitka Display', serif !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20pt;
+    color: #AFAFAF;
+    background-color: #683131;
+    width: 16rem;
+    border-radius: 10rem;
+    margin: 0 1rem 1.5rem 1rem;
+    cursor:pointer;
+}
+
+    #WelcomeModal a:hover {
+        color: #E2E2E2;
+    }
+/*/<<<<<< WELCOME_MODAL <<<<<</*/
+
+
+
+/*/>>>>>> LOGIN >>>>>>/*/
+#Login {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+    padding-top: 10rem;
+}
+
+    #Login .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #Login .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #Login .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #Login .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #Login .Form {
+        margin-top: 0;
+        background-color: #202020;
+        border-radius: 1rem;
+        padding-top: 2.2rem;
+    }
+
+        #Login .Form input {
+            text-align: center;
+            background-color: #683131;
+            font-family: 'Sitka Text', serif;
+            color: #E2E2E2;
+            font-size: 16pt;
+        }
+
+    #Login .form-group {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #Login .Form label {
+        color: #E2E2E2;
+        font-family: 'Sitka Subheading', serif;
+        font-size: 17pt;
+    }
+
+    #Login .Done {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #Login .Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0.5rem 1rem 0 1rem;
+        text-decoration: none !important;
+    }
+
+    #Login .Register {
+        text-align: center;
+    }
+
+    #Login .Register a{
+        font-family: 'Sitka Display', serif;
+        font-size: 20pt;
+        color: #202020;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+
+@media only screen and (max-width:1200px) {
+
+    #Login {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #Login .PageHead {
+        height: 4rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #Login .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #Login .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #Login .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+
+    #Login .Register a {
+        font-size: 16pt;
+    }
+
+    #Login .Confirm {
+        font-size: 18pt;
+        width: 16rem;
+        text-decoration: none !important;
+    }
+}
+/*/<<<<<< LOGIN <<<<<</*/
+
+
+
+/*/>>>>>> REGISTER >>>>>>/*/
+#Register {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+    padding-top: 10rem;
+}
+
+    #Register .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #Register .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #Register .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #Register .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #Register .Form {
+        margin-top: 0;
+        background-color: #202020;
+        border-radius: 1rem;
+        padding-top: 2.2rem;
+        padding-bottom: 2rem;
+    }
+
+
+    #Register .Form input {
+        text-align: center;
+        background-color: #683131 !important;
+        font-family: 'Sitka Text', serif;
+        color: #E2E2E2;
+        font-size: 16pt;
+    }
+
+    #Register .form-group {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #Register .Form label {
+        color: #E2E2E2;
+        font-family: 'Sitka Subheading', serif;
+        font-size: 17pt;
+    }
+
+    #Register .Done {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #Register .Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0.5rem 1rem 0.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+    #Register .Register {
+        text-align: center;
+    }
+
+        #Register .Register a {
+            font-family: 'Sitka Display', serif;
+            font-size: 20pt;
+            color: #202020;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+@media only screen and (max-width:1200px) {
+
+    #Register {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #Register .PageHead {
+        height: 4rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #Register .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #Register .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #Register .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+
+    #Register .Confirm {
+        font-size: 18pt;
+        width: 16rem;
+        text-decoration: none !important;
+    }
+}
+/*/<<<<<< REGISTER <<<<<</*/
+
+
+
+/*/>>>>>> BASKET >>>>>>/*/
+#Basket {
+    padding-top: 4rem;
+    background-color: #202020;
+    min-height: 100vh;
+    flex-direction: column;
+    box-shadow: 0.2rem 0.2rem 0.2rem;
+}
+
+    #Basket h4,
+    #Basket h5,
+    #Basket h6,
+    #Basket p {
+        padding: 0;
+        margin-bottom: 0.2rem;
+        color: #E2E2E2;
+    }
+
+    #Basket .Pizzas p,
+    #Basket .Sides,
+    #Basket .Drinks {
+        margin-bottom: 2rem;
+    }
+
+        #Basket .Sides p,
+        #Basket .Drinks p {
+            margin-bottom: 0;
+        }
+
+    #Basket li {
+        color: #E2E2E2;
+    }
+
+    #Basket a.OrderButton {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 20pt;
+        color: #AFAFAF;
+        background-color: #683131;
+        width: 95%;
+        border-radius: 10rem;
+        margin: 0 1rem 0.5rem 1rem;
+    }
+
+        #Basket a.OrderButton:hover {
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+    #Basket a.OrderButton {
+        width: 16rem;
+        font-size: 17pt;
+    }
+    #Basket {
+        padding-top: 8rem;
+        padding-bottom: 1rem;
+        min-height: unset;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    #Basket h4 {
+        font-size: 17pt;
+    }
+}
+/*/<<<<<< BASKET <<<<<</*/
+
+
+
+/*/>>>>>> ORDER >>>>>>/*/
+#Order {
+    background-color: #BCBCBC;
+    position: absolute;
+    width: 100vw;
+}
+
+    #Order .Options {
+        width: 100%;
+        margin-top: 5rem;
+    }
+
+        #Order .Options a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 13rem;
+            width: 100%;
+            background-color: #202020;
+            margin-bottom: 3rem;
+            text-decoration: none;
+            font-size: 60pt;
+            color: #707070;
+            border-radius: 1rem;
+        }
+
+            #Order .Options a.Pizzas
+            #Order .Options a.Sides {
+                margin-bottom: 3rem;
+            }
+
+            #Order .Options a:hover {
+                color: #E2E2E2;
+                background-image: url(/Assets/Blazin.svg);
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+    #Order .Options {
+        margin-top: -3rem;
+    }
+
+        #Order .Options a {
+            height: 6rem;
+            margin-bottom: 2rem;
+            font-size: 40pt;
+        }
+}
+/*/<<<<<< ORDER <<<<<</*/
+
+
+
+/*/>>>>>> PIZZA_SIZE >>>>>>/*/
+#PizzaSize {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+#PizzaSize #ExceptBasket {
+    padding-top: 5rem;
+}
+
+    #PizzaSize .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #PizzaSize .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #PizzaSize .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #PizzaSize .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+#PizzaSize .Options a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+    width: 100%;
+    background-color: #202020;
+    margin-bottom: 3rem;
+    text-decoration: none;
+    font-size: 50pt;
+    color: #707070;
+    border-radius: 1rem;
+}
+
+    #PizzaSize .Options a:hover {
+        color: #E2E2E2;
+        background-image: url(/Assets/Blazin.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #PizzaSize #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+
+}
+@media only screen and (max-width:992px) {
+    #PizzaSize .PageHead {
+        height: 4rem;
+    }
+
+    #PizzaSize .Options a {
+        height: 15rem;
+        font-size: 30pt;
+    }
+}
+@media only screen and (max-width:576px) {
+
+    #PizzaSize .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #PizzaSize .PageHead .Header {
+        font-size: 20pt;
+    }
+    #PizzaSize .PageHead {
+        justify-content:flex-end;
+        padding-right: 2rem;
+    }
+}
+
+/*/<<<<<< PIZZA_SIZE <<<<<</*/
+
+
+
+/*/>>>>>> PIZZA_TOPPINGS >>>>>>/*/
+#PizzaTopping {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #PizzaTopping #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #PizzaTopping .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #PizzaTopping .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #PizzaTopping .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #PizzaTopping .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #PizzaTopping #Toppings a {
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 6rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 3rem;
+        text-decoration: none;
+        font-size: 20pt;
+        color: #707070;
+        border-radius: 1rem;
+    }
+
+        #PizzaTopping #Toppings a:hover {
+            color: #E2E2E2;
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #PizzaTopping #Toppings a.Selected {
+            color: #E2E2E2 !important;
+            background-image: url(/Assets/Blazin.svg) !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+    #PizzaTopping a.Done {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #E2E2E2;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+        #PizzaTopping a.Done:hover {
+            background-color: #8B4343;
+        }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #PizzaTopping #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #PizzaTopping .PageHead {
+        height: 4rem;
+    }
+
+    #PizzaTopping #Toppings a {
+        font-size: 12pt;
+        margin-bottom:0.5rem; 
+    }
+
+    #PizzaTopping a.Done {
+        margin-top: 2rem;
+        font-size: 20pt;
+        width: 13rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #PizzaTopping .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #PizzaTopping .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #PizzaTopping a.Done {
+        margin-top: 1rem;
+    }
+
+    #PizzaTopping .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+}
+/*/<<<<<< PIZZA_TOPPINGS <<<<<</*/
+
+
+
+/*/>>>>>> MAX_TOPPINGS_MODAL >>>>>>/*/
+#MaxToppingsModal .modal-body,
+#MaxToppingsModal .modal-header,
+#MaxToppingsModal .modal-footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#MaxToppingsModal .modal-footer {
+    padding-bottom: 0;
+}
+
+#MaxToppingsModal h4,
+#MaxToppingsModal p {
+    font-weight: bold;
+}
+#MaxToppingsModal p {
+    font-size: 15pt;
+    margin-bottom: 0;
+}
+
+#MaxToppingsModal a {
+    cursor: pointer;
+    margin-bottom: 0 !important;
+    height: 3rem !important;
+    text-align: center !important;
+    font-size: 17pt !important;
+    color: #E2E2E2 !important;
+    background-color: #683131;
+    width: 16rem !important;
+    border-radius: 10rem !important;
+    margin: 0 1rem 1.5rem 1rem !important;
+    text-decoration: none !important;
+}
+/*/<<<<<< MAX_TOPPINGS_MODAL <<<<<</*/
+
+
+
+/*/>>>>>> ADD_SIDE >>>>>>/*/
+#AddSide {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #AddSide #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #AddSide .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+#AddSide .PageHead .Header {
+    color: #E2E2E2;
+    font-size: 35pt;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#AddSide #Sides a {
+    text-align:center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 9rem;
+    width: 100%;
+    background-color: #202020;
+    margin-bottom: 3rem;
+    text-decoration: none;
+    font-size: 20pt;
+    color: #707070;
+    border-radius: 1rem;
+}
+
+    #AddSide #Sides a:hover {
+        color: #E2E2E2;
+        background-image: url(/Assets/Blazin.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #AddSide #Sides a.Selected {
+        color: #E2E2E2 !important;
+        background-image: url(/Assets/Blazin.svg) !important;
+        background-size: contain !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+#AddSide a.Done {
+    font-family: 'Sitka Display', serif !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 27pt;
+    color: #E2E2E2;
+    background-color: #683131;
+    width: 16rem;
+    border-radius: 10rem;
+    margin: 0 1rem 1.5rem 1rem;
+    text-decoration: none !important;
+}
+
+    #AddSide a.Done:hover {
+        background-color: #8B4343;
+    }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #AddSide #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #AddSide .PageHead {
+        height: 4rem;
+    }
+
+    #AddSide #Sides a {
+        font-size: 12pt;
+        margin-bottom: 0.5rem;
+        height: 7rem;
+    }
+
+    #AddSide a.Done {
+        margin-top: 2rem;
+        font-size: 20pt;
+        width: 13rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #AddSide .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #AddSide .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #AddSide a.Done {
+        margin-top: 1rem;
+    }
+}
+/*/<<<<<< ADD_SIDE <<<<<</*/
+
+
+
+/*/>>>>>> ADD_DRINK >>>>>>/*/
+#AddDrink {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #AddDrink #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #AddDrink .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #AddDrink .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #AddDrink #Drinks a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 9rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 3rem;
+        text-decoration: none;
+        font-size: 20pt;
+        color: #707070;
+        border-radius: 1rem;
+        text-align: center;
+    }
+
+        #AddDrink #Drinks a:hover {
+            color: #E2E2E2;
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #AddDrink #Drinks a.Selected {
+            color: #E2E2E2 !important;
+            background-image: url(/Assets/Blazin.svg) !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+    #AddDrink a.Done {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #E2E2E2;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+        #AddDrink a.Done:hover {
+            background-color: #8B4343;
+        }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #AddDrink #ExceptBasket {
+        padding-top: 0;
+        margin-top: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #AddDrink .PageHead {
+        height: 4rem;
+    }
+
+    #AddDrink #Drinks a {
+        font-size: 12pt;
+        margin-bottom: 0.5rem;
+    }
+
+    #AddDrink a.Done {
+        margin-top: 2rem;
+        font-size: 20pt;
+        width: 13rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #AddDrink .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #AddDrink .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #AddDrink a.Done {
+        margin-top: 1rem;
+    }
+}
+/*/<<<<<< ADD_DRINK <<<<<</*/
+
+
+
+/*/>>>>>> REVIEW_ORDER >>>>>>/*/
+#ReviewOrder {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #ReviewOrder #PageRow {
+        display: block;
+        padding-top: 9rem;
+    }
+
+    #ReviewOrder .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #ReviewOrder .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #ReviewOrder .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #ReviewOrder .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #ReviewOrder div.Pizza {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 1rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+        #ReviewOrder div.Pizza p {
+            font-size: 15pt;
+        }
+
+    #ReviewOrder div.Sides,
+    #ReviewOrder div.Drinks {
+        padding: 1rem 0 0.5rem 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+
+    #ReviewOrder div.Pizza i.RemovePizza{
+        position: absolute;
+        font-size: 25pt;
+        color: #EFEFEF;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    #ReviewOrder div.Sides i.RemoveSide,
+    #ReviewOrder div.Drinks i.RemoveDrink {
+        font-size: 12pt;
+        margin-left: 0.2rem;
+        color: #EFEFEF;
+    }
+
+        #ReviewOrder div.Sides i.RemoveSide:hover,
+        #ReviewOrder div.Pizza i.RemovePizza:hover,
+        #ReviewOrder div.Drinks i.RemoveDrink:hover {
+            color: #707070;
+        }
+
+#ReviewOrder article.Done{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    #ReviewOrder h4.Total {
+        border-radius: 1rem;
+        padding: 1rem 4rem 1.1rem 4rem;
+        background-color: #202020;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20pt;
+        color: #E2E2E2;
+        margin: 0.5rem 0 1rem 0;
+    }
+
+    #ReviewOrder a.Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 0.5rem 1rem;
+        text-decoration: none !important;
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+/*Responsive Styles*/
+@media only screen and (max-width:1200px) {
+
+    #ReviewOrder #PageRow {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #ReviewOrder .PageHead {
+        height: 4rem;
+    }
+
+    #ReviewOrder a.Confirm {
+        font-size: 16pt;
+        width: 13rem;
+        margin-bottom: 2rem;
+    }
+
+    #ReviewOrder div.Pizza i.RemovePizza {
+        font-size: 20pt;
+    }
+
+    #ReviewOrder h3{
+        font-size: 17pt;
+    }
+
+    #ReviewOrder p span,
+    #ReviewOrder h5 {
+        font-size: 13pt;
+    }
+
+    #ReviewOrder p {
+        text-align: center;
+    }
+
+    #ReviewOrder h4.Total {
+        padding: 0.5rem 4rem 0.6rem 4rem;
+        font-size: 17pt;
+        margin: 0.5rem 0 1rem 0;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #ReviewOrder .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #ReviewOrder .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #ReviewOrder a.Done {
+        margin-top: 1rem;
+    }
+
+    #ReviewOrder .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+}
+/*/<<<<<< REVIEW_ORDER <<<<<</*/
+
+
+
+/*/>>>>>> FINALIZE_ORDER >>>>>>/*/
+#FinalizeOrder {
+    background-color: #BCBCBC;
+    width: 100vw;
+}
+
+    #FinalizeOrder #PageRow {
+        padding-top: 9rem;
+        display: block;
+    }
+
+    #FinalizeOrder .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #FinalizeOrder .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #FinalizeOrder .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #FinalizeOrder .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #FinalizeOrder .Form {
+        margin-top: 0;
+        background-color: #202020;
+        border-radius: 1rem;
+        padding-top: 2.2rem;
+        padding-bottom: 2rem;
+    }
+
+        #FinalizeOrder .Form input {
+            text-align: center;
+            background-color: #683131;
+            font-family: 'Sitka Text', serif;
+            color: #E2E2E2;
+            font-size: 16pt;
+        }
+
+    #FinalizeOrder .form-group {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #FinalizeOrder .Form label {
+        color: #E2E2E2;
+        font-family: 'Sitka Subheading', serif;
+        font-size: 17pt;
+    }
+
+    #FinalizeOrder .Done {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #FinalizeOrder .Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0.5rem 1rem 0.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+@media only screen and (max-width:1200px) {
+
+    #FinalizeOrder #PageRow {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #FinalizeOrder .PageHead {
+        height: 4rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #FinalizeOrder .PageHead .BackButton {
+        width: 5rem;
+        font-size: 15pt;
+    }
+
+    #FinalizeOrder .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #FinalizeOrder a.Done {
+        margin-top: 1rem;
+    }
+
+    #FinalizeOrder .PageHead {
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+}
+/*/<<<<<< FINALIZE_ORDER <<<<<</*/
+
+
+
+/*/>>>>>> THANK_YOU >>>>>>/*/
+#ThankYou {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #ThankYou #PageRow {
+        display: block;
+        padding-top: 9rem;
+    }
+
+    #ThankYou .PageHead {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        background-color: #202020;
+        text-align: center;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        background-image: url(/Assets/Blazin.svg);
+        background-position: center;
+        background-repeat: repeat;
+    }
+
+        #ThankYou .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+        }
+
+        #ThankYou .PageHead h4 {
+            color: #E2E2E2;
+            font-size: 20pt;
+        }
+
+    #ThankYou div.Pizza {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 1rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+        #ThankYou div.Pizza p {
+            font-size: 15pt;
+        }
+
+    #ThankYou div.Sides,
+    #ThankYou div.Drinks {
+        padding: 1rem 0 0.5rem 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+    #ThankYou div.Address {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+    }
+
+    #ThankYou #PointsPartial {
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        background-color: #202020;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        border-radius: 1rem;
+        color: #E2E2E2;
+        
+    }
+
+    #ThankYou #PointsPartial h2 {
+        font-weight: bold;
+    }
+
+
+    #ThankYou article.Done {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #ThankYou h4.Total {
+        border-radius: 1rem;
+        padding: 1rem 4rem 1.1rem 4rem;
+        background-color: #202020;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20pt;
+        color: #E2E2E2;
+        margin: 0.5rem 0 3rem 0;
+    }
+
+    #ThankYou a.Confirm {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 23pt;
+        color: #EFEFEF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 0.5rem 1rem;
+        text-decoration: none !important;
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+@media only screen and (max-width:1200px) {
+    #ThankYou #PageRow {
+        padding-top: 7rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #ThankYou a.Confirm {
+        font-size: 17pt;
+        padding: 0.7rem 0 0.5rem 0;
+        margin-bottom: 1rem;
+    }
+
+    #ThankYou h4.Total {
+        margin-bottom: 1.3rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+    #ThankYou .PageHead .Header {
+        font-size: 20pt;
+    }
+
+    #ThankYou div.Pizza p,
+    #ThankYou div.Sides h5,
+    #ThankYou div.Drinks h5,
+    #ThankYou div.Address h5{
+        font-size: 13pt;
+        text-align: center;
+    }
+
+    #ThankYou div.Pizza h3,
+    #ThankYou div.Sides h3,
+    #ThankYou div.Drinks h3,
+    #ThankYou div.Address h3,
+    #ThankYou h4.Total {
+        font-size: 18pt;
+    }
+}
+/*/<<<<<< THANK_YOU <<<<<</*/
+
+
+
+/*/>>>>>> MY_POINTS >>>>>>/*/
+#MyPoints {
+    background-color: #202020;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    #MyPoints .Banner {
+        padding-top: 10rem;
+        background-image: url(/Assets/Blazin.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat
+    }
+
+    #MyPoints .Upper {
+        text-align: center;
+    }
+
+    #MyPoints .Upper h4{
+        color: #BCBCBC;
+        font-size: 50pt;
+        font-weight: bold;
+        margin-bottom: -3.5rem;
+    }
+
+    #MyPoints .Middle {
+        display:flex;
+        align-items:center;
+        justify-content: center;
+    }
+    #MyPoints .Right {
+        padding-top: 2rem;
+    }
+
+    #MyPoints .Left h2 {
+        color: #BCBCBC;
+        font-size: 160pt;
+        font-weight:bold;
+    }
+
+    #MyPoints .Right h4 {
+        color: #BCBCBC;
+        font-size: 70pt;
+        line-height: 0.7;
+        margin-left: 0.5rem;
+        font-weight: bold;
+    }
+
+    #MyPoints .Banner .Left,
+    #MyPoints .Banner .Right {
+        display: inline-block;
+    }
+
+    #MyPoints .Lower {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #MyPoints .Lower h4 {
+        margin-top: 4rem;
+        color: #BCBCBC;
+        font-size: 30pt;
+        font-weight: bold;
+        margin-bottom: 3rem;
+    }
+
+    #MyPoints .Lower a {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #AFAFAF;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+        display: block;
+    }
+
+        #MyPoints .Lower a:hover {
+            color: #E2E2E2;
+            text-decoration: none !important;
+            cursor: pointer;
+        }
+
+/*Responsive Styles*/
+@media only screen and (max-width:760px) {
+    #MyPoints .Upper h4 {
+        font-size: 20pt;
+        margin-bottom: -1rem;
+    }
+    #MyPoints .Left h2 {
+        font-size: 50pt;
+    }
+    #MyPoints .Right h4 {
+        font-size: 25pt;
+    }
+    #MyPoints .Lower h4 {
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    #MyPoints .Lower a {
+        font-size: 19pt;
+        width: 13rem;
+    }
+}
+/*/<<<<<< MY_POINTS <<<<<</*/
+
+
+
+/*/>>>>>> CLAIM_FREE_PIZZA >>>>>>/*/
+#FreePizza {
+    background-color: #BCBCBC;
+    width: 100vw;
+    position: absolute;
+}
+
+    #FreePizza #ExceptBasket {
+        padding-top: 5rem;
+    }
+
+    #FreePizza .PageHead {
+        height: 5rem;
+        background-color: #202020;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+        #FreePizza .PageHead .BackButton {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #683131;
+            height: 100%;
+            width: 8rem;
+            font-size: 22pt;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+            color: #E2E2E2;
+            text-decoration: none !important;
+        }
+
+            #FreePizza .PageHead .BackButton:hover {
+                background-color: #8B4343;
+            }
+
+        #FreePizza .PageHead .Header {
+            color: #E2E2E2;
+            font-size: 35pt;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+    #FreePizza #Toppings a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 6rem;
+        width: 100%;
+        background-color: #202020;
+        margin-bottom: 3rem;
+        text-decoration: none;
+        font-size: 20pt;
+        color: #707070;
+        border-radius: 1rem;
+    }
+
+        #FreePizza #Toppings a:hover {
+            color: #E2E2E2;
+            background-image: url(/Assets/Blazin.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #FreePizza #Toppings a.Selected {
+            color: #E2E2E2 !important;
+            background-image: url(/Assets/Blazin.svg) !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+    #FreePizza a.Done {
+        font-family: 'Sitka Display', serif !important;
+        font-weight: bold;
+        text-align: center;
+        font-size: 27pt;
+        color: #E2E2E2;
+        background-color: #683131;
+        width: 16rem;
+        border-radius: 10rem;
+        margin: 0 1rem 1.5rem 1rem;
+        text-decoration: none !important;
+    }
+
+        #FreePizza a.Done:hover {
+            background-color: #8B4343;
+        }
+/*/<<<<<< CLAIM_FREE_PIZZA <<<<<</*/

@@ -99,6 +99,9 @@ nav #Banner {
         background-repeat: no-repeat;
         padding-left: 6rem;
         margin-bottom: 5rem;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
 
         #Home .Banner h1 {
@@ -157,15 +160,17 @@ nav #Banner {
     }
 
     /*Responsive Styles*/
-    @media only screen and (max-width:760px)
+@media only screen and (max-width:760px)
 {
     #Home .Banner {
         padding-left: 2.5rem;
-        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        margin-bottom: 4rem;
+        margin-left: 3rem;
     }
 
         #Home .Banner h1 {
-            font-size: 60pt;
+            font-size: 40pt;
         }
 
     #Home .Buttons .Middle {

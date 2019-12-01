@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Welcome!";
+}
+
+<section id="Home">
+
+    <article class="Main">
+
+        <div class="Banner">
+            <h1 class="Top">BLAZIN</h1>
+            <h1 class="Bottom">PIZZA CO.</h1>
+        </div><!--/.Banner-->
+
+        <div class="Buttons">
+            <div class="Top">
+                <a class="SignIn btn" href="@Url.Action("Login", "Account")">SIGN IN</a>
+                <a class="Register btn" href="@Url.Action("Register", "Account")">REGISTER</a>
+            </div><!--/.Top-->
+            <div class="Middle">
+                <a class="Guest btn" href="@Url.Action("Order")">I'M A GUEST</a>
+            </div><!--/.Middle-->
+            <div class="Bottom">
+                <a class="Info btn" href="#WelcomeModal" data-toggle="modal">?</a>
+            </div><!--/.Bottom-->
+        </div><!--/.Buttons-->
+
+    </article><!--/.Main-->
+
+</section><!--/#HomeIndex-->
+
+@Html.Partial("_InfoModalsPartial")
+
+@section scripts{
+    <!--Hide the navbar on homepage-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("nav.navbar").removeClass("fixed-top");
+        })
+    </script>
+}
+

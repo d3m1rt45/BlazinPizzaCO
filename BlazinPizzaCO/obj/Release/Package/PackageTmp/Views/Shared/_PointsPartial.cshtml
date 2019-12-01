@@ -1,0 +1,9 @@
+﻿@model BlazinPizzaCO.Models.Order
+
+@if(Model.Points > 0)
+{
+    <article id="PointsPartial" class="col-10 offset-1">
+        <h2>YOU HAVE EARNED @Model.Points BLAZIN POINTS!</h2>
+        <a class="ToMyPoints" href="@Url.Action("MyPoints", new { memberID = Model.Member.ID})"></a>
+    </article>
+}

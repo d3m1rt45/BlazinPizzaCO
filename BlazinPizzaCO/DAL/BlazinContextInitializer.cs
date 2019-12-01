@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BlazinPizzaCO.DAL
 {
-    public class BlazinContextInitializer : DropCreateDatabaseIfModelChanges<BlazinContext>
+    public class BlazinContextInitializer : CreateDatabaseIfNotExists<BlazinContext>
     {
         protected override void Seed(BlazinContext context)
         {

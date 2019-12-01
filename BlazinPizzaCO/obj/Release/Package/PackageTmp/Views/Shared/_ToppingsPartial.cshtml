@@ -1,0 +1,28 @@
+﻿@model BlazinPizzaCO.ViewModels.ToppingViewModel
+
+
+    <article id="Toppings" class="row">
+
+        @foreach (var t in Model.Toppings)
+        {
+            <div class="col-md-3 col-6">
+
+                @if (Model.Pizza.Toppings.Contains(t))
+                {
+                    <a class="Selected" href="@Url.Action("AddTopping", new { pizzaID = Model.Pizza.ID, toppingName = t.Name })">@t.Name</a>
+                }
+                else if (Model.Pizza.Toppings.Count < 7)
+                {
+                    <a class="Available" href="@Url.Action("AddTopping", new { pizzaID = Model.Pizza.ID, toppingName = t.Name })">@t.Name</a>
+                }
+                else
+                {
+                    <a href="#MaxToppingsModal" data-toggle="modal">@t.Name</a>
+                }
+
+            </div>
+        }
+
+        @Html.Partial("_InfoModalsPartial")
+
+    </article><!--/#Toppingss-->
